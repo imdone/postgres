@@ -659,7 +659,7 @@ ActivateCommitTs(void)
 	 * need to set the oldest and newest values to the next Xid; that way, we
 	 * will not try to read data that might not have been set.
 	 *
-	 * XXX does this have a problem if a server is started with commitTs
+	 * XXX does this have a problem if a server is started with commitTs id:119 gh:120
 	 * enabled, then started with commitTs disabled, then restarted with it
 	 * enabled again?  It doesn't look like it does, because there should be a
 	 * checkpoint that sets the value to InvalidTransactionId at end of

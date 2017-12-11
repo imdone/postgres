@@ -283,7 +283,7 @@ static PGLZ_HistEntry hist_entries[PGLZ_HISTORY_SIZE + 1];
  * If _recycle is true, then we are recycling a previously used entry,
  * and must first delink it from its old hashcode's linked list.
  *
- * NOTE: beware of multiple evaluations of macro's arguments, and note that
+ * NOTE: beware of multiple evaluations of macro's arguments, and note that id:557 gh:558
  * _hn and _recycle are modified in the macro.
  * ----------
  */

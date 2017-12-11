@@ -2140,7 +2140,7 @@ write_eventlog(int level, const char *line, int len)
 						 0,
 						 (LPCWSTR *) &utf16,
 						 NULL);
-			/* XXX Try ReportEventA() when ReportEventW() fails? */
+			/* XXX Try ReportEventA() when ReportEventW() fails?  id:629 gh:630*/
 
 			pfree(utf16);
 			return;

@@ -603,7 +603,7 @@ SanityCheckBackgroundWorker(BackgroundWorker *worker, int elevel)
 			return false;
 		}
 
-		/* XXX other checks? */
+		/* XXX other checks?  id:359 gh:360*/
 	}
 
 	if ((worker->bgw_restart_time < 0 &&
@@ -750,7 +750,7 @@ StartBackgroundWorker(void)
 		pqsignal(SIGUSR1, procsignal_sigusr1_handler);
 		pqsignal(SIGFPE, FloatExceptionHandler);
 
-		/* XXX Any other handlers needed here? */
+		/* XXX Any other handlers needed here?  id:396 gh:397*/
 	}
 	else
 	{

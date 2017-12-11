@@ -109,7 +109,7 @@ static File MakeNewSharedSegment(BufFile *file, int segment);
 
 /*
  * Create a BufFile given the first underlying physical file.
- * NOTE: caller must set isInterXact if appropriate.
+ * NOTE: caller must set isInterXact if appropriate. id:348 gh:349
  */
 static BufFile *
 makeBufFile(File firstfile)

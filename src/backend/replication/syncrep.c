@@ -549,7 +549,7 @@ SyncRepGetSyncRecPtr(XLogRecPtr *writePtr, XLogRecPtr *flushPtr,
 	 * positions. But we use SyncRepGetOldestSyncRecPtr() for that calculation
 	 * because it's a bit more efficient.
 	 *
-	 * XXX If the numbers of current and requested sync standbys are the same,
+	 * XXX If the numbers of current and requested sync standbys are the same, id:368 gh:369
 	 * we can use SyncRepGetOldestSyncRecPtr() to calculate the synced
 	 * positions even in a quorum-based sync replication.
 	 */

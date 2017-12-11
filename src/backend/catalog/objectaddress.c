@@ -1376,7 +1376,7 @@ get_object_address_attribute(ObjectType objtype, List *object,
 				 errmsg("column name must be qualified")));
 	attname = strVal(lfirst(list_tail(object)));
 	relname = list_truncate(list_copy(object), list_length(object) - 1);
-	/* XXX no missing_ok support here */
+	/* XXX no missing_ok support here  id:111 gh:112*/
 	relation = relation_openrv(makeRangeVarFromNameList(relname), lockmode);
 	reloid = RelationGetRelid(relation);
 
@@ -1429,7 +1429,7 @@ get_object_address_attrdef(ObjectType objtype, List *object,
 				 errmsg("column name must be qualified")));
 	attname = strVal(llast(object));
 	relname = list_truncate(list_copy(object), list_length(object) - 1);
-	/* XXX no missing_ok support here */
+	/* XXX no missing_ok support here  id:127 gh:128*/
 	relation = relation_openrv(makeRangeVarFromNameList(relname), lockmode);
 	reloid = RelationGetRelid(relation);
 
@@ -1535,7 +1535,7 @@ get_object_address_opcf(ObjectType objtype, List *object, bool missing_ok)
 	Oid			amoid;
 	ObjectAddress address;
 
-	/* XXX no missing_ok support here */
+	/* XXX no missing_ok support here  id:73 gh:74*/
 	amoid = get_index_am_oid(strVal(linitial(object)), false);
 	object = list_copy_tail(object, 1);
 

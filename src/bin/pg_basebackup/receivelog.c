@@ -542,7 +542,7 @@ ReceiveXlogStream(PGconn *conn, StreamCtl *stream)
 			res = PQexec(conn, query);
 			if (PQresultStatus(res) != PGRES_TUPLES_OK)
 			{
-				/* FIXME: we might send it ok, but get an error */
+				/* FIXME: we might send it ok, but get an error  id:631 gh:632*/
 				fprintf(stderr, _("%s: could not send replication command \"%s\": %s"),
 						progname, "TIMELINE_HISTORY", PQresultErrorMessage(res));
 				PQclear(res);

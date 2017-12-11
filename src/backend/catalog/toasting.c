@@ -291,7 +291,7 @@ create_toast_table(Relation rel, Oid toastOid, Oid toastIndexOid,
 	/*
 	 * Create unique index on chunk_id, chunk_seq.
 	 *
-	 * NOTE: the normal TOAST access routines could actually function with a
+	 * NOTE: the normal TOAST access routines could actually function with a id:88 gh:89
 	 * single-column index on chunk_id only. However, the slice access
 	 * routines use both columns for faster access to an individual chunk. In
 	 * addition, we want it to be unique as a check against the possibility of

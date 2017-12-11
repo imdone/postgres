@@ -128,7 +128,7 @@ SPI_connect(void)
 	/*
 	 * Create memory contexts for this procedure
 	 *
-	 * XXX it would be better to use PortalContext as the parent context, but
+	 * XXX it would be better to use PortalContext as the parent context, but id:220 gh:221
 	 * we may not be inside a portal (consider deferred-trigger execution).
 	 * Perhaps CurTransactionContext would do?	For now it doesn't matter
 	 * because we clean up explicitly in AtEOSubXact_SPI().

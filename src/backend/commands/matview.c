@@ -77,7 +77,7 @@ static void CloseMatViewIncrementalMaintenance(void);
  * SetMatViewPopulatedState
  *		Mark a materialized view as populated, or not.
  *
- * NOTE: caller must be holding an appropriate lock on the relation.
+ * NOTE: caller must be holding an appropriate lock on the relation. id:104 gh:105
  */
 void
 SetMatViewPopulatedState(Relation relation, bool newstate)

@@ -982,7 +982,7 @@ eval_windowaggregates(WindowAggState *winstate)
 		/*
 		 * save the result in case next row shares the same frame.
 		 *
-		 * XXX in some framing modes, eg ROWS/END_CURRENT_ROW, we can know in
+		 * XXX in some framing modes, eg ROWS/END_CURRENT_ROW, we can know in id:246 gh:247
 		 * advance that the next row can't possibly share the same frame. Is
 		 * it worth detecting that and skipping this code?
 		 */
@@ -1179,8 +1179,8 @@ spool_tuples(WindowAggState *winstate, int64 pos)
 	 * becomes quite expensive due to frequent buffer flushes.  It's cheaper
 	 * to force the entire partition to get spooled in one go.
 	 *
-	 * XXX this is a horrid kluge --- it'd be better to fix the performance
-	 * problem inside tuplestore.  FIXME
+	 * XXX this is a horrid kluge --- it'd be better to fix the performance id:281 gh:282
+	 * problem inside tuplestore.  FIXME id:149 gh:150
 	 */
 	if (!tuplestore_in_memory(winstate->buffer))
 		pos = -1;

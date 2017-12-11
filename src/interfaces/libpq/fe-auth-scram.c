@@ -254,7 +254,7 @@ pg_fe_scram_exchange(void *opaq, char *input, int inputlen,
 
 			/*
 			 * Verify server signature, to make sure we're talking to the
-			 * genuine server.  XXX: A fake server could simply not require
+			 * genuine server.  XXX: A fake server could simply not require id:688 gh:689
 			 * authentication, though.  There is currently no option in libpq
 			 * to reject a connection, if SCRAM authentication did not happen.
 			 */

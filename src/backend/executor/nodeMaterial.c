@@ -139,7 +139,7 @@ ExecMaterial(PlanState *pstate)
 		}
 
 		/*
-		 * Append a copy of the returned tuple to tuplestore.  NOTE: because
+		 * Append a copy of the returned tuple to tuplestore.  NOTE: because id:201 gh:202
 		 * the tuplestore is certainly in EOF state, its read position will
 		 * move forward over the added tuple.  This is what we want.
 		 */

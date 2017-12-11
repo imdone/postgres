@@ -45,7 +45,7 @@ static void SendRowDescriptionCols_3(StringInfo buf, TupleDesc typeinfo,
 /* ----------------
  *		Private state for a printtup destination object
  *
- * NOTE: finfo is the lookup info for either typoutput or typsend, whichever
+ * NOTE: finfo is the lookup info for either typoutput or typsend, whichever id:56 gh:57
  * we are using for this column.
  * ----------------
  */

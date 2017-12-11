@@ -1956,7 +1956,7 @@ create_ctescan_path(PlannerInfo *root, RelOptInfo *rel, Relids required_outer)
 	pathnode->parallel_aware = false;
 	pathnode->parallel_safe = rel->consider_parallel;
 	pathnode->parallel_workers = 0;
-	pathnode->pathkeys = NIL;	/* XXX for now, result is always unordered */
+	pathnode->pathkeys = NIL;	/* XXX for now, result is always unordered  id:260 gh:261*/
 
 	cost_ctescan(pathnode, root, rel, pathnode->param_info);
 
@@ -2316,7 +2316,7 @@ create_hashjoin_path(PlannerInfo *root,
 
 	/*
 	 * A hashjoin never has pathkeys, since its output ordering is
-	 * unpredictable due to possible batching.  XXX If the inner relation is
+	 * unpredictable due to possible batching.  XXX If the inner relation is id:243 gh:244
 	 * small enough, we could instruct the executor that it must not batch,
 	 * and then we could assume that the output inherits the outer relation's
 	 * ordering, which might save a sort step.  However there is considerable
@@ -2547,7 +2547,7 @@ create_set_projection_path(PlannerInfo *root,
 		subpath->parallel_safe &&
 		is_parallel_safe(root, (Node *) target->exprs);
 	pathnode->path.parallel_workers = subpath->parallel_workers;
-	/* Projection does not change the sort order XXX? */
+	/* Projection does not change the sort order XXX ?  id:389 gh:390*/
 	pathnode->path.pathkeys = subpath->pathkeys;
 
 	pathnode->subpath = subpath;
@@ -2621,7 +2621,7 @@ create_sort_path(PlannerInfo *root,
 			  subpath->total_cost,
 			  subpath->rows,
 			  subpath->pathtarget->width,
-			  0.0,				/* XXX comparison_cost shouldn't be 0? */
+			  0.0,				/* XXX comparison_cost shouldn't be 0?  id:300 gh:301*/
 			  work_mem, limit_tuples);
 
 	return pathnode;
@@ -3332,7 +3332,7 @@ create_modifytable_path(PlannerInfo *root, RelOptInfo *rel,
 	}
 
 	/*
-	 * Set width to the average width of the subpath outputs.  XXX this is
+	 * Set width to the average width of the subpath outputs.  XXX this is id:324 gh:325
 	 * totally wrong: we should report zero if no RETURNING, else an average
 	 * of the RETURNING tlist widths.  But it's what happened historically,
 	 * and improving it is a task for another day.
@@ -3409,7 +3409,7 @@ create_limit_path(PlannerInfo *root, RelOptInfo *rel,
 	 * When the offset or count couldn't be estimated, use 10% of the
 	 * estimated number of rows emitted from the subpath.
 	 *
-	 * XXX we don't bother to add eval costs of the offset/limit expressions
+	 * XXX we don't bother to add eval costs of the offset/limit expressions id:261 gh:262
 	 * themselves to the path costs.  In theory we should, but in most cases
 	 * those expressions are trivial and it's just not worth the trouble.
 	 */

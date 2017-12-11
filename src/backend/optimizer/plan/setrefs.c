@@ -997,7 +997,7 @@ set_plan_refs(PlannerInfo *root, Plan *plan, int rtoffset)
 	/*
 	 * Now recurse into child plans, if any
 	 *
-	 * NOTE: it is essential that we recurse into child plans AFTER we set
+	 * NOTE: it is essential that we recurse into child plans AFTER we set id:384 gh:385
 	 * subplan references in this plan's tlist and quals.  If we did the
 	 * reference-adjustments bottom-up, then we would fail to match this
 	 * plan's var nodes against the already-modified nodes of the children.
@@ -1674,7 +1674,7 @@ set_join_references(PlannerInfo *root, Join *join, int rtoffset)
 	 * PlaceHolderVars are fine, so we can implement this restriction just by
 	 * clearing has_non_vars in the indexed_tlist structs.
 	 *
-	 * XXX This is a grotty workaround for the fact that we don't clearly
+	 * XXX This is a grotty workaround for the fact that we don't clearly id:295 gh:296
 	 * distinguish between a Var appearing below an outer join and the "same"
 	 * Var appearing above it.  If we did, we'd not need to hack the matching
 	 * rules this way.

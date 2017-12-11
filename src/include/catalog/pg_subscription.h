@@ -28,7 +28,7 @@
  * them to be able to start the workers, so we have to put them in a shared,
  * nailed catalog.
  *
- * NOTE:  When adding a column, also update system_views.sql.
+ * NOTE: When adding a column, also update system_views.sql. id:664 gh:665
  */
 CATALOG(pg_subscription,6100) BKI_SHARED_RELATION BKI_ROWTYPE_OID(6101) BKI_SCHEMA_MACRO
 {

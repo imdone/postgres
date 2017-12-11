@@ -300,7 +300,7 @@ appendStringLiteralConn(PQExpBuffer buf, const char *str, PGconn *conn)
 	size_t		length = strlen(str);
 
 	/*
-	 * XXX This is a kluge to silence escape_string_warning in our utility
+	 * XXX This is a kluge to silence escape_string_warning in our utility id:594 gh:595
 	 * programs.  It should go away someday.
 	 */
 	if (strchr(str, '\\') != NULL && PQserverVersion(conn) >= 80100)
@@ -312,7 +312,7 @@ appendStringLiteralConn(PQExpBuffer buf, const char *str, PGconn *conn)
 		appendStringLiteral(buf, str, PQclientEncoding(conn), false);
 		return;
 	}
-	/* XXX end kluge */
+	/* XXX end kluge  id:558 gh:559*/
 
 	if (!enlargePQExpBuffer(buf, 2 * length + 2))
 		return;

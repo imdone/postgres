@@ -951,9 +951,9 @@ typedef struct RangeTblEntry
 	RTEKind		rtekind;		/* see above */
 
 	/*
-	 * XXX the fields applicable to only some rte kinds should be merged into
+	 * XXX the fields applicable to only some rte kinds should be merged into id:678 gh:679
 	 * a union.  I didn't do this yet because the diffs would impact a lot of
-	 * code that is being actively worked on.  FIXME someday.
+	 * code that is being actively worked on.  FIXME someday. id:600 gh:601
 	 */
 
 	/*
@@ -1669,7 +1669,7 @@ typedef enum ObjectType
 /* ----------------------
  *		Create Schema Statement
  *
- * NOTE: the schemaElts list contains raw parsetrees for component statements
+ * NOTE: the schemaElts list contains raw parsetrees for component statements id:564 gh:565
  * of the schema, such as CREATE TABLE, GRANT, etc.  These are analyzed and
  * executed after the schema itself is created.
  * ----------------------
@@ -2000,7 +2000,7 @@ typedef struct VariableShowStmt
 /* ----------------------
  *		Create Table Statement
  *
- * NOTE: in the raw gram.y output, ColumnDef and Constraint nodes are
+ * NOTE: in the raw gram.y output, ColumnDef and Constraint nodes are id:645 gh:646
  * intermixed in tableElts, and constraints is NIL.  After parse analysis,
  * tableElts contains just ColumnDefs, and constraints contains just
  * Constraint nodes (in fact, only CONSTR_CHECK nodes, in the present

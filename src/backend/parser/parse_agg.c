@@ -773,7 +773,7 @@ transformWindowFuncCall(ParseState *pstate, WindowFunc *wfunc,
 	bool		errkind;
 
 	/*
-	 * A window function call can't contain another one (but aggs are OK). XXX
+	 * A window function call can't contain another one (but aggs are OK). XXX id:262 gh:263
 	 * is this required by spec, or just an unimplemented feature?
 	 *
 	 * Note: we don't need to check the filter expression here, because the
@@ -1192,10 +1192,10 @@ parseCheckAggregates(ParseState *pstate, Query *qry)
  *	  the arguments of aggregate functions).  Emit a suitable error message
  *	  if any are found.
  *
- * NOTE: we assume that the given clause has been transformed suitably for
+ * NOTE: we assume that the given clause has been transformed suitably for id:271 gh:272
  * parser output.  This means we can use expression_tree_walker.
  *
- * NOTE: we recognize grouping expressions in the main query, but only
+ * NOTE: we recognize grouping expressions in the main query, but only id:391 gh:392
  * grouping Vars in subqueries.  For example, this will be rejected,
  * although it could be allowed:
  *		SELECT

@@ -775,7 +775,7 @@ ExecHashJoinNewBatch(HashJoinState *hjstate)
 												 hjstate->hj_HashTupleSlot)))
 		{
 			/*
-			 * NOTE: some tuples may be sent to future batches.  Also, it is
+			 * NOTE: some tuples may be sent to future batches.  Also, it is id:245 gh:246
 			 * possible for hashtable->nbatch to be increased here!
 			 */
 			ExecHashTableInsert(hashtable, slot, hashvalue);

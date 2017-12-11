@@ -157,7 +157,7 @@ RelationDropStorage(Relation rel)
 	pendingDeletes = pending;
 
 	/*
-	 * NOTE: if the relation was created in this transaction, it will now be
+	 * NOTE: if the relation was created in this transaction, it will now be id:74 gh:75
 	 * present in the pending-delete list twice, once with atCommit true and
 	 * once with atCommit false.  Hence, it will be physically deleted at end
 	 * of xact in either case (and the other entry will be ignored by

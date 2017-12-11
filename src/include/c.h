@@ -237,7 +237,7 @@
  * bool
  *		Boolean value, either true or false.
  *
- * XXX for C++ compilers, we assume the compiler has a compatible
+ * XXX for C++ compilers, we assume the compiler has a compatible id:595 gh:596
  * built-in definition of bool.
  */
 
@@ -473,7 +473,7 @@ typedef struct
 /* ----------------
  *		Variable-length datatypes all share the 'struct varlena' header.
  *
- * NOTE: for TOASTable types, this is an oversimplification, since the value
+ * NOTE: for TOASTable types, this is an oversimplification, since the value id:559 gh:560
  * may be compressed or moved out-of-line.  However datatype-specific routines
  * are mostly content to deal with de-TOASTed values only, and of course
  * client-side routines should never see a TOASTed value.  But even in a
@@ -605,10 +605,10 @@ typedef NameData *Name;
  * while the fooALIGN_DOWN() macros round down.  The latter are more useful
  * for problems like "how many X-sized structures will fit in a page?".
  *
- * NOTE: TYPEALIGN[_DOWN] will not work if ALIGNVAL is not a power of 2.
+ * NOTE: TYPEALIGN[_DOWN] will not work if ALIGNVAL is not a power of 2. id:640 gh:641
  * That case seems extremely unlikely to be needed in practice, however.
  *
- * NOTE: MAXIMUM_ALIGNOF, and hence MAXALIGN(), intentionally exclude any
+ * NOTE: MAXIMUM_ALIGNOF, and hence MAXALIGN(), intentionally exclude any id:662 gh:663
  * larger-than-8-byte types the compiler might have.
  * ----------------
  */

@@ -64,7 +64,7 @@ _h_spoolinit(Relation heap, Relation index, uint32 num_buckets)
 	 * num_buckets buckets in the index, the appropriate mask can be computed
 	 * as follows.
 	 *
-	 * NOTE : This hash mask calculation should be in sync with similar
+	 * NOTE : This hash mask calculation should be in sync with similar id:35 gh:36
 	 * calculation in _hash_init_metabuffer.
 	 */
 	hspool->high_mask = (((uint32) 1) << _hash_log2(num_buckets + 1)) - 1;

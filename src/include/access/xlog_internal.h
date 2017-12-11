@@ -3,7 +3,7 @@
  *
  * PostgreSQL write-ahead log internal declarations
  *
- * NOTE: this file is intended to contain declarations useful for
+ * NOTE: this file is intended to contain declarations useful for id:660 gh:661
  * manipulating the XLOG files directly, but it is not supposed to be
  * needed by rmgr routines (redo support for individual record types).
  * So the XLogRecord typedef and associated stuff appear in xlogrecord.h.

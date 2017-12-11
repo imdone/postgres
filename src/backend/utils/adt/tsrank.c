@@ -364,7 +364,7 @@ calc_rank(const float *w, TSVector t, TSQuery q, int32 method)
 	if (!t->size || !q->size)
 		return 0.0;
 
-	/* XXX: What about NOT? */
+	/* XXX: What about NOT?  id:505 gh:506*/
 	res = (item->type == QI_OPR && (item->qoperator.oper == OP_AND ||
 									item->qoperator.oper == OP_PHRASE)) ?
 		calc_rank_and(w, t, q) :

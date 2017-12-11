@@ -422,7 +422,7 @@ bms_is_member(int x, const Bitmapset *a)
 	int			wordnum,
 				bitnum;
 
-	/* XXX better to just return false for x<0 ? */
+	/* XXX better to just return false for x<0 ?  id:284 gh:285*/
 	if (x < 0)
 		elog(ERROR, "negative bitmapset member not allowed");
 	if (a == NULL)

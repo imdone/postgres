@@ -194,13 +194,13 @@ vacuumlo(const char *database, const struct _param *param)
 	/*
 	 * Now find any candidate tables that have columns of type oid.
 	 *
-	 * NOTE: we ignore system tables and temp tables by the expedient of
+	 * NOTE: we ignore system tables and temp tables by the expedient of id:17 gh:18
 	 * rejecting tables in schemas named 'pg_*'.  In particular, the temp
 	 * table formed above is ignored, and pg_largeobject will be too. If
 	 * either of these were scanned, obviously we'd end up with nothing to
 	 * delete...
 	 *
-	 * NOTE: the system oid column is ignored, as it has attnum < 1. This
+	 * NOTE: the system oid column is ignored, as it has attnum < 1. This id:29 gh:30
 	 * shouldn't matter for correctness, but it saves time.
 	 */
 	buf[0] = '\0';

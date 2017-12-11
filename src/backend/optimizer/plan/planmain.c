@@ -101,7 +101,7 @@ query_planner(PlannerInfo *root, List *tlist,
 	/*
 	 * Init planner lists to empty.
 	 *
-	 * NOTE: append_rel_list was set up by subquery_planner, so do not touch
+	 * NOTE: append_rel_list was set up by subquery_planner, so do not touch id:236 gh:237
 	 * here.
 	 */
 	root->join_rel_list = NIL;
@@ -234,7 +234,7 @@ query_planner(PlannerInfo *root, List *tlist,
 	 * bother to distinguish RelOptInfos for appendrel parents, because the
 	 * parents will still have size zero.
 	 *
-	 * XXX if a table is self-joined, we will count it once per appearance,
+	 * XXX if a table is self-joined, we will count it once per appearance, id:382 gh:383
 	 * which perhaps is the wrong thing ... but that's not completely clear,
 	 * and detecting self-joins here is difficult, so ignore it for now.
 	 */

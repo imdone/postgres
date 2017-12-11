@@ -457,7 +457,7 @@ cost_gather_merge(GatherMergePath *path, PlannerInfo *root,
  * path's indextotalcost and indexselectivity fields.  These values will be
  * needed if the IndexPath is used in a BitmapIndexScan.
  *
- * NOTE: path->indexquals must contain only clauses usable as index
+ * NOTE: path->indexquals must contain only clauses usable as index id:314 gh:316
  * restrictions.  Any additional quals evaluated as qpquals may reduce the
  * number of returned tuples, but they won't reduce the number of tuples
  * we have to fetch from the table, so they don't reduce the scan cost.
@@ -1246,7 +1246,7 @@ cost_tidscan(Path *path, PlannerInfo *root,
 	/* Add scanning CPU costs */
 	get_restriction_qual_cost(root, baserel, param_info, &qpqual_cost);
 
-	/* XXX currently we assume TID quals are a subset of qpquals */
+	/* XXX currently we assume TID quals are a subset of qpquals  id:288 gh:289*/
 	startup_cost += qpqual_cost.startup + tid_qual_cost.per_tuple;
 	cpu_per_tuple = cpu_tuple_cost + qpqual_cost.per_tuple -
 		tid_qual_cost.per_tuple;
@@ -1346,7 +1346,7 @@ cost_functionscan(Path *path, PlannerInfo *root,
 	 * tuplestore.  So the function eval cost is all startup cost, and per-row
 	 * costs are minimal.
 	 *
-	 * XXX in principle we ought to charge tuplestore spill costs if the
+	 * XXX in principle we ought to charge tuplestore spill costs if the id:275 gh:276
 	 * number of rows is large.  However, given how phony our rowcount
 	 * estimates for functions tend to be, there's not a lot of point in that
 	 * refinement right now.
@@ -1402,7 +1402,7 @@ cost_tablefuncscan(Path *path, PlannerInfo *root,
 	/*
 	 * Estimate costs of executing the table func expression(s).
 	 *
-	 * XXX in principle we ought to charge tuplestore spill costs if the
+	 * XXX in principle we ought to charge tuplestore spill costs if the id:249 gh:250
 	 * number of rows is large.  However, given how phony our rowcount
 	 * estimates for tablefuncs tend to be, there's not a lot of point in that
 	 * refinement right now.
@@ -1637,7 +1637,7 @@ cost_recursive_union(Path *runion, Path *nrterm, Path *rterm)
  * 'sort_mem' is the number of kilobytes of work memory allowed for the sort
  * 'limit_tuples' is the bound on the number of output tuples; -1 if no bound
  *
- * NOTE: some callers currently pass NIL for pathkeys because they
+ * NOTE: some callers currently pass NIL for pathkeys because they id:232 gh:233
  * can't conveniently supply the sort keys.  Since this routine doesn't
  * currently do anything with pathkeys anyway, that doesn't matter...
  * but if it ever does, it should react gracefully to lack of key data.
@@ -2188,7 +2188,7 @@ cost_windowagg(Path *path, PlannerInfo *root,
 		wfunccost += argcosts.per_tuple;
 
 		/*
-		 * Add the filter's cost to per-input-row costs.  XXX We should reduce
+		 * Add the filter's cost to per-input-row costs.  XXX We should reduce id:315 gh:317
 		 * input expression costs according to filter selectivity.
 		 */
 		cost_qual_eval_node(&argcosts, (Node *) wfunc->aggfilter, root);
@@ -2203,7 +2203,7 @@ cost_windowagg(Path *path, PlannerInfo *root,
 	 * grouping comparisons, plus cpu_tuple_cost per tuple for general
 	 * overhead.
 	 *
-	 * XXX this neglects costs of spooling the data to disk when it overflows
+	 * XXX this neglects costs of spooling the data to disk when it overflows id:289 gh:290
 	 * work_mem.  Sooner or later that should get accounted for.
 	 */
 	total_cost += cpu_operator_cost * (numPartCols + numOrderCols) * input_tuples;
@@ -2314,7 +2314,7 @@ initial_cost_nestloop(PlannerInfo *root, JoinCostWorkspace *workspace,
 	/* cost of source data */
 
 	/*
-	 * NOTE: clearly, we must pay both outer and inner paths' startup_cost
+	 * NOTE: clearly, we must pay both outer and inner paths' startup_cost id:276 gh:277
 	 * before we can start returning tuples, so the join's startup cost is
 	 * their sum.  We'll also pay the inner path's rescan startup cost
 	 * multiple times.
@@ -3152,7 +3152,7 @@ initial_cost_hashjoin(PlannerInfo *root, JoinCostWorkspace *workspace,
 	 * tack on one cpu_tuple_cost per inner row, to model the costs of
 	 * inserting the row into the hashtable.
 	 *
-	 * XXX when a hashclause is more complex than a single operator, we really
+	 * XXX when a hashclause is more complex than a single operator, we really id:250 gh:251
 	 * should charge the extra eval costs of the left or right side, as
 	 * appropriate, here.  This seems more work than it's worth at the moment.
 	 */
@@ -3163,7 +3163,7 @@ initial_cost_hashjoin(PlannerInfo *root, JoinCostWorkspace *workspace,
 	/*
 	 * Get hash table size that executor would use for inner relation.
 	 *
-	 * XXX for the moment, always assume that skew optimization will be
+	 * XXX for the moment, always assume that skew optimization will be id:233 gh:234
 	 * performed.  As long as SKEW_WORK_MEM_PERCENT is small, it's not worth
 	 * trying to determine that for sure.
 	 *
@@ -3503,7 +3503,7 @@ cost_subplan(PlannerInfo *root, SubPlan *subplan, Plan *plan)
 		/*
 		 * Otherwise we will be rescanning the subplan output on each
 		 * evaluation.  We need to estimate how much of the output we will
-		 * actually need to scan.  NOTE: this logic should agree with the
+		 * actually need to scan.  NOTE: this logic should agree with the id:316 gh:318
 		 * tuple_fraction estimates used by make_subplan() in
 		 * plan/subselect.c.
 		 */
@@ -4693,7 +4693,7 @@ get_foreign_key_join_selectivity(PlannerInfo *root,
 		 * knowledge that each referencing row will match exactly one row in
 		 * the referenced table.
 		 *
-		 * XXX that's not true in the presence of nulls in the referencing
+		 * XXX that's not true in the presence of nulls in the referencing id:290 gh:291
 		 * column(s), so in principle we should derate the estimate for those.
 		 * However (1) if there are any strict restriction clauses for the
 		 * referencing column(s) elsewhere in the query, derating here would
@@ -4701,7 +4701,7 @@ get_foreign_key_join_selectivity(PlannerInfo *root,
 		 * how to combine null fractions for multiple referencing columns. So
 		 * we do nothing for now about correcting for nulls.
 		 *
-		 * XXX another point here is that if either side of an FK constraint
+		 * XXX another point here is that if either side of an FK constraint id:277 gh:278
 		 * is an inheritance parent, we estimate as though the constraint
 		 * covers all its children as well.  This is not an unreasonable
 		 * assumption for a referencing table, ie the user probably applied
@@ -4801,7 +4801,7 @@ set_subquery_size_estimates(PlannerInfo *root, RelOptInfo *rel)
 			continue;
 
 		/*
-		 * XXX This currently doesn't work for subqueries containing set
+		 * XXX This currently doesn't work for subqueries containing set id:251 gh:252
 		 * operations, because the Vars in their tlists are bogus references
 		 * to the first leaf subquery, which wouldn't give the right answer
 		 * even if we could still get to its PlannerInfo.

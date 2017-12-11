@@ -441,7 +441,7 @@ CREATE OPERATOR !~~* (
 
 --
 -- Matching citext in string comparison functions.
--- XXX TODO Ideally these would be implemented in C.
+-- XXX TODO Ideally these would be implemented in C. id:14 gh:15
 --
 
 CREATE FUNCTION regexp_match( citext, citext ) RETURNS TEXT[] AS $$

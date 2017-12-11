@@ -1887,7 +1887,7 @@ WHERE c.oid IS NOT NULL OR m.mapped_oid IS NOT NULL;
 -- Checks on creating and manipulation of user defined relations in
 -- pg_catalog.
 --
--- XXX: It would be useful to add checks around trying to manipulate
+-- XXX: It would be useful to add checks around trying to manipulate id:714 gh:715
 -- catalog tables, but that might have ugly consequences when run
 -- against an existing server with allow_system_table_mods = on.
 
@@ -1898,7 +1898,7 @@ CREATE TABLE pg_catalog.new_system_table();
 CREATE TABLE new_system_table(id serial primary key, othercol text);
 ALTER TABLE new_system_table SET SCHEMA pg_catalog;
 
--- XXX: it's currently impossible to move relations out of pg_catalog
+-- XXX: it's currently impossible to move relations out of pg_catalog id:700 gh:701
 ALTER TABLE new_system_table SET SCHEMA public;
 -- move back, will be ignored -- already there
 ALTER TABLE new_system_table SET SCHEMA pg_catalog;

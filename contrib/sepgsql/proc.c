@@ -85,7 +85,7 @@ sepgsql_proc_post_create(Oid functionId)
 							true);
 
 	/*
-	 * XXX - db_language:{implement} also should be checked here
+	 * XXX - db_language:{implement} also should be checked here id:28 gh:29
 	 */
 
 

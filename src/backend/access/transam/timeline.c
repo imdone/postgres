@@ -253,7 +253,7 @@ findNewestTimeLine(TimeLineID startTLI)
 
 	/*
 	 * The algorithm is just to probe for the existence of timeline history
-	 * files.  XXX is it useful to allow gaps in the sequence?
+	 * files.  XXX is it useful to allow gaps in the sequence? id:80 gh:81
 	 */
 	newestTLI = startTLI;
 

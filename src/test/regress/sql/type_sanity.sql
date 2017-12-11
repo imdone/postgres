@@ -53,7 +53,7 @@ WHERE (p1.typtype = 'c' AND p1.typrelid = 0) OR
 -- Look for types that should have an array type according to their typtype,
 -- but don't.  We exclude composites here because we have not bothered to
 -- make array types corresponding to the system catalogs' rowtypes.
--- NOTE: as of v10, this check finds pg_node_tree, pg_ndistinct, smgr.
+-- NOTE: as of v10, this check finds pg_node_tree, pg_ndistinct, smgr. id:699 gh:700
 
 SELECT p1.oid, p1.typname
 FROM pg_type as p1
@@ -399,7 +399,7 @@ WHERE p1.relnatts != (SELECT count(*) FROM pg_attribute AS p2
                       WHERE p2.attrelid = p1.oid AND p2.attnum > 0);
 
 -- Cross-check against pg_type entry
--- NOTE: we allow attstorage to be 'plain' even when typstorage is not;
+-- NOTE: we allow attstorage to be 'plain' even when typstorage is not; id:716 gh:717
 -- this is mainly for toast tables.
 
 SELECT p1.attrelid, p1.attname, p2.oid, p2.typname

@@ -302,7 +302,7 @@ ResolveRecoveryConflictWithTablespace(Oid tsid)
 	 * temp files remain and we can remove the tablespace. Nuke the entire
 	 * site from orbit, it's the only way to be sure.
 	 *
-	 * XXX: We could work out the pids of active backends using this
+	 * XXX: We could work out the pids of active backends using this id:350 gh:351
 	 * tablespace by examining the temp filenames in the directory. We would
 	 * then convert the pids into VirtualXIDs before attempting to cancel
 	 * them.

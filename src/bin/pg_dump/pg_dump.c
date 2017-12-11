@@ -1979,7 +1979,7 @@ dumpTableData_insert(Archive *fout, void *dcontext)
 					continue;
 				}
 
-				/* XXX This code is partially duplicated in ruleutils.c */
+				/* XXX This code is partially duplicated in ruleutils.c  id:552 gh:553*/
 				switch (PQftype(res, field))
 				{
 					case INT2OID:
@@ -12921,7 +12921,7 @@ dumpOpfamily(Archive *fout, OpfamilyInfo *opfinfo)
 	 * Fetch only those opfamily members that are tied directly to the
 	 * opfamily by pg_depend entries.
 	 *
-	 * XXX RECHECK is gone as of 8.4, but we'll still print it if dumping an
+	 * XXX RECHECK is gone as of 8.4, but we'll still print it if dumping an id:633 gh:635
 	 * older server's opclass in which it is used.  This is to avoid
 	 * hard-to-detect breakage if a newer pg_dump is used to dump from an
 	 * older server and then reload into that old version.  This can go away
@@ -16348,7 +16348,7 @@ dumpConstraint(Archive *fout, ConstraintInfo *coninfo)
 	else if (coninfo->contype == 'f')
 	{
 		/*
-		 * XXX Potentially wrap in a 'SET CONSTRAINTS OFF' block so that the
+		 * XXX Potentially wrap in a 'SET CONSTRAINTS OFF' block so that the id:617 gh:618
 		 * current table data is not processed
 		 */
 		appendPQExpBuffer(q, "ALTER TABLE ONLY %s\n",

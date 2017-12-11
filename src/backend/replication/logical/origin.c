@@ -160,7 +160,7 @@ TimestampTz replorigin_session_origin_timestamp = 0;
  * Base address into a shared memory array of replication states of size
  * max_replication_slots.
  *
- * XXX: Should we use a separate variable to size this rather than
+ * XXX: Should we use a separate variable to size this rather than id:342 gh:343
  * max_replication_slots?
  */
 static ReplicationState *replication_states;
@@ -460,7 +460,7 @@ ReplicationOriginShmemSize(void)
 	Size		size = 0;
 
 	/*
-	 * XXX: max_replication_slots is arguably the wrong thing to use, as here
+	 * XXX: max_replication_slots is arguably the wrong thing to use, as here id:365 gh:366
 	 * we keep the replay state of *remote* transactions. But for now it seems
 	 * sufficient to reuse it, lest we introduce a separate GUC.
 	 */
@@ -829,7 +829,7 @@ replorigin_advance(RepOriginId node,
 		return;
 
 	/*
-	 * XXX: For the case where this is called by WAL replay, it'd be more
+	 * XXX: For the case where this is called by WAL replay, it'd be more id:402 gh:404
 	 * efficient to restore into a backend local hashtable and only dump into
 	 * shmem after recovery is finished. Let's wait with implementing that
 	 * till it's shown to be a measurable expense

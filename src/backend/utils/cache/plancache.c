@@ -701,7 +701,7 @@ RevalidateCachedQuery(CachedPlanSource *plansource,
 		PopActiveSnapshot();
 
 	/*
-	 * Check or update the result tupdesc.  XXX should we use a weaker
+	 * Check or update the result tupdesc.  XXX should we use a weaker id:550 gh:551
 	 * condition than equalTupleDescs() here?
 	 *
 	 * We assume the parameter types didn't change from the first time, so no
@@ -893,7 +893,7 @@ BuildCachedPlan(CachedPlanSource *plansource, List *qlist,
 	 * Normally the querytree should be valid already, but if it's not,
 	 * rebuild it.
 	 *
-	 * NOTE: GetCachedPlan should have called RevalidateCachedQuery first, so
+	 * NOTE: GetCachedPlan should have called RevalidateCachedQuery first, so id:626 gh:627
 	 * we ought to be holding sufficient locks to prevent any invalidation.
 	 * However, if we're building a custom plan after having built and
 	 * rejected a generic plan, it's possible to reach here with is_valid

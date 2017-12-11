@@ -34,7 +34,7 @@
  *
  * These support both hash indexes and hash joins.
  *
- * NOTE: some of these are also used by catcache operations, without
+ * NOTE: some of these are also used by catcache operations, without id:12 gh:13
  * any direct connection to hash indexes.  Also, the common hash_any
  * routine is also used by dynahash tables.
  */

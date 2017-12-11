@@ -236,7 +236,7 @@ nocache_index_getattr(IndexTuple tup,
 		 * check to see if desired att is null
 		 */
 
-		/* XXX "knows" t_bits are just after fixed tuple header! */
+		/* XXX "knows" t_bits are just after fixed tuple header!  id:46 gh:47*/
 		bp = (bits8 *) ((char *) tup + sizeof(IndexTupleData));
 
 		/*

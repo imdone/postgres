@@ -181,7 +181,7 @@ SH_SCOPE void SH_STAT(SH_TYPE * tb);
 #define SH_COMPARE_KEYS(tb, ahash, akey, b) (SH_EQUAL(tb, b->SH_KEY, akey))
 #endif
 
-/* FIXME: can we move these to a central location? */
+/* FIXME: can we move these to a central location?  id:643 gh:644*/
 
 /* calculate ceil(log base 2) of num */
 static inline uint64
@@ -586,7 +586,7 @@ restart:
 			/* shift forward, starting at last occupied element */
 
 			/*
-			 * TODO: This could be optimized to be one memcpy in may cases,
+			 * TODO: This could be optimized to be one memcpy in may cases, id:665 gh:666
 			 * excepting wrapping around at the end of ->data. Hasn't shown up
 			 * in profiles so far though.
 			 */
@@ -656,7 +656,7 @@ SH_LOOKUP(SH_TYPE * tb, SH_KEY_TYPE key)
 			return entry;
 
 		/*
-		 * TODO: we could stop search based on distance. If the current
+		 * TODO: we could stop search based on distance. If the current id:677 gh:678
 		 * buckets's distance-from-optimal is smaller than what we've skipped
 		 * already, the entry doesn't exist. Probably only do so if
 		 * SH_STORE_HASH is defined, to avoid re-computing hashes?
@@ -732,7 +732,7 @@ SH_DELETE(SH_TYPE * tb, SH_KEY_TYPE key)
 			return true;
 		}
 
-		/* TODO: return false; if distance too big */
+		/* TODO: return false; if distance too big  id:599 gh:600*/
 
 		curelem = SH_NEXT(tb, curelem, startelem);
 	}

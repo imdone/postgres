@@ -79,7 +79,7 @@ PrepareQuery(PrepareStmt *stmt, const char *queryString,
 	 * parse analysis.
 	 *
 	 * Because parse analysis scribbles on the raw querytree, we must make a
-	 * copy to ensure we don't modify the passed-in tree.  FIXME someday.
+	 * copy to ensure we don't modify the passed-in tree.  FIXME someday. id:205 gh:206
 	 */
 	rawstmt = makeNode(RawStmt);
 	rawstmt->stmt = (Node *) copyObject(stmt->query);
@@ -808,7 +808,7 @@ build_regtype_array(Oid *param_types, int num_params)
 	for (i = 0; i < num_params; i++)
 		tmp_ary[i] = ObjectIdGetDatum(param_types[i]);
 
-	/* XXX: this hardcodes assumptions about the regtype type */
+	/* XXX: this hardcodes assumptions about the regtype type  id:189 gh:190*/
 	result = construct_array(tmp_ary, num_params, REGTYPEOID, 4, true, 'i');
 	return PointerGetDatum(result);
 }

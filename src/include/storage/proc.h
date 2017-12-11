@@ -33,7 +33,7 @@
  * listed anywhere in the PGPROC array is not a running transaction.  Else we
  * have to look at pg_subtrans.
  */
-#define PGPROC_MAX_CACHED_SUBXIDS 64	/* XXX guessed-at value */
+#define PGPROC_MAX_CACHED_SUBXIDS 64	/* XXX guessed-at value  id:669 gh:670*/
 
 struct XidCache
 {
@@ -202,7 +202,7 @@ struct PGPROC
 	dlist_node	lockGroupLink;	/* my member link, if I'm a member */
 };
 
-/* NOTE: "typedef struct PGPROC PGPROC" appears in storage/lock.h. */
+/* NOTE: "typedef struct PGPROC PGPROC" appears in storage/lock.h.  id:681 gh:682*/
 
 
 extern PGDLLIMPORT PGPROC *MyProc;

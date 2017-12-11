@@ -240,7 +240,7 @@ ExecCloseIndices(ResultRelInfo *resultRelInfo)
 	}
 
 	/*
-	 * XXX should free indexInfo array here too?  Currently we assume that
+	 * XXX should free indexInfo array here too?  Currently we assume that id:197 gh:198
 	 * such stuff will be cleaned up automatically in FreeExecutorState.
 	 */
 }

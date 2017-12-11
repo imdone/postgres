@@ -99,7 +99,7 @@ longest(struct vars *v,
 			{
 				ss = miss(v, d, css, co, cp + 1, start);
 				if (ss == NULL)
-					break;		/* NOTE BREAK OUT */
+					break;		/* NOTE BREAK OUT  id:415 gh:416*/
 			}
 			cp++;
 			ss->lastseen = cp;
@@ -117,7 +117,7 @@ longest(struct vars *v,
 			{
 				ss = miss(v, d, css, co, cp + 1, start);
 				if (ss == NULL)
-					break;		/* NOTE BREAK OUT */
+					break;		/* NOTE BREAK OUT  id:334 gh:335*/
 			}
 			cp++;
 			ss->lastseen = cp;
@@ -229,13 +229,13 @@ shortest(struct vars *v,
 			{
 				ss = miss(v, d, css, co, cp + 1, start);
 				if (ss == NULL)
-					break;		/* NOTE BREAK OUT */
+					break;		/* NOTE BREAK OUT  id:340 gh:341*/
 			}
 			cp++;
 			ss->lastseen = cp;
 			css = ss;
 			if ((ss->flags & POSTSTATE) && cp >= realmin)
-				break;			/* NOTE BREAK OUT */
+				break;			/* NOTE BREAK OUT  id:363 gh:364*/
 		}
 	}
 	else
@@ -249,13 +249,13 @@ shortest(struct vars *v,
 			{
 				ss = miss(v, d, css, co, cp + 1, start);
 				if (ss == NULL)
-					break;		/* NOTE BREAK OUT */
+					break;		/* NOTE BREAK OUT  id:400 gh:401*/
 			}
 			cp++;
 			ss->lastseen = cp;
 			css = ss;
 			if ((ss->flags & POSTSTATE) && cp >= realmin)
-				break;			/* NOTE BREAK OUT */
+				break;			/* NOTE BREAK OUT  id:416 gh:417*/
 		}
 	}
 
@@ -354,7 +354,7 @@ matchuntil(struct vars *v,
 			{
 				ss = miss(v, d, css, co, cp + 1, v->start);
 				if (ss == NULL)
-					break;		/* NOTE BREAK OUT */
+					break;		/* NOTE BREAK OUT  id:335 gh:336*/
 			}
 			cp++;
 			ss->lastseen = cp;
@@ -372,7 +372,7 @@ matchuntil(struct vars *v,
 			{
 				ss = miss(v, d, css, co, cp + 1, v->start);
 				if (ss == NULL)
-					break;		/* NOTE BREAK OUT */
+					break;		/* NOTE BREAK OUT  id:341 gh:342*/
 			}
 			cp++;
 			ss->lastseen = cp;
@@ -700,7 +700,7 @@ miss(struct vars *v,
 		if (HIT(h, d->work, p, d->wordsper))
 		{
 			FDEBUG(("cached c%d\n", (int) (p - d->ssets)));
-			break;				/* NOTE BREAK OUT */
+			break;				/* NOTE BREAK OUT  id:364 gh:365*/
 		}
 	if (i == 0)
 	{							/* nope, need a new cache entry */
@@ -831,7 +831,7 @@ getvacant(struct vars *v,
 		p = ss->outs[i];
 		assert(p != ss);		/* not self-referential */
 		if (p == NULL)
-			continue;			/* NOTE CONTINUE */
+			continue;			/* NOTE CONTINUE  id:401 gh:403*/
 		FDEBUG(("del outarc %d from c%d's in chn\n", i, (int) (p - d->ssets)));
 		if (p->ins.ss == ss && p->ins.co == i)
 			p->ins = ss->inchain[i];

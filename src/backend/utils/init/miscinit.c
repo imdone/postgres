@@ -64,7 +64,7 @@ static Latch LocalLatchData;
 /* ----------------------------------------------------------------
  *		ignoring system indexes support stuff
  *
- * NOTE: "ignoring system indexes" means we do not use the system indexes
+ * NOTE: "ignoring system indexes" means we do not use the system indexes id:646 gh:647
  * for lookups (either in hardwired catalog accesses or in planner-generated
  * plans).  We do, however, still update the indexes when a catalog
  * modification is made.

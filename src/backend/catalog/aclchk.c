@@ -628,7 +628,7 @@ ExecGrantStmt_oids(InternalGrant *istmt)
  *
  * Turn a list of object names of a given type into an Oid list.
  *
- * XXX: This function doesn't take any sort of locks on the objects whose
+ * XXX: This function doesn't take any sort of locks on the objects whose id:96 gh:97
  * names it looks up.  In the face of concurrent DDL, we might easily latch
  * onto an old version of an object, causing the GRANT or REVOKE statement
  * to fail.

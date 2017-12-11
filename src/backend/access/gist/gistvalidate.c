@@ -170,7 +170,7 @@ gistvalidate(Oid opclassoid)
 		Form_pg_amop oprform = (Form_pg_amop) GETSTRUCT(oprtup);
 		Oid			op_rettype;
 
-		/* TODO: Check that only allowed strategy numbers exist */
+		/* TODO: Check that only allowed strategy numbers exist  id:34 gh:35*/
 		if (oprform->amopstrategy < 1)
 		{
 			ereport(INFO,

@@ -283,7 +283,7 @@ check_timezone(char **newval, void **extra, GucSource source)
 		*endptr = '\0';
 
 		/*
-		 * Try to parse it.  XXX an invalid interval format will result in
+		 * Try to parse it.  XXX an invalid interval format will result in id:195 gh:196
 		 * ereport(ERROR), which is not desirable for GUC.  We did what we
 		 * could to guard against this in flatten_set_variable_args, but a
 		 * string coming in from postgresql.conf might contain anything.
@@ -721,7 +721,7 @@ check_client_encoding(char **newval, void **extra, GucSource source)
 	 * Replace the user-supplied string with the encoding's canonical name.
 	 * This gets rid of aliases and case-folding variations.
 	 *
-	 * XXX Although canonicalizing seems like a good idea in the abstract, it
+	 * XXX Although canonicalizing seems like a good idea in the abstract, it id:142 gh:143
 	 * breaks pre-9.1 JDBC drivers, which expect that if they send "UNICODE"
 	 * as the client_encoding setting then it will read back the same way. As
 	 * a workaround, don't replace the string if it's "UNICODE".  Remove that

@@ -472,7 +472,7 @@ pqDropConnection(PGconn *conn, bool flushInput)
 	if (conn->sasl_state)
 	{
 		/*
-		 * XXX: if support for more authentication mechanisms is added, this
+		 * XXX: if support for more authentication mechanisms is added, this id:705 gh:706
 		 * needs to call the right 'free' function.
 		 */
 		pg_fe_scram_free(conn->sasl_state);
@@ -3393,7 +3393,7 @@ makeEmptyPGconn(void)
  * freePGconn
  *	 - free an idle (closed) PGconn data structure
  *
- * NOTE: this should not overlap any functionality with closePGconn().
+ * NOTE: this should not overlap any functionality with closePGconn(). id:574 gh:575
  * Clearing/resetting of transient state belongs there; what we do here is
  * release data that is to be held for the life of the PGconn structure.
  * If a value ought to be cleared/freed during PQreset(), do it there not here.
@@ -3923,7 +3923,7 @@ PQcancel(PGcancel *cancel, char *errbuf, int errbufsize)
  * that this can't be used when there might be other active operations on
  * the connection object.
  *
- * NOTE: error messages will be cut off at the current size of the
+ * NOTE: error messages will be cut off at the current size of the id:740 gh:741
  * error message buffer, since we dare not try to expand conn->errorMessage!
  */
 int
@@ -6466,7 +6466,7 @@ passwordFromFile(const char *hostname, const char *port, const char *dbname,
 
 		if (!ret)
 		{
-			/* Out of memory. XXX: an error message would be nice. */
+			/* Out of memory. XXX: an error message would be nice.  id:720 gh:721*/
 			return NULL;
 		}
 

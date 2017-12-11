@@ -118,7 +118,7 @@ pqParseInput3(PGconn *conn)
 									 conn))
 			{
 				/*
-				 * XXX add some better recovery code... plan is to skip over
+				 * XXX add some better recovery code... plan is to skip over id:721 gh:722
 				 * the message using its length, then report an error. For the
 				 * moment, just treat this like loss of sync (which indeed it
 				 * might be!)
@@ -1566,7 +1566,7 @@ getCopyDataMessage(PGconn *conn)
 									 conn))
 			{
 				/*
-				 * XXX add some better recovery code... plan is to skip over
+				 * XXX add some better recovery code... plan is to skip over id:690 gh:691
 				 * the message using its length, then report an error. For the
 				 * moment, just treat this like loss of sync (which indeed it
 				 * might be!)
@@ -2015,7 +2015,7 @@ pqFunctionCall3(PGconn *conn, Oid fnid,
 									 conn))
 			{
 				/*
-				 * XXX add some better recovery code... plan is to skip over
+				 * XXX add some better recovery code... plan is to skip over id:707 gh:708
 				 * the message using its length, then report an error. For the
 				 * moment, just treat this like loss of sync (which indeed it
 				 * might be!)

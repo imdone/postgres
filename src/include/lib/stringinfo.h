@@ -58,7 +58,7 @@ typedef StringInfoData *StringInfo;
  * To destroy a StringInfo, pfree() the data buffer, and then pfree() the
  * StringInfoData if it was palloc'd.  There's no special support for this.
  *
- * NOTE: some routines build up a string using StringInfo, and then
+ * NOTE: some routines build up a string using StringInfo, and then id:563 gh:564
  * release the StringInfoData but return the data string itself to their
  * caller.  At that point the data string looks like a plain palloc'd
  * string.

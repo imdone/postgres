@@ -390,7 +390,7 @@ does_not_exist_skipping(ObjectType objtype, Node *object)
 				if (!type_in_list_does_not_exist_skipping(list_make1(linitial(castNode(List, object))), &msg, &name) &&
 					!type_in_list_does_not_exist_skipping(list_make1(lsecond(castNode(List, object))), &msg, &name))
 				{
-					/* XXX quote or no quote? */
+					/* XXX quote or no quote?  id:115 gh:116*/
 					msg = gettext_noop("cast from type %s to type %s does not exist, skipping");
 					name = TypeNameToString(linitial_node(TypeName, castNode(List, object)));
 					args = TypeNameToString(lsecond_node(TypeName, castNode(List, object)));

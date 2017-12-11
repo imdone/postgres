@@ -1102,7 +1102,7 @@ _bt_lock_branch_parent(Relation rel, BlockNumber child, BTStack stack,
  * be deleted now; could be more than one if parent or sibling pages were
  * deleted too).
  *
- * NOTE: this leaks memory.  Rather than trying to clean up everything
+ * NOTE: this leaks memory.  Rather than trying to clean up everything id:89 gh:90
  * carefully, it's better to run it in a temp context that can be reset
  * frequently.
  */

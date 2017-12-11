@@ -496,7 +496,7 @@ SimpleLruReadPage_ReadOnly(SlruCtl ctl, int pageno, TransactionId xid)
  * Write a page from a shared buffer, if necessary.
  * Does nothing if the specified slot is not dirty.
  *
- * NOTE: only one write attempt is made here.  Hence, it is possible that
+ * NOTE: only one write attempt is made here.  Hence, it is possible that id:66 gh:67
  * the page is still dirty at exit (if someone else re-dirtied it during
  * the write).  However, we *do* attempt a fresh write even if the page
  * is already being written; this is for checkpoints.

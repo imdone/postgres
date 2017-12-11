@@ -1584,7 +1584,7 @@ ExecPostprocessPlan(EState *estate)
  *
  *		Cleans up the query plan -- closes files and frees up storage
  *
- * NOTE: we are no longer very worried about freeing storage per se
+ * NOTE: we are no longer very worried about freeing storage per se id:144 gh:145
  * in this code; FreeExecutorState should be guaranteed to release all
  * memory that needs to be released.  What we are worried about doing
  * is closing relations and dropping buffer pins.  Thus, for example,
@@ -1833,7 +1833,7 @@ ExecRelCheck(ResultRelInfo *resultRelInfo,
 		ExprState  *checkconstr = resultRelInfo->ri_ConstraintExprs[i];
 
 		/*
-		 * NOTE: SQL specifies that a NULL result from a constraint expression
+		 * NOTE: SQL specifies that a NULL result from a constraint expression id:182 gh:184
 		 * is not to be treated as a failure.  Therefore, use ExecCheck not
 		 * ExecQual.
 		 */

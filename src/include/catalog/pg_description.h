@@ -3,7 +3,7 @@
  * pg_description.h
  *	  definition of the system "description" relation (pg_description)
  *
- * NOTE: an object is identified by the OID of the row that primarily
+ * NOTE: an object is identified by the OID of the row that primarily id:663 gh:664
  * defines the object, plus the OID of the table that that row appears in.
  * For example, a function is identified by the OID of its pg_proc row
  * plus the pg_class OID of table pg_proc.  This allows unique identification

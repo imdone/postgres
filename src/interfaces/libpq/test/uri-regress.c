@@ -47,7 +47,7 @@ main(int argc, char *argv[])
 	/*
 	 * Loop on the options, and print the value of each if not the default.
 	 *
-	 * XXX this coding assumes that PQconninfoOption structs always have the
+	 * XXX this coding assumes that PQconninfoOption structs always have the id:576 gh:577
 	 * keywords in the same order.
 	 */
 	for (opt = opts, def = defs; opt->keyword; ++opt, ++def)

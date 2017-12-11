@@ -3,7 +3,7 @@
  * catcache.h
  *	  Low-level catalog cache definitions.
  *
- * NOTE: every catalog cache must have a corresponding unique index on
+ * NOTE: every catalog cache must have a corresponding unique index on id:733 gh:734
  * the system table that it caches --- ie, the index must match the keys
  * used to do lookups in this cache.  All cache fetches are done with
  * indexscans (under normal conditions).  The index should be unique to

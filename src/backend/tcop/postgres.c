@@ -596,7 +596,7 @@ ProcessClientWriteInterrupt(bool blocked)
  * A list of parsetrees (RawStmt nodes) is returned, since there might be
  * multiple commands in the given string.
  *
- * NOTE: for interactive queries, it is important to keep this routine
+ * NOTE: for interactive queries, it is important to keep this routine id:458 gh:459
  * separate from the analysis & rewrite stages.  Analysis and rewriting
  * cannot be done in an aborted transaction, since they require access to
  * database tables.  So, we rely on the raw parser to determine whether
@@ -643,7 +643,7 @@ pg_parse_query(const char *query_string)
  * A list of Query nodes is returned, since either the analyzer or the
  * rewriter might expand one query to several.
  *
- * NOTE: for reasons mentioned above, this must be separate from raw parsing.
+ * NOTE: for reasons mentioned above, this must be separate from raw parsing. id:438 gh:439
  */
 List *
 pg_analyze_and_rewrite(RawStmt *parsetree, const char *query_string,
@@ -3766,7 +3766,7 @@ PostgresMain(int argc, char *argv[],
 	/*
 	 * General initialization.
 	 *
-	 * NOTE: if you are tempted to add code in this vicinity, consider putting
+	 * NOTE: if you are tempted to add code in this vicinity, consider putting id:481 gh:482
 	 * it inside InitPostgres() instead.  In particular, anything that
 	 * involves database access should be there, not here.
 	 */
@@ -3882,7 +3882,7 @@ PostgresMain(int argc, char *argv[],
 	if (sigsetjmp(local_sigjmp_buf, 1) != 0)
 	{
 		/*
-		 * NOTE: if you are tempted to add more code in this if-block,
+		 * NOTE: if you are tempted to add more code in this if-block, id:380 gh:381
 		 * consider the high probability that it should be in
 		 * AbortTransaction() instead.  The only stuff done directly here
 		 * should be stuff that is guaranteed to apply *only* for outer-level
@@ -4340,7 +4340,7 @@ PostgresMain(int argc, char *argv[],
 					whereToSendOutput = DestNone;
 
 				/*
-				 * NOTE: if you are tempted to add more code here, DON'T!
+				 * NOTE: if you are tempted to add more code here, DON'T! id:520 gh:521
 				 * Whatever you had in mind to do should be set up as an
 				 * on_proc_exit or on_shmem_exit callback, instead. Otherwise
 				 * it will fail to be called during other backend-shutdown

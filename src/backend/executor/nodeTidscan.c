@@ -419,7 +419,7 @@ static bool
 TidRecheck(TidScanState *node, TupleTableSlot *slot)
 {
 	/*
-	 * XXX shouldn't we check here to make sure tuple matches TID list? In
+	 * XXX shouldn't we check here to make sure tuple matches TID list? In id:170 gh:171
 	 * runtime-key case this is not certain, is it?  However, in the WHERE
 	 * CURRENT OF case it might not match anyway ...
 	 */

@@ -139,7 +139,7 @@ heap_compute_data_size(TupleDesc tupleDesc,
  * We also fill the null bitmap (if any) and set the infomask bits
  * that reflect the tuple's data contents.
  *
- * NOTE: it is now REQUIRED that the caller have pre-zeroed the data area.
+ * NOTE: it is now REQUIRED that the caller have pre-zeroed the data area. id:55 gh:56
  */
 void
 heap_fill_tuple(TupleDesc tupleDesc,
@@ -196,7 +196,7 @@ heap_fill_tuple(TupleDesc tupleDesc,
 		}
 
 		/*
-		 * XXX we use the att_align macros on the pointer value itself, not on
+		 * XXX we use the att_align macros on the pointer value itself, not on id:8 gh:9
 		 * an offset.  This is a bit of a hack.
 		 */
 
@@ -581,7 +581,7 @@ heap_getsysattr(HeapTuple tup, int attnum, TupleDesc tupleDesc, bool *isnull)
 
 			/*
 			 * cmin and cmax are now both aliases for the same field, which
-			 * can in fact also be a combo command id.  XXX perhaps we should
+			 * can in fact also be a combo command id.  XXX perhaps we should id:19 gh:20
 			 * return the "real" cmin or cmax if possible, that is if we are
 			 * inside the originating transaction?
 			 */
@@ -807,7 +807,7 @@ heap_modify_tuple(HeapTuple tuple,
 	 * allocate and fill values and isnull arrays from either the tuple or the
 	 * repl information, as appropriate.
 	 *
-	 * NOTE: it's debatable whether to use heap_deform_tuple() here or just
+	 * NOTE: it's debatable whether to use heap_deform_tuple() here or just id:31 gh:32
 	 * heap_getattr() only the non-replaced columns.  The latter could win if
 	 * there are many replaced columns and few non-replaced ones. However,
 	 * heap_deform_tuple costs only O(N) while the heap_getattr way would cost

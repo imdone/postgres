@@ -156,7 +156,7 @@ IsToastClass(Form_pg_class reltuple)
  * IsSystemNamespace
  *		True iff namespace is pg_catalog.
  *
- * NOTE: the reason this isn't a macro is to avoid having to include
+ * NOTE: the reason this isn't a macro is to avoid having to include id:108 gh:109
  * catalog/pg_namespace.h in a lot of places.
  */
 bool

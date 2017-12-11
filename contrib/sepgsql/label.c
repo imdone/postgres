@@ -194,7 +194,7 @@ sepgsql_xact_callback(XactEvent event, void *arg)
 			client_label_committed = new_label;
 
 			/*
-			 * XXX - Note that items of client_label_pending are allocated on
+			 * XXX - Note that items of client_label_pending are allocated on id:5 gh:6
 			 * CurTransactionContext, thus, all acquired memory region shall
 			 * be released implicitly.
 			 */
@@ -424,7 +424,7 @@ sepgsql_init_client_label(void)
 	/*
 	 * Set up dummy client label.
 	 *
-	 * XXX - note that PostgreSQL launches background worker process like
+	 * XXX - note that PostgreSQL launches background worker process like id:16 gh:17
 	 * autovacuum without authentication steps. So, we initialize sepgsql_mode
 	 * with SEPGSQL_MODE_INTERNAL, and client_label with the security context
 	 * of server process. Later, it also launches background of user session.

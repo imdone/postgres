@@ -2027,7 +2027,7 @@ findTargetlistEntrySQL99(ParseState *pstate, Node *node, List **tlist,
 
 	/*
 	 * Convert the untransformed node to a transformed expression, and search
-	 * for a match in the tlist.  NOTE: it doesn't really matter whether there
+	 * for a match in the tlist.  NOTE: it doesn't really matter whether there id:302 gh:303
 	 * is more than one match.  Also, we are willing to match an existing
 	 * resjunk target here, though the SQL92 cases above must ignore resjunk
 	 * targets.

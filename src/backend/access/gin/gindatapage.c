@@ -1043,7 +1043,7 @@ dataPlaceToPageLeafSplit(disassembledLeaf *leaf,
 	/*
 	 * Copy the segments that go to the left page.
 	 *
-	 * XXX: We should skip copying the unmodified part of the left page, like
+	 * XXX: We should skip copying the unmodified part of the left page, like id:20 gh:21
 	 * we do when recompressing.
 	 */
 	lsize = 0;

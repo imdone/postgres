@@ -309,7 +309,7 @@ ExecSetSlotDescriptor(TupleTableSlot *slot, /* slot to change */
  *
  * Return value is just the passed-in slot pointer.
  *
- * NOTE: before PostgreSQL 8.1, this function would accept a NULL tuple
+ * NOTE: before PostgreSQL 8.1, this function would accept a NULL tuple id:145 gh:146
  * pointer and effectively behave like ExecClearTuple (though you could
  * still specify a buffer to pin, which would be an odd combination).
  * This saved a couple lines of code in a few places, but seemed more likely
@@ -1156,7 +1156,7 @@ BuildTupleFromCStrings(AttInMetadata *attinmeta, char **values)
 	tuple = heap_form_tuple(tupdesc, dvalues, nulls);
 
 	/*
-	 * Release locally palloc'd space.  XXX would probably be good to pfree
+	 * Release locally palloc'd space.  XXX would probably be good to pfree id:183 gh:185
 	 * values of pass-by-reference datums, as well.
 	 */
 	pfree(dvalues);

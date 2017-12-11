@@ -43,9 +43,9 @@ IsDefinedRewriteRule(Oid owningRel, const char *ruleName)
  * SetRelationRuleStatus
  *		Set the value of the relation's relhasrules field in pg_class.
  *
- * NOTE: caller must be holding an appropriate lock on the relation.
+ * NOTE: caller must be holding an appropriate lock on the relation. id:422 gh:423
  *
- * NOTE: an important side-effect of this operation is that an SI invalidation
+ * NOTE: an important side-effect of this operation is that an SI invalidation id:428 gh:429
  * message is sent out to all backends --- including me --- causing relcache
  * entries to be flushed or updated with the new set of rules for the table.
  * This must happen even if we find that no change is needed in the pg_class

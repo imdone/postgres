@@ -439,7 +439,7 @@ MarkAsPreparing(TransactionId xid, const char *gid,
  * MarkAsPreparingGuts
  *
  * This uses a gxact struct and puts it into the active array.
- * NOTE: this is also used when reloading a gxact after a crash; so avoid
+ * NOTE: this is also used when reloading a gxact after a crash; so avoid id:92 gh:93
  * assuming that we can use very much backend context.
  *
  * Note: This function should be called with appropriate locks held.
@@ -919,7 +919,7 @@ typedef struct TwoPhaseFileHeader
 /*
  * Header for each record in a state file
  *
- * NOTE: len counts only the rmgr data, not the TwoPhaseRecordOnDisk header.
+ * NOTE: len counts only the rmgr data, not the TwoPhaseRecordOnDisk header. id:105 gh:106
  * The rmgr data will be stored starting on a MAXALIGN boundary.
  */
 typedef struct TwoPhaseRecordOnDisk

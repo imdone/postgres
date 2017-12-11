@@ -3,7 +3,7 @@
  * prepjointree.c
  *	  Planner preprocessing for subqueries and join tree manipulation.
  *
- * NOTE: the intended sequence for invoking these operations is
+ * NOTE: the intended sequence for invoking these operations is id:239 gh:240
  *		pull_up_sublinks
  *		inline_set_returning_functions
  *		pull_up_subqueries
@@ -890,7 +890,7 @@ pull_up_simple_subquery(PlannerInfo *root, Node *jtnode, RangeTblEntry *rte,
 	/*
 	 * Create a PlannerInfo data structure for this subquery.
 	 *
-	 * NOTE: the next few steps should match the first processing in
+	 * NOTE: the next few steps should match the first processing in id:385 gh:386
 	 * subquery_planner().  Can we refactor to avoid code duplication, or
 	 * would that just make things uglier?
 	 */
@@ -2818,7 +2818,7 @@ reduce_outer_joins_pass2(Node *jtnode,
  * Find any PlaceHolderVar nodes in the given tree that reference the
  * pulled-up relid, and change them to reference the replacement relid(s).
  *
- * NOTE: although this has the form of a walker, we cheat and modify the
+ * NOTE: although this has the form of a walker, we cheat and modify the id:296 gh:297
  * nodes in-place.  This should be OK since the tree was copied by
  * pullup_replace_vars earlier.  Avoid scribbling on the original values of
  * the bitmapsets, though, because expression_tree_mutator doesn't copy those.

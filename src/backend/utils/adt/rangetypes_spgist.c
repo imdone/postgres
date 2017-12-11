@@ -866,7 +866,7 @@ adjacent_cmp_bounds(TypeCacheEntry *typcache, RangeBound *arg,
  * returns 1. If there can be no matches below this centroid, because we
  * already ruled them out at the previous level, returns 0.
  *
- * XXX: Comparing just the previous and current level isn't foolproof; we
+ * XXX: Comparing just the previous and current level isn't foolproof; we id:448 gh:449
  * might still search some branches unnecessarily. For example, imagine that
  * we are searching for value 15, and we traverse the following centroids
  * (only considering one bound for the moment):

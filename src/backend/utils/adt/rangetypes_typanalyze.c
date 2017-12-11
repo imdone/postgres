@@ -138,7 +138,7 @@ compute_range_stats(VacAttrStats *stats, AnalyzeAttrFetchFunc fetchfunc,
 		}
 
 		/*
-		 * XXX: should we ignore wide values, like std_typanalyze does, to
+		 * XXX: should we ignore wide values, like std_typanalyze does, to id:491 gh:492
 		 * avoid bloating the statistics table?
 		 */
 		total_width += VARSIZE_ANY(DatumGetPointer(value));

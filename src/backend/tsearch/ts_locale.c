@@ -26,8 +26,8 @@ t_isdigit(const char *ptr)
 {
 	int			clen = pg_mblen(ptr);
 	wchar_t		character[2];
-	Oid			collation = DEFAULT_COLLATION_OID;	/* TODO */
-	pg_locale_t mylocale = 0;	/* TODO */
+	Oid			collation = DEFAULT_COLLATION_OID;	/* TODO id:459 gh:460*/
+	pg_locale_t mylocale = 0;	/* TODO id:439 gh:440*/
 
 	if (clen == 1 || lc_ctype_is_c(collation))
 		return isdigit(TOUCHAR(ptr));
@@ -42,8 +42,8 @@ t_isspace(const char *ptr)
 {
 	int			clen = pg_mblen(ptr);
 	wchar_t		character[2];
-	Oid			collation = DEFAULT_COLLATION_OID;	/* TODO */
-	pg_locale_t mylocale = 0;	/* TODO */
+	Oid			collation = DEFAULT_COLLATION_OID;	/* TODO id:482 gh:483*/
+	pg_locale_t mylocale = 0;	/* TODO id:534 gh:535*/
 
 	if (clen == 1 || lc_ctype_is_c(collation))
 		return isspace(TOUCHAR(ptr));
@@ -58,8 +58,8 @@ t_isalpha(const char *ptr)
 {
 	int			clen = pg_mblen(ptr);
 	wchar_t		character[2];
-	Oid			collation = DEFAULT_COLLATION_OID;	/* TODO */
-	pg_locale_t mylocale = 0;	/* TODO */
+	Oid			collation = DEFAULT_COLLATION_OID;	/* TODO id:521 gh:522*/
+	pg_locale_t mylocale = 0;	/* TODO id:460 gh:461*/
 
 	if (clen == 1 || lc_ctype_is_c(collation))
 		return isalpha(TOUCHAR(ptr));
@@ -74,8 +74,8 @@ t_isprint(const char *ptr)
 {
 	int			clen = pg_mblen(ptr);
 	wchar_t		character[2];
-	Oid			collation = DEFAULT_COLLATION_OID;	/* TODO */
-	pg_locale_t mylocale = 0;	/* TODO */
+	Oid			collation = DEFAULT_COLLATION_OID;	/* TODO id:440 gh:441*/
+	pg_locale_t mylocale = 0;	/* TODO id:483 gh:484*/
 
 	if (clen == 1 || lc_ctype_is_c(collation))
 		return isprint(TOUCHAR(ptr));
@@ -241,8 +241,8 @@ char *
 lowerstr_with_len(const char *str, int len)
 {
 	char	   *out;
-	Oid			collation = DEFAULT_COLLATION_OID;	/* TODO */
-	pg_locale_t mylocale = 0;	/* TODO */
+	Oid			collation = DEFAULT_COLLATION_OID;	/* TODO id:535 gh:536*/
+	pg_locale_t mylocale = 0;	/* TODO id:522 gh:523*/
 
 	if (len == 0)
 		return pstrdup("");

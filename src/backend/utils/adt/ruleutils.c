@@ -2032,7 +2032,7 @@ pg_get_constraintdef_worker(Oid constraintId, bool fullCommand,
 
 				indexId = get_constraint_index(constraintId);
 
-				/* XXX why do we only print these bits if fullCommand? */
+				/* XXX why do we only print these bits if fullCommand?  id:450 gh:451*/
 				if (fullCommand && OidIsValid(indexId))
 				{
 					char	   *options = flatten_reloptions(indexId);
@@ -9373,7 +9373,7 @@ get_const_expr(Const *constval, deparse_context *context, int showtype)
 	 * For showtype == 0, append ::typename unless the constant will be
 	 * implicitly typed as the right type when it is read in.
 	 *
-	 * XXX this code has to be kept in sync with the behavior of the parser,
+	 * XXX this code has to be kept in sync with the behavior of the parser, id:493 gh:494
 	 * especially make_const.
 	 */
 	switch (constval->consttype)

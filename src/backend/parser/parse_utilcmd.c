@@ -11,7 +11,7 @@
  * Hence these functions are now called at the start of execution of their
  * respective utility commands.
  *
- * NOTE: in general we must avoid scribbling on the passed-in raw parse
+ * NOTE: in general we must avoid scribbling on the passed-in raw parse id:328 gh:329
  * tree, since it might be in a plan cache.  The simplest solution is
  * a quick copyObject() call before manipulating the query tree.
  *
@@ -2369,7 +2369,7 @@ transformRuleStmt(RuleStmt *stmt, const char *queryString,
 	pstate->p_sourcetext = queryString;
 
 	/*
-	 * NOTE: 'OLD' must always have a varno equal to 1 and 'NEW' equal to 2.
+	 * NOTE: 'OLD' must always have a varno equal to 1 and 'NEW' equal to 2. id:265 gh:266
 	 * Set up their RTEs in the main pstate for use in parsing the rule
 	 * qualification.
 	 */
@@ -2987,7 +2987,7 @@ transformAlterTableStmt(Oid relid, AlterTableStmt *stmt,
  * to attach constraint attributes to their primary constraint nodes
  * and detect inconsistent/misplaced constraint attributes.
  *
- * NOTE: currently, attributes are only supported for FOREIGN KEY, UNIQUE,
+ * NOTE: currently, attributes are only supported for FOREIGN KEY, UNIQUE, id:357 gh:358
  * EXCLUSION, and PRIMARY KEY constraints, but someday they ought to be
  * supported for other constraint types.
  */
@@ -3202,7 +3202,7 @@ transformCreateSchemaStmt(CreateSchemaStmt *stmt)
 					setSchemaName(cxt.schemaname, &elp->relation->schemaname);
 
 					/*
-					 * XXX todo: deal with constraints
+					 * XXX todo: deal with constraints id:394 gh:395
 					 */
 					cxt.tables = lappend(cxt.tables, element);
 				}
@@ -3215,7 +3215,7 @@ transformCreateSchemaStmt(CreateSchemaStmt *stmt)
 					setSchemaName(cxt.schemaname, &elp->view->schemaname);
 
 					/*
-					 * XXX todo: deal with references between views
+					 * XXX todo: deal with references between views id:305 gh:306
 					 */
 					cxt.views = lappend(cxt.views, element);
 				}

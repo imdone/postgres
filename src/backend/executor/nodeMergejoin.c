@@ -1059,7 +1059,7 @@ ExecMergeJoin(PlanState *pstate)
 					 * needed, then we don't have to back up; the current
 					 * inner is already the first possible match.
 					 *
-					 * NOTE: we do not need to worry about the MatchedInner
+					 * NOTE: we do not need to worry about the MatchedInner id:148 gh:149
 					 * state for the rescanned inner tuples.  We know all of
 					 * them will match this new outer tuple and therefore
 					 * won't be emitted as fill tuples.  This works *only*

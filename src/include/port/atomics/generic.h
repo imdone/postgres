@@ -98,7 +98,7 @@ pg_atomic_unlocked_test_flag_impl(volatile pg_atomic_flag *ptr)
 static inline void
 pg_atomic_clear_flag_impl(volatile pg_atomic_flag *ptr)
 {
-	/* XXX: release semantics suffice? */
+	/* XXX: release semantics suffice?  id:731 gh:732*/
 	pg_memory_barrier_impl();
 	pg_atomic_write_u32_impl(ptr, 0);
 }
@@ -141,7 +141,7 @@ pg_atomic_clear_flag_impl(volatile pg_atomic_flag *ptr)
 	 * to circularity if flags are used to implement spinlocks.
 	 */
 #ifndef PG_HAVE_MEMORY_BARRIER_EMULATION
-	/* XXX: release semantics suffice? */
+	/* XXX: release semantics suffice?  id:668 gh:669*/
 	pg_memory_barrier_impl();
 	pg_atomic_write_u32_impl(ptr, 0);
 #else

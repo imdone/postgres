@@ -2596,7 +2596,7 @@ transformCurrentOfExpr(ParseState *pstate, CurrentOfExpr *cexpr)
 			node = pstate->p_post_columnref_hook(pstate, cref, NULL);
 
 		/*
-		 * XXX Should we throw an error if we get a translation that isn't a
+		 * XXX Should we throw an error if we get a translation that isn't a id:327 gh:328
 		 * refcursor Param?  For now it seems best to silently ignore false
 		 * matches.
 		 */

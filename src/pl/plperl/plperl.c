@@ -1029,7 +1029,7 @@ plperl_trusted_init(void)
 	if (plperl_on_plperl_init && *plperl_on_plperl_init)
 	{
 		eval_pv(plperl_on_plperl_init, FALSE);
-		/* XXX need to find a way to determine a better errcode here */
+		/* XXX need to find a way to determine a better errcode here  id:742 gh:744*/
 		if (SvTRUE(ERRSV))
 			ereport(ERROR,
 					(errcode(ERRCODE_EXTERNAL_ROUTINE_EXCEPTION),
@@ -1293,7 +1293,7 @@ _sv_to_datum_finfo(Oid typid, FmgrInfo *finfo, Oid *typioparam)
 {
 	Oid			typinput;
 
-	/* XXX would be better to cache these lookups */
+	/* XXX would be better to cache these lookups  id:722 gh:723*/
 	getTypeInputInfo(typid,
 					 &typinput, typioparam);
 	fmgr_info(typinput, finfo);
@@ -2246,7 +2246,7 @@ plperl_call_perl_func(plperl_proc_desc *desc, FunctionCallInfo fcinfo)
 		PUTBACK;
 		FREETMPS;
 		LEAVE;
-		/* XXX need to find a way to determine a better errcode here */
+		/* XXX need to find a way to determine a better errcode here  id:691 gh:692*/
 		ereport(ERROR,
 				(errcode(ERRCODE_EXTERNAL_ROUTINE_EXCEPTION),
 				 errmsg("%s", strip_trailing_ws(sv2cstr(ERRSV)))));
@@ -2314,7 +2314,7 @@ plperl_call_perl_trigger_func(plperl_proc_desc *desc, FunctionCallInfo fcinfo,
 		PUTBACK;
 		FREETMPS;
 		LEAVE;
-		/* XXX need to find a way to determine a better errcode here */
+		/* XXX need to find a way to determine a better errcode here  id:708 gh:709*/
 		ereport(ERROR,
 				(errcode(ERRCODE_EXTERNAL_ROUTINE_EXCEPTION),
 				 errmsg("%s", strip_trailing_ws(sv2cstr(ERRSV)))));
@@ -2377,7 +2377,7 @@ plperl_call_perl_event_trigger_func(plperl_proc_desc *desc,
 		PUTBACK;
 		FREETMPS;
 		LEAVE;
-		/* XXX need to find a way to determine a better errcode here */
+		/* XXX need to find a way to determine a better errcode here  id:577 gh:578*/
 		ereport(ERROR,
 				(errcode(ERRCODE_EXTERNAL_ROUTINE_EXCEPTION),
 				 errmsg("%s", strip_trailing_ws(sv2cstr(ERRSV)))));
@@ -3070,7 +3070,7 @@ plperl_hash_from_tuple(HeapTuple tuple, TupleDesc tupdesc)
 			{
 				char	   *outputstr;
 
-				/* XXX should have a way to cache these lookups */
+				/* XXX should have a way to cache these lookups  id:743 gh:745*/
 				getTypeOutputInfo(att->atttypid, &typoutput, &typisvarlena);
 
 				outputstr = OidOutputFunctionCall(typoutput, attr);

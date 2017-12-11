@@ -1379,7 +1379,7 @@ CacheInvalidateRelmap(Oid databaseId)
  *		hash value of the tuple being invalidated will be passed to the
  *		function.
  *
- * NOTE: Hash value zero will be passed if a cache reset request is received.
+ * NOTE: Hash value zero will be passed if a cache reset request is received. id:498 gh:499
  * In this case the called routines should flush all cached state.
  * Yes, there's a possibility of a false match to zero, but it doesn't seem
  * worth troubling over, especially since most of the current callees just

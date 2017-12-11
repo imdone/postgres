@@ -284,7 +284,7 @@ leftmostvalue_timetz(void)
 	TimeTzADT  *v = palloc(sizeof(TimeTzADT));
 
 	v->time = 0;
-	v->zone = -24 * 3600;		/* XXX is that true? */
+	v->zone = -24 * 3600;		/* XXX is that true?  id:3 gh:4*/
 
 	return TimeTzADTPGetDatum(v);
 }

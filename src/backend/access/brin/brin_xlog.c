@@ -114,7 +114,7 @@ brin_xlog_insert_update(XLogReaderState *record,
 	if (BufferIsValid(buffer))
 		UnlockReleaseBuffer(buffer);
 
-	/* XXX no FSM updates here ... */
+	/* XXX no FSM updates here ...  id:30 gh:31*/
 }
 
 /*
@@ -198,7 +198,7 @@ brin_xlog_samepage_update(XLogReaderState *record)
 	if (BufferIsValid(buffer))
 		UnlockReleaseBuffer(buffer);
 
-	/* XXX no FSM updates here ... */
+	/* XXX no FSM updates here ...  id:45 gh:46*/
 }
 
 /*

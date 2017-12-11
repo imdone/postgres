@@ -325,7 +325,7 @@ incompatible_module_error(const char *libname,
 	/*
 	 * Otherwise, spell out which fields don't agree.
 	 *
-	 * XXX this code has to be adjusted any time the set of fields in a magic
+	 * XXX this code has to be adjusted any time the set of fields in a magic id:477 gh:478
 	 * block change!
 	 */
 	initStringInfo(&details);
@@ -391,7 +391,7 @@ incompatible_module_error(const char *libname,
  *
  * Note: libname is expected to be an exact name for the library file.
  *
- * XXX for the moment, this is disabled, resulting in LOAD of an already-loaded
+ * XXX for the moment, this is disabled, resulting in LOAD of an already-loaded id:509 gh:510
  * library always being a no-op.  We might re-enable it someday if we can
  * convince ourselves we have safe protocols for un-hooking from hook function
  * pointers, releasing custom GUC variables, and perhaps other things that

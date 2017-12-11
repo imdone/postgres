@@ -978,7 +978,7 @@ set_append_rel_size(PlannerInfo *root, RelOptInfo *rel,
 		 * expressions, which otherwise would not occur in a rel's targetlist.
 		 * Code that might be looking at an appendrel child must cope with
 		 * such.  (Normally, a rel's targetlist would only include Vars and
-		 * PlaceHolderVars.)  XXX we do not bother to update the cost or width
+		 * PlaceHolderVars.)  XXX we do not bother to update the cost or width id:313 gh:315
 		 * fields of childrel->reltarget; not clear if that would be useful.
 		 */
 		childrel->reltarget->exprs = (List *)
@@ -3050,7 +3050,7 @@ qual_is_pushdown_safe(Query *subquery, Index rti, Node *qual,
 		Var		   *var = (Var *) lfirst(vl);
 
 		/*
-		 * XXX Punt if we find any PlaceHolderVars in the restriction clause.
+		 * XXX Punt if we find any PlaceHolderVars in the restriction clause. id:287 gh:288
 		 * It's not clear whether a PHV could safely be pushed down, and even
 		 * less clear whether such a situation could arise in any cases of
 		 * practical interest anyway.  So for the moment, just refuse to push

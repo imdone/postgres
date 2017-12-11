@@ -229,7 +229,7 @@ static unsigned short BinarySearchRange
 				low = array[mid].code & 0x00ff;
 
 				/*
-				 * NOTE: big5 high_byte: 0xa1-0xfe, low_byte: 0x40-0x7e,
+				 * NOTE: big5 high_byte: 0xa1-0xfe, low_byte: 0x40-0x7e, id:502 gh:503
 				 * 0xa1-0xfe (radicals: 0x00-0x3e, 0x3f-0x9c) big5 radix is
 				 * 0x9d.                     [region_low, region_high] We
 				 * should remember big5 has two different regions (above).
@@ -242,7 +242,7 @@ static unsigned short BinarySearchRange
 					 : (low >= 0xa1 ? +0x22 : 0));
 
 				/*
-				 * NOTE: we have to convert the distance into a code point.
+				 * NOTE: we have to convert the distance into a code point. id:610 gh:611
 				 * The code point's low_byte is 0x21 plus mod_0x5e. In the
 				 * first, we extract the mod_0x5e of the starting code point,
 				 * subtracting 0x21, and add distance to it. Then we calculate
@@ -260,14 +260,14 @@ static unsigned short BinarySearchRange
 				tmp = ((code & 0xff00) - (array[mid].code & 0xff00)) >> 8;
 
 				/*
-				 * NOTE: ISO charsets ranges between 0x21-0xfe (94charset).
+				 * NOTE: ISO charsets ranges between 0x21-0xfe (94charset). id:647 gh:648
 				 * Its radix is 0x5e. But there is no distance bias like big5.
 				 */
 				distance = tmp * 0x5e
 					+ ((int) (code & 0x00ff) - (int) (array[mid].code & 0x00ff));
 
 				/*
-				 * NOTE: Similar to big5 to cns conversion, we extract
+				 * NOTE: Similar to big5 to cns conversion, we extract id:480 gh:481
 				 * mod_0x9d and restore mod_0x9d into a code point.
 				 */
 				low = array[mid].peer & 0x00ff;

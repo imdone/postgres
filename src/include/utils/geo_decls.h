@@ -8,12 +8,12 @@
  *
  * src/include/utils/geo_decls.h
  *
- * NOTE
+ * NOTE id:682 gh:683
  *	  These routines do *not* use the float types from adt/.
  *
- *	  XXX These routines were not written by a numerical analyst.
+ *	  XXX These routines were not written by a numerical analyst. id:604 gh:605
  *
- *	  XXX I have made some attempt to flesh out the operators
+ *	  XXX I have made some attempt to flesh out the operators id:568 gh:569
  *		and data types. There are still some more to do. - tgl 97/04/19
  *
  *-------------------------------------------------------------------------

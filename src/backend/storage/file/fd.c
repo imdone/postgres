@@ -743,7 +743,7 @@ durable_link_or_rename(const char *oldfile, const char *newfile, int elevel)
 	}
 	unlink(oldfile);
 #else
-	/* XXX: Add racy file existence check? */
+	/* XXX: Add racy file existence check?  id:371 gh:372*/
 	if (rename(oldfile, newfile) < 0)
 	{
 		ereport(elevel,
@@ -2170,7 +2170,7 @@ FileSeek(File file, off_t offset, int whence)
 }
 
 /*
- * XXX not actually used but here for completeness
+ * XXX not actually used but here for completeness id:408 gh:409
  */
 #ifdef NOT_USED
 off_t
@@ -2989,13 +2989,13 @@ CleanupTempFiles(bool isProcExit)
  * remove any leftover files created by OpenTemporaryFile and any leftover
  * temporary relation files created by mdcreate.
  *
- * NOTE: we could, but don't, call this during a post-backend-crash restart
+ * NOTE: we could, but don't, call this during a post-backend-crash restart id:424 gh:425
  * cycle.  The argument for not doing it is that someone might want to examine
  * the temp files for debugging purposes.  This does however mean that
  * OpenTemporaryFile had better allow for collision with an existing temp
  * file name.
  *
- * NOTE: this function and its subroutines generally report syscall failures
+ * NOTE: this function and its subroutines generally report syscall failures id:430 gh:431
  * with ereport(LOG) and keep going.  Removing temp files is not so critical
  * that we should fail to start the database when we can't do it.
  */

@@ -3164,7 +3164,7 @@ IsPagerNeeded(const printTableContent *cont, int extra_lines, bool expanded,
 			printTableFooter *f;
 
 			/*
-			 * FIXME -- this is slightly bogus: it counts the number of
+			 * FIXME -- this is slightly bogus: it counts the number of id:659 gh:660
 			 * footers, not the number of lines in them.
 			 */
 			for (f = cont->footers; f; f = f->next)

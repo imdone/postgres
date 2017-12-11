@@ -1344,7 +1344,7 @@ pg_newlocale_from_collation(Oid collid)
 #else
 
 				/*
-				 * XXX The _create_locale() API doesn't appear to support
+				 * XXX The _create_locale() API doesn't appear to support id:529 gh:530
 				 * this. Could perhaps be worked around by changing
 				 * pg_locale_t to contain two separate fields.
 				 */

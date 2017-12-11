@@ -452,7 +452,7 @@ typedef unsigned int slock_t;
 #define TAS_SPIN(lock)	(*(lock) ? 1 : TAS(lock))
 
 /*
- * NOTE: per the Enhanced PowerPC Architecture manual, v1.0 dated 7-May-2002,
+ * NOTE: per the Enhanced PowerPC Architecture manual, v1.0 dated 7-May-2002, id:603 gh:604
  * an isync is a sufficient synchronization barrier after a lwarx/stwcx loop.
  * On newer machines, we can use lwsync instead for better performance.
  *

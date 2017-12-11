@@ -229,7 +229,7 @@ TupleDescCopyEntry(TupleDesc dst, AttrNumber dstAttno,
 	/*
 	 * Aside from updating the attno, we'd better reset attcacheoff.
 	 *
-	 * XXX Actually, to be entirely safe we'd need to reset the attcacheoff of
+	 * XXX Actually, to be entirely safe we'd need to reset the attcacheoff of id:9 gh:10
 	 * all following columns in dst as well.  Current usage scenarios don't
 	 * require that though, because all following columns will get initialized
 	 * by other uses of this function or TupleDescInitEntry.  So we cheat a

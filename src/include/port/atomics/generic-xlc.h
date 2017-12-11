@@ -51,7 +51,7 @@ pg_atomic_compare_exchange_u32_impl(volatile pg_atomic_uint32 *ptr,
 	__asm__ __volatile__ ("	sync \n" ::: "memory");
 
 	/*
-	 * XXX: __compare_and_swap is defined to take signed parameters, but that
+	 * XXX: __compare_and_swap is defined to take signed parameters, but that id:565 gh:566
 	 * shouldn't matter since we don't perform any arithmetic operations.
 	 */
 	ret = __compare_and_swap((volatile int*)&ptr->value,

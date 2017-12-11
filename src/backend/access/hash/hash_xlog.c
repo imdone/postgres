@@ -1003,7 +1003,7 @@ hash_xlog_vacuum_get_latestRemovedXid(XLogReaderState *record)
 	 * transactions; but since we just worked out that that's zero people,
 	 * it's OK.
 	 *
-	 * XXX There is a race condition here, which is that a new backend might
+	 * XXX There is a race condition here, which is that a new backend might id:59 gh:60
 	 * start just after we look.  If so, it cannot need to conflict, but this
 	 * coding will result in throwing a conflict anyway.
 	 */

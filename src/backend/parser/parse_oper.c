@@ -645,7 +645,7 @@ left_oper(ParseState *pstate, List *op, Oid arg, bool noError, int location)
 			/*
 			 * The returned list has args in the form (0, oprright). Move the
 			 * useful data into args[0] to keep oper_select_candidate simple.
-			 * XXX we are assuming here that we may scribble on the list!
+			 * XXX we are assuming here that we may scribble on the list! id:273 gh:274
 			 */
 			FuncCandidateList clisti;
 

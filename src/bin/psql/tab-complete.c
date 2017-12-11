@@ -2707,7 +2707,7 @@ psql_completion(const char *text, int start, int end)
 	/* Complete DELETE FROM <table> */
 	else if (TailMatches3("DELETE", "FROM", MatchAny))
 		COMPLETE_WITH_LIST2("USING", "WHERE");
-	/* XXX: implement tab completion for DELETE ... USING */
+	/* XXX: implement tab completion for DELETE ... USING  id:556 gh:557*/
 
 /* DISCARD */
 	else if (Matches1("DISCARD"))
@@ -3428,7 +3428,7 @@ psql_completion(const char *text, int start, int end)
 		COMPLETE_WITH_ATTR(prev2_wd, "");
 
 /* ... FROM ... */
-/* TODO: also include SRF ? */
+/* TODO: also include SRF ?  id:637 gh:639*/
 	else if (TailMatches1("FROM") && !Matches3("COPY|\\copy", MatchAny, "FROM"))
 		COMPLETE_WITH_SCHEMA_QUERY(Query_for_list_of_tsvmf, NULL);
 
@@ -3437,7 +3437,7 @@ psql_completion(const char *text, int start, int end)
 		COMPLETE_WITH_SCHEMA_QUERY(Query_for_list_of_tsvmf, NULL);
 
 /* Backslash commands */
-/* TODO:  \dc \dd \dl */
+/* TODO: \dc \dd \dl  id:621 gh:622*/
 	else if (TailMatchesCS1("\\?"))
 		COMPLETE_WITH_LIST_CS3("commands", "options", "variables");
 	else if (TailMatchesCS1("\\connect|\\c"))

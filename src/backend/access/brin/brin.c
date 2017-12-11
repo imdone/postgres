@@ -533,7 +533,7 @@ bringetbitmap(IndexScanDesc scan, TIDBitmap *tbm)
 		ReleaseBuffer(buf);
 
 	/*
-	 * XXX We have an approximation of the number of *pages* that our scan
+	 * XXX We have an approximation of the number of *pages* that our scan id:54 gh:55
 	 * returns, but we don't have a precise idea of the number of heap tuples
 	 * involved.
 	 */

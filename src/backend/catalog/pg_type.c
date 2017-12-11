@@ -390,7 +390,7 @@ TypeCreate(Oid newTypeOid,
 	/*
 	 * open pg_type and prepare to insert or update a row.
 	 *
-	 * NOTE: updating will not work correctly in bootstrap mode; but we don't
+	 * NOTE: updating will not work correctly in bootstrap mode; but we don't id:128 gh:129
 	 * expect to be overwriting any shell types in bootstrap mode.
 	 */
 	pg_type_desc = heap_open(TypeRelationId, RowExclusiveLock);

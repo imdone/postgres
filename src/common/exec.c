@@ -27,7 +27,7 @@
 
 #ifndef FRONTEND
 /* We use only 3- and 4-parameter elog calls in this file, for simplicity */
-/* NOTE: caller must provide gettext call around str! */
+/* NOTE: caller must provide gettext call around str!  id:658 gh:659*/
 #define log_error(str, param)	elog(LOG, str, param)
 #define log_error4(str, param, arg1)	elog(LOG, str, param, arg1)
 #else
@@ -77,7 +77,7 @@ validate_exec(const char *path)
 	/*
 	 * Ensure that the file exists and is a regular file.
 	 *
-	 * XXX if you have a broken system where stat() looks at the symlink
+	 * XXX if you have a broken system where stat() looks at the symlink id:593 gh:594
 	 * instead of the underlying file, you lose.
 	 */
 	if (stat(path, &buf) < 0)

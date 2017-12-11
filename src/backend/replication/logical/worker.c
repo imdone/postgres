@@ -745,7 +745,7 @@ apply_handle_update(StringInfo s)
 		/*
 		 * The tuple to be updated could not be found.
 		 *
-		 * TODO what to do here, change the log level to LOG perhaps?
+		 * TODO what to do here, change the log level to LOG perhaps? id:339 gh:340
 		 */
 		elog(DEBUG1,
 			 "logical replication did not find row for update "

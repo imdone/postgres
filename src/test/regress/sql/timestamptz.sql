@@ -9,7 +9,7 @@ CREATE TABLE TIMESTAMPTZ_TBL (d1 timestamp(2) with time zone);
 -- equality instead.  We can do that by running the test inside a transaction
 -- block, within which the value of 'now' shouldn't change.  We also check
 -- that 'now' *does* change over a reasonable interval such as 100 msec.
--- NOTE: it is possible for this part of the test to fail if the transaction
+-- NOTE: it is possible for this part of the test to fail if the transaction id:730 gh:731
 -- block is entered exactly at local midnight; then 'now' and 'today' have
 -- the same values and the counts will come out different.
 

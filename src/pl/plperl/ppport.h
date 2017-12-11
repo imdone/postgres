@@ -5943,7 +5943,7 @@ DPPP_(my_warner)(U32 err, const char *pat, ...)
        MAGIC *mg;                                           \
        sv_magic(SvMp_sv, obj, how, 0, 0);                   \
        mg = SvMAGIC(SvMp_sv);                               \
-       mg->mg_len = -42; /* XXX: this is the tricky part */ \
+       mg->mg_len = -42; /* XXX: this is the tricky part  id:723 gh:724*/ \
        mg->mg_ptr = SvMp_name;                              \
      }                                                      \
      else                                                   \
@@ -6322,7 +6322,7 @@ DPPP_(my_grok_number)(pTHX_ const char *pv, STRLEN len, UV *valuep)
     }
     sawinf = 1;
   } else if (*s == 'N' || *s == 'n') {
-    /* XXX TODO: There are signaling NaNs and quiet NaNs. */
+    /* XXX TODO: There are signaling NaNs and quiet NaNs.  id:692 gh:693*/
     s++; if (s == send || (*s != 'A' && *s != 'a')) return 0;
     s++; if (s == send || (*s != 'N' && *s != 'n')) return 0;
     s++;

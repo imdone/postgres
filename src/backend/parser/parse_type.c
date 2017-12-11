@@ -111,7 +111,7 @@ LookupTypeName(ParseState *pstate, const TypeName *typeName,
 		/*
 		 * Look up the field.
 		 *
-		 * XXX: As no lock is taken here, this might fail in the presence of
+		 * XXX: As no lock is taken here, this might fail in the presence of id:304 gh:305
 		 * concurrent DDL.  But taking a lock would carry a performance
 		 * penalty and would also require a permissions check.
 		 */

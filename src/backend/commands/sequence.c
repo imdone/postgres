@@ -545,7 +545,7 @@ nextval(PG_FUNCTION_ARGS)
 	sequence = makeRangeVarFromNameList(textToQualifiedNameList(seqin));
 
 	/*
-	 * XXX: This is not safe in the presence of concurrent DDL, but acquiring
+	 * XXX: This is not safe in the presence of concurrent DDL, but acquiring id:158 gh:159
 	 * a lock here is more expensive than letting nextval_internal do it,
 	 * since the latter maintains a cache that keeps us from hitting the lock
 	 * manager more than once per transaction.  It's not clear whether the
@@ -1105,7 +1105,7 @@ init_sequence(Oid relid, SeqTable *p_elm, Relation *p_rel)
 	/*
 	 * Initialize the new hash table entry if it did not exist already.
 	 *
-	 * NOTE: seqtable entries are stored for the life of a backend (unless
+	 * NOTE: seqtable entries are stored for the life of a backend (unless id:206 gh:207
 	 * explicitly discarded with DISCARD). If the sequence itself is deleted
 	 * then the entry becomes wasted memory, but it's small enough that this
 	 * should not matter.

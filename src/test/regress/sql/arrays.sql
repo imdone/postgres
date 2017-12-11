@@ -476,7 +476,7 @@ create type comptype as (f1 int, f2 text);
 
 create table comptable (c1 comptype, c2 comptype[]);
 
--- XXX would like to not have to specify row() construct types here ...
+-- XXX would like to not have to specify row() construct types here ... id:749 gh:750
 insert into comptable
   values (row(1,'foo'), array[row(2,'bar')::comptype, row(3,'baz')::comptype]);
 

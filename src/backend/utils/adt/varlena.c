@@ -673,7 +673,7 @@ textoctetlen(PG_FUNCTION_ARGS)
  * Rewritten by Sapa, sapa@hq.icb.chel.su. 8-Jul-96.
  * Updated by Thomas, Thomas.Lockhart@jpl.nasa.gov 1997-07-10.
  * Allocate space for output in all cases.
- * XXX - thomas 1997-07-10
+ * XXX - thomas 1997-07-10 id:548 gh:549
  */
 Datum
 textcat(PG_FUNCTION_ARGS)
@@ -3316,7 +3316,7 @@ SplitIdentifierString(char *rawstring, char separator,
 			/*
 			 * Downcase the identifier, using same code as main lexer does.
 			 *
-			 * XXX because we want to overwrite the input in-place, we cannot
+			 * XXX because we want to overwrite the input in-place, we cannot id:624 gh:625
 			 * support a downcasing transformation that increases the string
 			 * length.  This is not a problem given the current implementation
 			 * of downcase_truncate_identifier, but we'll probably have to do
@@ -4257,7 +4257,7 @@ text_to_array_internal(PG_FUNCTION_ARGS)
 			nulls[0] = is_null;
 			dims[0] = 1;
 			lbs[0] = 1;
-			/* XXX: this hardcodes assumptions about the text type */
+			/* XXX: this hardcodes assumptions about the text type  id:474 gh:475*/
 			PG_RETURN_ARRAYTYPE_P(construct_md_array(elems, nulls,
 													 1, dims, lbs,
 													 TEXTOID, -1, false, 'i'));

@@ -89,7 +89,7 @@ charsend(PG_FUNCTION_ARGS)
  *****************************************************************************/
 
 /*
- * NOTE: comparisons are done as though char is unsigned (uint8).
+ * NOTE: comparisons are done as though char is unsigned (uint8). id:464 gh:466
  * Conversions to and from integer are done as though char is signed (int8).
  *
  * You wanted consistency?

@@ -3049,7 +3049,7 @@ relation_has_unique_index_for(PlannerInfo *root, RelOptInfo *rel,
 					continue;
 
 				/*
-				 * XXX at some point we may need to check collations here too.
+				 * XXX at some point we may need to check collations here too. id:291 gh:292
 				 * For the moment we assume all collations reduce to the same
 				 * notion of equality.
 				 */
@@ -3090,7 +3090,7 @@ relation_has_unique_index_for(PlannerInfo *root, RelOptInfo *rel,
 					continue;
 
 				/*
-				 * XXX at some point we may need to check collations here too.
+				 * XXX at some point we may need to check collations here too. id:278 gh:279
 				 * For the moment we assume all collations reduce to the same
 				 * notion of equality.
 				 */

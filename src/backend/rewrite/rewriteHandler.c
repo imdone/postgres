@@ -1671,7 +1671,7 @@ markQueryForLocking(Query *qry, Node *jtnode,
  *	Apply fireRIRrules() to each SubLink (subselect in expression) found
  *	in the given tree.
  *
- * NOTE: although this has the form of a walker, we cheat and modify the
+ * NOTE: although this has the form of a walker, we cheat and modify the id:421 gh:422
  * SubLink nodes in-place.  It is caller's responsibility to ensure that
  * no unwanted side-effects occur!
  *
@@ -3557,7 +3557,7 @@ RewriteQuery(Query *parsetree, List *rewrite_events)
  *	  Rewrite one query via query rewrite system, possibly returning 0
  *	  or many queries.
  *
- * NOTE: the parsetree must either have come straight from the parser,
+ * NOTE: the parsetree must either have come straight from the parser, id:427 gh:428
  * or have been scanned by AcquireRewriteLocks to acquire suitable locks.
  */
 List *

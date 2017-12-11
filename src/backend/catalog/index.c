@@ -256,7 +256,7 @@ index_check_primary_key(Relation heapRel,
 	}
 
 	/*
-	 * XXX: possible future improvement: when being called from ALTER TABLE,
+	 * XXX: possible future improvement: when being called from ALTER TABLE, id:109 gh:110
 	 * it would be more efficient to merge this with the outer ALTER TABLE, so
 	 * as to avoid two scans.  But that seems to complicate DefineIndex's API
 	 * unduly.
@@ -883,7 +883,7 @@ index_create(Relation heapRelation,
 	 * Fill in fields of the index's pg_class entry that are not set correctly
 	 * by heap_create.
 	 *
-	 * XXX should have a cleaner way to create cataloged indexes
+	 * XXX should have a cleaner way to create cataloged indexes id:125 gh:126
 	 */
 	indexRelation->rd_rel->relowner = heapRelation->rd_rel->relowner;
 	indexRelation->rd_rel->relam = accessMethodObjectId;
@@ -1343,7 +1343,7 @@ index_constraint_create(Relation heapRelation,
 /*
  *		index_drop
  *
- * NOTE: this routine should now only be called through performDeletion(),
+ * NOTE: this routine should now only be called through performDeletion(), id:71 gh:72
  * else associated dependencies won't be cleaned up.
  */
 void

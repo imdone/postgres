@@ -219,7 +219,7 @@ mdinit(void)
 		HASHCTL		hash_ctl;
 
 		/*
-		 * XXX: The checkpointer needs to add entries to the pending ops table
+		 * XXX: The checkpointer needs to add entries to the pending ops table id:378 gh:379
 		 * when absorbing fsync requests.  That is done within a critical
 		 * section, which isn't usually allowed, but we make an exception. It
 		 * means that there's a theoretical possibility that you run out of
@@ -932,7 +932,7 @@ mdtruncate(SMgrRelation reln, ForkNumber forknum, BlockNumber nblocks)
 	int			curopensegs;
 
 	/*
-	 * NOTE: mdnblocks makes sure we have opened all active segments, so that
+	 * NOTE: mdnblocks makes sure we have opened all active segments, so that id:518 gh:519
 	 * truncation loop will get them all!
 	 */
 	curnblk = mdnblocks(reln, forknum);
@@ -987,7 +987,7 @@ mdtruncate(SMgrRelation reln, ForkNumber forknum, BlockNumber nblocks)
 		{
 			/*
 			 * This is the last segment we want to keep. Truncate the file to
-			 * the right length. NOTE: if nblocks is exactly a multiple K of
+			 * the right length. NOTE: if nblocks is exactly a multiple K of id:457 gh:458
 			 * RELSEG_SIZE, we will truncate the K+1st segment to 0 length but
 			 * keep it. This adheres to the invariant given in the header
 			 * comments.
@@ -1027,7 +1027,7 @@ mdimmedsync(SMgrRelation reln, ForkNumber forknum)
 	int			segno;
 
 	/*
-	 * NOTE: mdnblocks makes sure we have opened all active segments, so that
+	 * NOTE: mdnblocks makes sure we have opened all active segments, so that id:437 gh:438
 	 * fsync loop will get them all!
 	 */
 	mdnblocks(reln, forknum);
@@ -1480,7 +1480,7 @@ register_unlink(RelFileNodeBackend rnode)
 		 * message, we have to sleep and try again, because we can't simply
 		 * delete the file now.  Ugly, but hopefully won't happen often.
 		 *
-		 * XXX should we just leave the file orphaned instead?
+		 * XXX should we just leave the file orphaned instead? id:356 gh:357
 		 */
 		Assert(IsUnderPostmaster);
 		while (!ForwardFsyncRequest(rnode.node, MAIN_FORKNUM,
@@ -1663,7 +1663,7 @@ ForgetRelationFsyncRequests(RelFileNode rnode, ForkNumber forknum)
 		 * message, we have to sleep and try again ... ugly, but hopefully
 		 * won't happen often.
 		 *
-		 * XXX should we CHECK_FOR_INTERRUPTS in this loop?  Escaping with an
+		 * XXX should we CHECK_FOR_INTERRUPTS in this loop?  Escaping with an id:379 gh:380
 		 * error would leave the no-longer-used file still present on disk,
 		 * which would be bad, so I'm inclined to assume that the checkpointer
 		 * will always empty the queue soon.

@@ -84,7 +84,7 @@ typedef enum
 	EVENT_TRIGGER_COMMAND_TAG_NOT_RECOGNIZED
 } event_trigger_command_tag_check_result;
 
-/* XXX merge this with ObjectTypeMap? */
+/* XXX merge this with ObjectTypeMap?  id:202 gh:203*/
 static event_trigger_support_data event_trigger_support[] = {
 	{"ACCESS METHOD", true},
 	{"AGGREGATE", true},
@@ -2129,7 +2129,7 @@ pg_event_trigger_ddl_commands(PG_FUNCTION_ARGS)
 								elog(ERROR,
 									 "invalid null namespace in object %u/%u/%d",
 									 addr.classId, addr.objectId, addr.objectSubId);
-							/* XXX not quite get_namespace_name_or_temp */
+							/* XXX not quite get_namespace_name_or_temp  id:186 gh:188*/
 							if (isAnyTempNamespace(schema_oid))
 								schema = pstrdup("pg_temp");
 							else

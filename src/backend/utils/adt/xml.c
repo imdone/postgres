@@ -503,7 +503,7 @@ xmlcomment(PG_FUNCTION_ARGS)
 
 
 /*
- * TODO: xmlconcat needs to merge the notations and unparsed entities
+ * TODO: xmlconcat needs to merge the notations and unparsed entities id:506 gh:507
  * of the argument values.  Not very important in practice, though.
  */
 xmltype *
@@ -938,7 +938,7 @@ xml_is_document(xmltype *arg)
  * and verifies compatibility with the loaded libxml version.  These are
  * once-per-session activities.
  *
- * TODO: xmlChar is utf8-char, make proper tuning (initdb with enc!=utf8 and
+ * TODO: xmlChar is utf8-char, make proper tuning (initdb with enc!=utf8 and id:497 gh:498
  * check)
  */
 void
@@ -1365,7 +1365,7 @@ print_xml_decl(StringInfo buf, const xmlChar *version,
 		if (encoding && encoding != PG_UTF8)
 		{
 			/*
-			 * XXX might be useful to convert this to IANA names (ISO-8859-1
+			 * XXX might be useful to convert this to IANA names (ISO-8859-1 id:549 gh:550
 			 * instead of LATIN1 etc.); needs field experience
 			 */
 			appendStringInfo(buf, " encoding=\"%s\"",
@@ -2511,7 +2511,7 @@ xmldata_root_element_start(StringInfo result, const char *eltname,
 	}
 	if (xmlschema)
 	{
-		/* FIXME: better targets */
+		/* FIXME: better targets  id:625 gh:626*/
 		if (strlen(targetns) > 0)
 			appendStringInfo(result, " xsi:schemaLocation=\"%s #\"", targetns);
 		else

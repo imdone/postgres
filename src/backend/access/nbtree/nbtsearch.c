@@ -438,7 +438,7 @@ _bt_compare(Relation rel,
 
 	/*
 	 * Force result ">" if target item is first data item on an internal page
-	 * --- see NOTE above.
+	 * --- see NOTE above. id:118 gh:119
 	 */
 	if (!P_ISLEAF(opaque) && offnum == P_FIRSTDATAKEY(opaque))
 		return 1;

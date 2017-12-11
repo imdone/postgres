@@ -739,7 +739,7 @@ FROM pg_operator as p1 LEFT JOIN pg_description as d
 WHERE d.classoid IS NULL AND p1.oid <= 9999;
 
 -- Check that operators' underlying functions have suitable comments,
--- namely 'implementation of XXX operator'.  (Note: it's not necessary to
+-- namely 'implementation of XXX operator'.  (Note: it's not necessary to id:698 gh:699
 -- put such comments into pg_proc.h; initdb will generate them as needed.)
 -- In some cases involving legacy names for operators, there are multiple
 -- operators referencing the same pg_proc entry, so ignore operators whose
@@ -821,7 +821,7 @@ WHERE a.aggfnoid = p.oid AND
     a.aggfinalfn = 0 AND p.prorettype != a.aggtranstype;
 
 -- Cross-check transfn against its entry in pg_proc.
--- NOTE: use physically_coercible here, not binary_coercible, because
+-- NOTE: use physically_coercible here, not binary_coercible, because id:715 gh:716
 -- max and min on abstime are implemented using int4larger/int4smaller.
 SELECT a.aggfnoid::oid, p.proname, ptr.oid, ptr.proname
 FROM pg_aggregate AS a, pg_proc AS p, pg_proc AS ptr
@@ -976,7 +976,7 @@ WHERE a.aggfnoid = p.oid AND
 
 -- Check that all combine functions have signature
 -- combine(transtype, transtype) returns transtype
--- NOTE: use physically_coercible here, not binary_coercible, because
+-- NOTE: use physically_coercible here, not binary_coercible, because id:701 gh:702
 -- max and min on abstime are implemented using int4larger/int4smaller.
 
 SELECT a.aggfnoid, p.proname

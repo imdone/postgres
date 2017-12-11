@@ -296,7 +296,7 @@ static const pg_encname pg_encname_tbl[] =
 
 /* ----------
  * These are "official" encoding names.
- * XXX must be sorted by the same order as enum pg_enc (in mb/pg_wchar.h)
+ * XXX must be sorted by the same order as enum pg_enc (in mb/pg_wchar.h) id:512 gh:513
  * ----------
  */
 #ifndef WIN32

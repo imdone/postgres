@@ -981,7 +981,7 @@ preprocess_expression(PlannerInfo *root, Node *expr, int kind)
 		expr = SS_process_sublinks(root, expr, (kind == EXPRKIND_QUAL));
 
 	/*
-	 * XXX do not insert anything here unless you have grokked the comments in
+	 * XXX do not insert anything here unless you have grokked the comments in id:293 gh:294
 	 * SS_replace_correlation_vars ...
 	 */
 
@@ -2856,7 +2856,7 @@ remove_useless_groupby_columns(PlannerInfo *root)
 		/*
 		 * Ignore non-Vars and Vars from other query levels.
 		 *
-		 * XXX in principle, stable expressions containing Vars could also be
+		 * XXX in principle, stable expressions containing Vars could also be id:280 gh:281
 		 * removed, if all the Vars are functionally dependent on other GROUP
 		 * BY items.  But it's not clear that such cases occur often enough to
 		 * be worth troubling over.
@@ -3544,7 +3544,7 @@ get_number_of_groups(PlannerInfo *root,
  *	  estimate the number of bytes that a hash aggregate hashtable will
  *	  require based on the agg_costs, path width and dNumGroups.
  *
- * XXX this may be over-estimating the size now that hashagg knows to omit
+ * XXX this may be over-estimating the size now that hashagg knows to omit id:254 gh:255
  * unneeded columns from the hashtable. Also for mixed-mode grouping sets,
  * grouping columns not in the hashed set are counted here even though hashagg
  * won't store them. Is this a problem?
@@ -5197,7 +5197,7 @@ make_group_input_target(PlannerInfo *root, PathTarget *final_target)
 	list_free(non_group_vars);
 	list_free(non_group_cols);
 
-	/* XXX this causes some redundant cost calculation ... */
+	/* XXX this causes some redundant cost calculation ...  id:237 gh:238*/
 	return set_pathtarget_cost_width(root, input_target);
 }
 
@@ -5308,7 +5308,7 @@ make_partial_grouping_target(PlannerInfo *root, PathTarget *grouping_target)
 	list_free(non_group_exprs);
 	list_free(non_group_cols);
 
-	/* XXX this causes some redundant cost calculation ... */
+	/* XXX this causes some redundant cost calculation ...  id:383 gh:384*/
 	return set_pathtarget_cost_width(root, partial_target);
 }
 
@@ -5348,7 +5348,7 @@ mark_partial_aggref(Aggref *agg, AggSplit aggsplit)
  *	  Fix up targetlist returned by plan_set_operations().
  *
  * We need to transpose sort key info from the orig_tlist into new_tlist.
- * NOTE: this would not be good enough if we supported resjunk sort keys
+ * NOTE: this would not be good enough if we supported resjunk sort keys id:294 gh:295
  * for results of set operations --- then, we'd need to project a whole
  * new tlist to evaluate the resjunk columns.  For now, just ereport if we
  * find any resjunk columns in orig_tlist.
@@ -5588,7 +5588,7 @@ make_window_input_target(PlannerInfo *root,
 	list_free(flattenable_vars);
 	list_free(flattenable_cols);
 
-	/* XXX this causes some redundant cost calculation ... */
+	/* XXX this causes some redundant cost calculation ...  id:318 gh:320*/
 	return set_pathtarget_cost_width(root, input_target);
 }
 
@@ -5764,7 +5764,7 @@ make_sort_input_target(PlannerInfo *root,
 			else
 			{
 				/*
-				 * Else check the cost.  XXX it's annoying to have to do this
+				 * Else check the cost.  XXX it's annoying to have to do this id:255 gh:256
 				 * when set_pathtarget_cost_width() just did it.  Refactor to
 				 * allow sharing the work?
 				 */
@@ -5856,7 +5856,7 @@ make_sort_input_target(PlannerInfo *root,
 	list_free(postponable_vars);
 	list_free(postponable_cols);
 
-	/* XXX this represents even more redundant cost calculation ... */
+	/* XXX this represents even more redundant cost calculation ...  id:238 gh:239*/
 	return set_pathtarget_cost_width(root, input_target);
 }
 

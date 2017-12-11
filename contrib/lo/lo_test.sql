@@ -8,7 +8,7 @@ SET search_path = public;
 --
 -- It's used just for development
 --
--- XXX would be nice to turn this into a proper regression test
+-- XXX would be nice to turn this into a proper regression test id:26 gh:27
 --
 
 -- Check what is in pg_largeobject

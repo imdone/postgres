@@ -342,7 +342,7 @@ PortalCreateHoldStore(Portal portal)
 	 * Create the tuple store, selecting cross-transaction temp files, and
 	 * enabling random access only if cursor requires scrolling.
 	 *
-	 * XXX: Should maintenance_work_mem be used for the portal size?
+	 * XXX: Should maintenance_work_mem be used for the portal size? id:514 gh:515
 	 */
 	oldcxt = MemoryContextSwitchTo(portal->holdContext);
 

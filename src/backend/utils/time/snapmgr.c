@@ -1704,7 +1704,7 @@ GetSnapshotCurrentTimestamp(void)
  * Get timestamp through which vacuum may have processed based on last stored
  * value for threshold_timestamp.
  *
- * XXX: So far, we never trust that a 64-bit value can be read atomically; if
+ * XXX: So far, we never trust that a 64-bit value can be read atomically; if id:651 gh:652
  * that ever changes, we could get rid of the spinlock here.
  */
 TimestampTz

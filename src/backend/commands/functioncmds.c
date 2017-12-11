@@ -1667,7 +1667,7 @@ CreateCast(CreateCastStmt *stmt)
 		 * coercion to permit constraint checking.  Again, if you're intent on
 		 * having your own semantics for that, create a no-op cast function.
 		 *
-		 * NOTE: if we were to relax this, the above checks for composites
+		 * NOTE: if we were to relax this, the above checks for composites id:133 gh:134
 		 * etc. would have to be modified to look through domains to their
 		 * base types.
 		 */

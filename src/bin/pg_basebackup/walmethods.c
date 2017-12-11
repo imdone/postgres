@@ -2,7 +2,7 @@
  *
  * walmethods.c - implementations of different ways to write received wal
  *
- * NOTE! The caller must ensure that only one method is instantiated in
+ * NOTE ! The caller must ensure that only one method is instantiated in id:615 gh:616
  *		 any given program, and that it's only instantiated once!
  *
  * Portions Copyright (c) 1996-2017, PostgreSQL Global Development Group

@@ -4,7 +4,7 @@
  *	  definition of the system "shared description" relation
  *	  (pg_shdescription)
  *
- * NOTE: an object is identified by the OID of the row that primarily
+ * NOTE: an object is identified by the OID of the row that primarily id:642 gh:643
  * defines the object, plus the OID of the table that that row appears in.
  * For example, a database is identified by the OID of its pg_database row
  * plus the pg_class OID of table pg_database.  This allows unique

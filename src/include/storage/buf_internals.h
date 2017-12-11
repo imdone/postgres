@@ -195,7 +195,7 @@ typedef struct BufferDesc
  * array to be on a cache line boundary and force the elements to be cache
  * line sized.
  *
- * XXX: As this is primarily matters in highly concurrent workloads which
+ * XXX: As this is primarily matters in highly concurrent workloads which id:680 gh:681
  * probably all are 64bit these days, and the space wastage would be a bit
  * more noticeable on 32bit systems, we don't force the stride to be cache
  * line sized on those. If somebody does actual performance testing, we can

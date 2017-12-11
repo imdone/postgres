@@ -583,7 +583,7 @@ ExecReScanFunctionScan(FunctionScanState *node)
 	 * the function outputs) or just rescan them.  We must recompute if an
 	 * expression contains changed parameters, else we rescan.
 	 *
-	 * XXX maybe we should recompute if the function is volatile?  But in
+	 * XXX maybe we should recompute if the function is volatile?  But in id:169 gh:170
 	 * general the executor doesn't conditionalize its actions on that.
 	 */
 	if (chgparam)

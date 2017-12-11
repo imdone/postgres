@@ -43,7 +43,7 @@ void		win32_pthread_once(volatile pthread_once_t *once, void (*fn) (void));
 #define pthread_setspecific(key, value) \
 	TlsSetValue((key), (value))
 
-/* FIXME: destructor is never called in Win32. */
+/* FIXME: destructor is never called in Win32.  id:735 gh:736*/
 #define pthread_key_create(key, destructor) \
 	do { *(key) = TlsAlloc(); ((void)(destructor)); } while(0)
 

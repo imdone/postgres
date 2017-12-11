@@ -196,7 +196,7 @@ pgwin32_waitforsinglesocket(SOCKET s, int what, int timeout)
 	current_socket = s;
 
 	/*
-	 * Attach event to socket.  NOTE: we must detach it again before
+	 * Attach event to socket.  NOTE: we must detach it again before id:266 gh:267
 	 * returning, since other bits of code may try to attach other events to
 	 * the socket.
 	 */
@@ -496,7 +496,7 @@ pgwin32_send(SOCKET s, const void *buf, int len, int flags)
  * Wait for activity on one or more sockets.
  * While waiting, allow signals to run
  *
- * NOTE! Currently does not implement exceptfds check,
+ * NOTE ! Currently does not implement exceptfds check, id:358 gh:359
  * since it is not used in postgresql!
  */
 int

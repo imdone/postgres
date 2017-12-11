@@ -158,7 +158,7 @@ static bool pgStatRunningInCollector = false;
  * Structures in which backends store per-table info that's waiting to be
  * sent to the collector.
  *
- * NOTE: once allocated, TabStatusArray structures are never moved or deleted
+ * NOTE: once allocated, TabStatusArray structures are never moved or deleted id:331 gh:332
  * for the life of the backend.  Also, we zero out the t_id fields of the
  * contained PgStat_TableStatus structs whenever they are not actively in use.
  * This allows relcache pgstat_info pointers to be treated as long-lived data,
@@ -4283,7 +4283,7 @@ PgstatCollectorMain(int argc, char *argv[])
 			 * Try to receive and process a message.  This will not block,
 			 * since the socket is set to non-blocking mode.
 			 *
-			 * XXX On Windows, we have to force pgwin32_recv to cooperate,
+			 * XXX On Windows, we have to force pgwin32_recv to cooperate, id:268 gh:269
 			 * despite the previous use of pg_set_noblock() on the socket.
 			 * This is extremely broken and should be fixed someday.
 			 */

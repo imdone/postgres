@@ -91,7 +91,7 @@ typedef struct core_yy_extra_type
 	/*
 	 * literalbuf is used to accumulate literal values when multiple rules are
 	 * needed to parse a single literal.  Call startlit() to reset buffer to
-	 * empty, addlit() to add text.  NOTE: the string in literalbuf is NOT
+	 * empty, addlit() to add text.  NOTE: the string in literalbuf is NOT id:679 gh:680
 	 * necessarily null-terminated, but there always IS room to add a trailing
 	 * null at offset literallen.  We store a null only when we need it.
 	 */

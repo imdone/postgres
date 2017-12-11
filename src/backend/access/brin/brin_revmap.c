@@ -387,7 +387,7 @@ brinRevmapDesummarizeRange(Relation idxrel, BlockNumber heapBlk)
 				(errcode(ERRCODE_INDEX_CORRUPTED),
 				 errmsg("corrupted BRIN index: inconsistent range map")));
 	tup = (BrinTuple *) PageGetItem(regPg, lp);
-	/* XXX apply sanity checks?  Might as well delete a bogus tuple ... */
+	/* XXX apply sanity checks?  Might as well delete a bogus tuple ...  id:7 gh:8*/
 
 	/*
 	 * We're only removing data, not reading it, so there's no need to
@@ -410,7 +410,7 @@ brinRevmapDesummarizeRange(Relation idxrel, BlockNumber heapBlk)
 	brinSetHeapBlockItemptr(revmapBuf, revmap->rm_pagesPerRange, heapBlk,
 							invalidIptr);
 	PageIndexTupleDeleteNoCompact(regPg, regOffset);
-	/* XXX record free space in FSM? */
+	/* XXX record free space in FSM?  id:18 gh:19*/
 
 	MarkBufferDirty(regBuf);
 	MarkBufferDirty(revmapBuf);

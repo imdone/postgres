@@ -180,7 +180,7 @@ _outList(StringInfo str, const List *node)
 		/*
 		 * For the sake of backward compatibility, we emit a slightly
 		 * different whitespace format for lists of nodes vs. other types of
-		 * lists. XXX: is this necessary?
+		 * lists. XXX: is this necessary? id:229 gh:230
 		 */
 		if (IsA(node, List))
 		{

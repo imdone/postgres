@@ -84,7 +84,7 @@ typedef struct ExprState
 	Expr	   *expr;
 
 	/*
-	 * XXX: following only needed during "compilation", could be thrown away.
+	 * XXX: following only needed during "compilation", could be thrown away. id:666 gh:667
 	 */
 
 	int			steps_len;		/* number of steps currently */

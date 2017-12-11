@@ -650,7 +650,7 @@ pgarch_archiveXlog(char *xlog)
  * 2) because the oldest ones will sooner become candidates for
  * recycling at time of checkpoint
  *
- * NOTE: the "oldest" comparison will presently consider all segments of
+ * NOTE: the "oldest" comparison will presently consider all segments of id:307 gh:308
  * a timeline with a smaller ID to be older than all segments of a timeline
  * with a larger ID; the net result being that past timelines are given
  * higher priority for archiving.  This seems okay, or at least not

@@ -910,7 +910,7 @@ query_is_distinct_for(Query *query, List *colnos, List *opids)
 	}
 
 	/*
-	 * XXX Are there any other cases in which we can easily see the result
+	 * XXX Are there any other cases in which we can easily see the result id:252 gh:253
 	 * must be distinct?
 	 *
 	 * If you do add more smarts to this function, be sure to update

@@ -1268,7 +1268,7 @@ patternsel(PG_FUNCTION_ARGS, Pattern_Type ptype, bool negate)
 	 * something binary-compatible but different.)	We can use it to choose
 	 * the index opfamily from which we must draw the comparison operators.
 	 *
-	 * NOTE: It would be more correct to use the PATTERN opfamilies than the
+	 * NOTE: It would be more correct to use the PATTERN opfamilies than the id:545 gh:546
 	 * simple ones, but at the moment ANALYZE will not generate statistics for
 	 * the PATTERN operators.  But our results are so approximate anyway that
 	 * it probably hardly matters.
@@ -3000,7 +3000,7 @@ mergejoinscansel(PlannerInfo *root, Node *clause,
 	double		selec;
 
 	/* Set default results if we can't figure anything out. */
-	/* XXX should default "start" fraction be a bit more than 0? */
+	/* XXX should default "start" fraction be a bit more than 0?  id:532 gh:533*/
 	*leftstart = *rightstart = 0.0;
 	*leftend = *rightend = 1.0;
 
@@ -3726,7 +3726,7 @@ estimate_num_groups(PlannerInfo *root, List *groupExprs, double input_rows,
  * 2. The "bucketsize fraction", ie, average number of entries in a bucket
  * divided by total tuples in relation.
  *
- * XXX This is really pretty bogus since we're effectively assuming that the
+ * XXX This is really pretty bogus since we're effectively assuming that the id:471 gh:472
  * distribution of hash keys will be the same after applying restriction
  * clauses as it was in the underlying relation.  However, we are not nearly
  * smart enough to figure out how the restrict clauses might change the
@@ -3823,7 +3823,7 @@ estimate_hash_bucket_stats(PlannerInfo *root, Node *hashkey, double nbuckets,
 	 * assuming that the data distribution is affected uniformly by the
 	 * restriction clauses!
 	 *
-	 * XXX Possibly better way, but much more expensive: multiply by
+	 * XXX Possibly better way, but much more expensive: multiply by id:451 gh:452
 	 * selectivity of rel's restriction clauses that mention the target Var.
 	 */
 	if (vardata.rel && vardata.rel->tuples > 0)
@@ -3930,7 +3930,7 @@ estimate_multivariate_ndistinct(PlannerInfo *root, RelOptInfo *rel,
 		 * Does this statistics object match more columns than the currently
 		 * best object?  If so, use this one instead.
 		 *
-		 * XXX This should break ties using name of the object, or something
+		 * XXX This should break ties using name of the object, or something id:494 gh:495
 		 * like that, to make the outcome stable.
 		 */
 		if (nshared > nmatches)
@@ -4005,7 +4005,7 @@ estimate_multivariate_ndistinct(PlannerInfo *root, RelOptInfo *rel,
  *	  scale needed by scalarineqsel().
  *	  Returns "true" if successful.
  *
- * XXX this routine is a hack: ideally we should look up the conversion
+ * XXX this routine is a hack: ideally we should look up the conversion id:546 gh:547
  * subroutines in pg_type.
  *
  * All numeric datatypes are simply converted to their equivalent
@@ -4038,7 +4038,7 @@ convert_to_scalar(Datum value, Oid valuetypid, double *scaledvalue,
 	 * declared input type(s) of the operator we are invoked for, so we just
 	 * error out if either is not recognized.
 	 *
-	 * XXX The histogram we are interpolating between points of could belong
+	 * XXX The histogram we are interpolating between points of could belong id:533 gh:534
 	 * to a column that's only binary-compatible with the declared type. In
 	 * essence we are assuming that the semantics of binary-compatible types
 	 * are enough alike that we can use a histogram generated with one type's
@@ -4380,10 +4380,10 @@ convert_string_datum(Datum value, Oid typid)
 		size_t		xfrmlen2 PG_USED_FOR_ASSERTS_ONLY;
 
 		/*
-		 * XXX: We could guess at a suitable output buffer size and only call
+		 * XXX: We could guess at a suitable output buffer size and only call id:472 gh:473
 		 * strxfrm twice if our guess is too small.
 		 *
-		 * XXX: strxfrm doesn't support UTF-8 encoding on Win32, it can return
+		 * XXX: strxfrm doesn't support UTF-8 encoding on Win32, it can return id:452 gh:453
 		 * bogus data or set an error. This is not really a problem unless it
 		 * crashes since it will only give an estimation error and nothing
 		 * fatal.
@@ -4820,9 +4820,9 @@ examine_variable(PlannerInfo *root, Node *node, int varRelid,
 		 * it to expressional index columns, in hopes of finding some
 		 * statistics.
 		 *
-		 * XXX it's conceivable that there are multiple matches with different
+		 * XXX it's conceivable that there are multiple matches with different id:495 gh:496
 		 * index opfamilies; if so, we need to pick one that matches the
-		 * operator we are estimating for.  FIXME later.
+		 * operator we are estimating for.  FIXME later. id:547 gh:548
 		 */
 		ListCell   *ilist;
 
@@ -5202,7 +5202,7 @@ get_variable_numdistinct(VariableStatData *vardata, bool *isdefault)
 			stadistinct = 0.0;	/* means "unknown" */
 
 		/*
-		 * XXX consider using estimate_num_groups on expressions?
+		 * XXX consider using estimate_num_groups on expressions? id:623 gh:624
 		 */
 	}
 
@@ -5278,7 +5278,7 @@ get_variable_range(PlannerInfo *root, VariableStatData *vardata, Oid sortop,
 	int			i;
 
 	/*
-	 * XXX It's very tempting to try to use the actual column min and max, if
+	 * XXX It's very tempting to try to use the actual column min and max, if id:473 gh:474
 	 * we can get them relatively-cheaply with an index probe.  However, since
 	 * this function is called many times during join planning, that could
 	 * have unpleasant effects on planning speed.  Need more investigation

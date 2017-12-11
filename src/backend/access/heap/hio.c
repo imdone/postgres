@@ -550,7 +550,7 @@ loop:
 	 * In addition to whatever extension we performed above, we always add at
 	 * least one block to satisfy our own request.
 	 *
-	 * XXX This does an lseek - rather expensive - but at the moment it is the
+	 * XXX This does an lseek - rather expensive - but at the moment it is the id:61 gh:62
 	 * only way to accurately determine how many blocks are in a relation.  Is
 	 * it worth keeping an accurate file length in shared memory someplace,
 	 * rather than relying on the kernel to do it for us?
@@ -601,7 +601,7 @@ loop:
 	/*
 	 * Remember the new page as our target for future insertions.
 	 *
-	 * XXX should we enter the new page into the free space map immediately,
+	 * XXX should we enter the new page into the free space map immediately, id:75 gh:76
 	 * or just keep it for this backend's exclusive use in the short run
 	 * (until VACUUM sees it)?	Seems to depend on whether you expect the
 	 * current backend to make more insertions or not, which is probably a

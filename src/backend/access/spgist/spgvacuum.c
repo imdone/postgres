@@ -848,7 +848,7 @@ spgvacuumscan(spgBulkDeleteState *bds)
 	/*
 	 * Truncate index if possible
 	 *
-	 * XXX disabled because it's unsafe due to possible concurrent inserts.
+	 * XXX disabled because it's unsafe due to possible concurrent inserts. id:90 gh:91
 	 * We'd have to rescan the pages to make sure they're still empty, and it
 	 * doesn't seem worth it.  Note that btree doesn't do this either.
 	 *

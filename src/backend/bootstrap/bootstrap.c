@@ -981,7 +981,7 @@ boot_get_type_io_data(Oid typid,
 		*typalign = ap->am_typ.typalign;
 		*typdelim = ap->am_typ.typdelim;
 
-		/* XXX this logic must match getTypeIOParam() */
+		/* XXX this logic must match getTypeIOParam()  id:123 gh:124*/
 		if (OidIsValid(ap->am_typ.typelem))
 			*typioparam = ap->am_typ.typelem;
 		else
@@ -1009,7 +1009,7 @@ boot_get_type_io_data(Oid typid,
 		/* We assume typdelim is ',' for all boot-time types */
 		*typdelim = ',';
 
-		/* XXX this logic must match getTypeIOParam() */
+		/* XXX this logic must match getTypeIOParam()  id:69 gh:70*/
 		if (OidIsValid(TypInfo[typeindex].elem))
 			*typioparam = TypInfo[typeindex].elem;
 		else
@@ -1084,7 +1084,7 @@ index_register(Oid heap,
 	MemoryContext oldcxt;
 
 	/*
-	 * XXX mao 10/31/92 -- don't gc index reldescs, associated info at
+	 * XXX mao 10/31/92 -- don't gc index reldescs, associated info at id:83 gh:84
 	 * bootstrap time.  we'll declare the indexes now, but want to create them
 	 * later.
 	 */

@@ -1068,7 +1068,7 @@ pgwin32_message_to_UTF16(const char *str, int len, int *utf16len)
 		char	   *utf8;
 
 		/*
-		 * XXX pg_do_encoding_conversion() requires a transaction.  In the
+		 * XXX pg_do_encoding_conversion() requires a transaction.  In the id:503 gh:504
 		 * absence of one, hope for the input to be valid UTF8.
 		 */
 		if (IsTransactionState())

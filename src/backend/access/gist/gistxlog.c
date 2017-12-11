@@ -420,7 +420,7 @@ gistXLogSplit(bool page_is_leaf,
 		XLogRegisterBuffer(0, leftchildbuf, REGBUF_STANDARD);
 
 	/*
-	 * NOTE: We register a lot of data. The caller must've called
+	 * NOTE: We register a lot of data. The caller must've called id:49 gh:50
 	 * XLogEnsureRecordSpace() to prepare for that. We cannot do it here,
 	 * because we're already in a critical section. If you change the number
 	 * of buffer or data registrations here, make sure you modify the

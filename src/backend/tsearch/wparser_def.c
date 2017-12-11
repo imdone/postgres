@@ -297,8 +297,8 @@ TParserInit(char *str, int len)
 	 */
 	if (prs->charmaxlen > 1)
 	{
-		Oid			collation = DEFAULT_COLLATION_OID;	/* TODO */
-		pg_locale_t mylocale = 0;	/* TODO */
+		Oid			collation = DEFAULT_COLLATION_OID;	/* TODO id:461 gh:462*/
+		pg_locale_t mylocale = 0;	/* TODO id:441 gh:442*/
 
 		prs->usewide = true;
 		if (lc_ctype_is_c(collation))
@@ -1203,7 +1203,7 @@ static const TParserStateActionItem actionTPS_InTagFirst[] = {
 static const TParserStateActionItem actionTPS_InXMLBegin[] = {
 	{p_isEOF, 0, A_POP, TPS_Null, 0, NULL},
 	/* <?xml ... */
-	/* XXX do we wants states for the m and l ?  Right now this accepts <?xZ */
+	/* XXX do we wants states for the m and l ?  Right now this accepts <?xZ  id:484 gh:485*/
 	{p_iseqC, 'x', A_NEXT, TPS_InTag, 0, NULL},
 	{NULL, 0, A_POP, TPS_Null, 0, NULL}
 };

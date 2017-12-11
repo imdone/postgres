@@ -398,7 +398,7 @@ element(struct vars *v,			/* context */
 		if (strlen(cn->name) == len &&
 			pg_char_and_wchar_strncmp(cn->name, startp, len) == 0)
 		{
-			break;				/* NOTE BREAK OUT */
+			break;				/* NOTE BREAK OUT  id:333 gh:334*/
 		}
 	}
 	if (cn->name != NULL)

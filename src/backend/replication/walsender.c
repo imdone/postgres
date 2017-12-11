@@ -1983,7 +1983,7 @@ ProcessStandbyHSFeedbackMessage(void)
 	 * XXX: It might make sense to generalize the ephemeral slot concept and
 	 * always use the slot mechanism to handle the feedback xmin.
 	 */
-	if (MyReplicationSlot != NULL)	/* XXX: persistency configurable? */
+	if (MyReplicationSlot != NULL)	/* XXX: persistency configurable?  id:405 gh:406*/
 		PhysicalReplicationSlotNewXmin(feedbackXmin, feedbackCatalogXmin);
 	else
 	{

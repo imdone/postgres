@@ -364,7 +364,7 @@ typedef enum PredicateLockTargetType
 	PREDLOCKTAG_RELATION,
 	PREDLOCKTAG_PAGE,
 	PREDLOCKTAG_TUPLE
-	/* TODO SSI: Other types may be needed for index locking */
+	/* TODO SSI: Other types may be needed for index locking  id:732 gh:733*/
 } PredicateLockTargetType;
 
 

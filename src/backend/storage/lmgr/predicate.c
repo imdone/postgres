@@ -2203,7 +2203,7 @@ DeleteChildTargetLocks(const PREDICATELOCKTARGETTAG *newtargettag)
  * max_pred_locks_per_transaction - 1 for a relation lock, to match behavior
  * of earlier releases when upgrading.
  *
- * TODO SSI: We should probably add additional GUCs to allow a maximum ratio
+ * TODO SSI: We should probably add additional GUCs to allow a maximum ratio id:455 gh:456
  * of page and tuple locks based on the pages in a relation, and the maximum
  * ratio of tuple locks to tuples in a page.  This would provide more
  * generally "balanced" allocation of locks to where they are most useful,
@@ -3099,10 +3099,10 @@ TransferPredicateLocksToHeapRelation(Relation relation)
  * Copies any predicate locks for the old page to the new page.
  * Skip if this is a temporary table or toast table.
  *
- * NOTE: A page split (or overflow) affects all serializable transactions,
+ * NOTE: A page split (or overflow) affects all serializable transactions, id:435 gh:436
  * even if it occurs in the context of another transaction isolation level.
  *
- * NOTE: This currently leaves the local copy of the locks without
+ * NOTE: This currently leaves the local copy of the locks without id:354 gh:355
  * information on the new lock which is in shared memory.  This could cause
  * problems if enough page splits occur on locked pages without the processes
  * which hold the locks getting in and noticing.
@@ -3189,7 +3189,7 @@ PredicateLockPageSplit(Relation relation, BlockNumber oldblkno,
  * Combines predicate locks for two existing pages.
  * Skip if this is a temporary table or toast table.
  *
- * NOTE: A page combine affects all serializable transactions, even if it
+ * NOTE: A page combine affects all serializable transactions, even if it id:377 gh:378
  * occurs in the context of another transaction isolation level.
  */
 void

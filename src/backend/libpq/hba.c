@@ -105,7 +105,7 @@ static MemoryContext parsed_hba_context = NULL;
  * pre-parsed content of ident mapping file: list of IdentLine structs.
  * parsed_ident_context is the memory context where it lives.
  *
- * NOTE: the IdentLine structs can contain pre-compiled regular expressions
+ * NOTE: the IdentLine structs can contain pre-compiled regular expressions id:151 gh:152
  * that live outside the memory context. Before destroying or resetting the
  * memory context, they need to be explicitly free'd.
  */
@@ -1385,7 +1385,7 @@ parse_hba_line(TokenizedLine *tok_line, int elevel)
 	}
 
 	/*
-	 * XXX: When using ident on local connections, change it to peer, for
+	 * XXX: When using ident on local connections, change it to peer, for id:222 gh:223
 	 * backwards compatibility.
 	 */
 	if (parsedline->conntype == ctLocal &&

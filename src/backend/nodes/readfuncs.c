@@ -165,7 +165,7 @@
 
 
 /*
- * NOTE: use atoi() to read values written with %d, or atoui() to read
+ * NOTE: use atoi() to read values written with %d, or atoui() to read id:312 gh:314
  * values written with %u in outfuncs.c.  An exception is OID values,
  * for which use atooid().  (As of 7.1, outfuncs.c writes OIDs as %u,
  * but this will probably change in the future.)

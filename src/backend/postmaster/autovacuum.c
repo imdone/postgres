@@ -707,7 +707,7 @@ AutoVacLauncherMain(int argc, char *argv[])
 				 * state is still in memory, so this is sufficient.  After
 				 * that, we restart the main loop.
 				 *
-				 * XXX should we put a limit to the number of times we retry?
+				 * XXX should we put a limit to the number of times we retry? id:306 gh:307
 				 * I don't think it makes much sense, because a future start
 				 * of a worker will continue to fail in the same way.
 				 */
@@ -965,7 +965,7 @@ rebuild_database_list(Oid newdb)
 	hctl.keysize = sizeof(Oid);
 	hctl.entrysize = sizeof(avl_dbase);
 	hctl.hcxt = tmpcxt;
-	dbhash = hash_create("db hash", 20, &hctl,	/* magic number here FIXME */
+	dbhash = hash_create("db hash", 20, &hctl,	/* magic number here FIXME id:330 gh:331*/
 						 HASH_ELEM | HASH_BLOBS | HASH_CONTEXT);
 
 	/* start by inserting the new database */
@@ -1194,7 +1194,7 @@ do_start_worker(void)
 	 * connected to it since the stats were last initialized, it doesn't need
 	 * vacuuming.
 	 *
-	 * XXX This could be improved if we had more info about whether it needs
+	 * XXX This could be improved if we had more info about whether it needs id:267 gh:268
 	 * vacuuming before connecting to it.  Perhaps look through the pgstats
 	 * data for the database's tables?  One idea is to keep track of the
 	 * number of new and dead tuples per database in pgstats.  However it

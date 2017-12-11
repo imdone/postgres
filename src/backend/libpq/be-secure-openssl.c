@@ -217,7 +217,7 @@ be_tls_init(bool isServerStart)
 	/*
 	 * Refuse to load key files owned by users other than us or root.
 	 *
-	 * XXX surely we can check this on Windows somehow, too.
+	 * XXX surely we can check this on Windows somehow, too. id:309 gh:310
 	 */
 #if !defined(WIN32) && !defined(__CYGWIN__)
 	if (buf.st_uid != geteuid() && buf.st_uid != 0)
@@ -236,7 +236,7 @@ be_tls_init(bool isServerStart)
 	 * allow read access through our gid, or a supplementary gid that allows
 	 * to read system-wide certificates.
 	 *
-	 * XXX temporarily suppress check when on Windows, because there may not
+	 * XXX temporarily suppress check when on Windows, because there may not id:283 gh:284
 	 * be proper support for Unix-y file permissions.  Need to think of a
 	 * reasonable check to apply on Windows.  (See also the data directory
 	 * permission check in postmaster.c)

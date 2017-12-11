@@ -434,7 +434,7 @@ find(struct vars *v,
 		if (hitend && cold == NULL)
 			cold = begin;
 		if (end != NULL)
-			break;				/* NOTE BREAK OUT */
+			break;				/* NOTE BREAK OUT  id:417 gh:418*/
 	}
 	assert(end != NULL);		/* search RE succeeded so loop should */
 	freedfa(d);

@@ -519,7 +519,7 @@ plpgsql_exec_function(PLpgSQL_function *func, FunctionCallInfo fcinfo,
 		{
 			/*
 			 * We have to check that the returned tuple actually matches the
-			 * expected result type.  XXX would be better to cache the tupdesc
+			 * expected result type.  XXX would be better to cache the tupdesc id:693 gh:694
 			 * instead of repeating get_call_result_type()
 			 */
 			HeapTuple	rettup = (HeapTuple) DatumGetPointer(estate.retval);
@@ -2324,7 +2324,7 @@ exec_stmt_forc(PLpgSQL_execstate *estate, PLpgSQL_stmt_forc *stmt)
 		set_args.lineno = stmt->lineno;
 		set_args.sqlstmt = stmt->argquery;
 		set_args.into = true;
-		/* XXX historically this has not been STRICT */
+		/* XXX historically this has not been STRICT  id:710 gh:711*/
 		set_args.target = (PLpgSQL_variable *)
 			(estate->datums[curvar->cursor_explicit_argrow]);
 
@@ -4148,7 +4148,7 @@ exec_stmt_open(PLpgSQL_execstate *estate, PLpgSQL_stmt_open *stmt)
 			set_args.lineno = stmt->lineno;
 			set_args.sqlstmt = stmt->argquery;
 			set_args.into = true;
-			/* XXX historically this has not been STRICT */
+			/* XXX historically this has not been STRICT  id:579 gh:580*/
 			set_args.target = (PLpgSQL_variable *)
 				(estate->datums[curvar->cursor_explicit_argrow]);
 
@@ -4240,7 +4240,7 @@ exec_stmt_fetch(PLpgSQL_execstate *estate, PLpgSQL_stmt_fetch *stmt)
 	{
 		bool		isnull;
 
-		/* XXX should be doing this in LONG not INT width */
+		/* XXX should be doing this in LONG not INT width  id:745 gh:747*/
 		how_many = exec_eval_integer(estate, stmt->expr, &isnull);
 
 		if (isnull)
@@ -5161,7 +5161,7 @@ exec_eval_boolean(PLpgSQL_execstate *estate,
  * exec_eval_expr			Evaluate an expression and return
  *					the result Datum, along with data type/typmod.
  *
- * NOTE: caller must do exec_eval_cleanup when done with the Datum.
+ * NOTE: caller must do exec_eval_cleanup when done with the Datum. id:725 gh:726
  * ----------
  */
 static Datum
@@ -5988,7 +5988,7 @@ exec_move_row(PLpgSQL_execstate *estate,
 	 * Row is a bit more complicated in that we assign the individual
 	 * attributes of the tuple to the variables the row points to.
 	 *
-	 * NOTE: this code used to demand row->nfields ==
+	 * NOTE: this code used to demand row->nfields == id:694 gh:695
 	 * HeapTupleHeaderGetNatts(tup->t_data), but that's wrong.  The tuple
 	 * might have more fields than we expected if it's from an
 	 * inheritance-child table of the current table, or it might have fewer if
@@ -6106,7 +6106,7 @@ make_tuple_from_row(PLpgSQL_execstate *estate,
 						&dvalues[i], &nulls[i]);
 		if (fieldtypeid != TupleDescAttr(tupdesc, i)->atttypid)
 			return NULL;
-		/* XXX should we insist on typmod match, too? */
+		/* XXX should we insist on typmod match, too?  id:711 gh:712*/
 	}
 
 	tuple = heap_form_tuple(tupdesc, dvalues, nulls);

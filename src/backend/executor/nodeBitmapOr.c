@@ -142,7 +142,7 @@ MultiExecBitmapOr(BitmapOrState *node)
 		{
 			if (result == NULL) /* first subplan */
 			{
-				/* XXX should we use less than work_mem for this? */
+				/* XXX should we use less than work_mem for this?  id:200 gh:201*/
 				result = tbm_create(work_mem * 1024L,
 									((BitmapOr *) node->ps.plan)->isshared ?
 									node->ps.state->es_query_dsa : NULL);
@@ -179,7 +179,7 @@ MultiExecBitmapOr(BitmapOrState *node)
 
 	/* must provide our own instrumentation support */
 	if (node->ps.instrument)
-		InstrStopNode(node->ps.instrument, 0 /* XXX */ );
+		InstrStopNode(node->ps.instrument, 0 /* XXX id:147 gh:148*/ );
 
 	return (Node *) result;
 }

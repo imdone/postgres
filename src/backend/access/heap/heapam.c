@@ -2469,7 +2469,7 @@ heap_insert(Relation relation, HeapTuple tup, CommandId cid,
 	}
 
 	/*
-	 * XXX Should we set PageSetPrunable on this page ?
+	 * XXX Should we set PageSetPrunable on this page ? id:13 gh:14
 	 *
 	 * The inserting transaction may eventually abort thus making this tuple
 	 * DEAD and hence available for pruning. Though we don't want to optimize
@@ -2785,7 +2785,7 @@ heap_multi_insert(Relation relation, HeapTuple *tuples, int ntuples,
 		}
 
 		/*
-		 * XXX Should we set PageSetPrunable on this page ? See heap_insert()
+		 * XXX Should we set PageSetPrunable on this page ? See heap_insert() id:24 gh:25
 		 */
 
 		MarkBufferDirty(buffer);
@@ -3687,7 +3687,7 @@ l2:
 		bool		can_continue = false;
 
 		/*
-		 * XXX note that we don't consider the "no wait" case here.  This
+		 * XXX note that we don't consider the "no wait" case here.  This id:36 gh:37
 		 * isn't a problem currently because no caller uses that case, but it
 		 * should be fixed if such a caller is introduced.  It wasn't a
 		 * problem previously because this code would always wait, but now
@@ -4387,7 +4387,7 @@ heap_tuple_attr_equals(TupleDesc tupdesc, int attrnum,
 	}
 
 	/*
-	 * Extract the corresponding values.  XXX this is pretty inefficient if
+	 * Extract the corresponding values.  XXX this is pretty inefficient if id:51 gh:52
 	 * there are many indexed columns.  Should HeapDetermineModifiedColumns do
 	 * a single heap_deform_tuple call on each tuple, instead?	But that
 	 * doesn't work for system columns ...

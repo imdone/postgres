@@ -83,7 +83,7 @@ gistfitpage(IndexTuple *itvec, int len)
 	for (i = 0; i < len; i++)
 		size += IndexTupleSize(itvec[i]) + sizeof(ItemIdData);
 
-	/* TODO: Consider fillfactor */
+	/* TODO: Consider fillfactor  id:11 gh:12*/
 	return (size <= GiSTPageSize);
 }
 

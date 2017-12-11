@@ -320,7 +320,7 @@ XLogReadRecord(XLogReaderState *state, XLogRecPtr RecPtr, char **errormsg)
 	}
 	else
 	{
-		/* XXX: more validation should be done here */
+		/* XXX: more validation should be done here  id:82 gh:83*/
 		if (total_len < SizeOfXLogRecord)
 		{
 			report_invalid_record(state,

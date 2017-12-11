@@ -396,7 +396,7 @@ pgwin32_safestat(const char *path, struct stat *buf)
 	}
 
 	/*
-	 * XXX no support for large files here, but we don't do that in general on
+	 * XXX no support for large files here, but we don't do that in general on id:747 gh:749
 	 * Win32 yet.
 	 */
 	buf->st_size = attr.nFileSizeLow;

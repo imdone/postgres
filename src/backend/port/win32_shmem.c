@@ -60,7 +60,7 @@ GetSharedMemName(void)
 			 DataDir, GetLastError());
 
 	/*
-	 * XXX: Intentionally overwriting the Global\ part here. This was not the
+	 * XXX: Intentionally overwriting the Global\ part here. This was not the id:395 gh:396
 	 * original approach, but putting it in the actual Global\ namespace
 	 * causes permission errors in a lot of cases, so we leave it in the
 	 * default namespace for now.

@@ -202,7 +202,7 @@ datumTransfer(Datum value, bool typByVal, int typLen)
  *
  * Return true if two datums are equal, false otherwise
  *
- * NOTE: XXX!
+ * NOTE: XXX! id:444 gh:445
  * We just compare the bytes of the two values, one by one.
  * This routine will return false if there are 2 different
  * representations of the same value (something along the lines
@@ -223,7 +223,7 @@ datumIsEqual(Datum value1, Datum value2, bool typByVal, int typLen)
 	if (typByVal)
 	{
 		/*
-		 * just compare the two datums. NOTE: just comparing "len" bytes will
+		 * just compare the two datums. NOTE: just comparing "len" bytes will id:487 gh:488
 		 * not do the work, because we do not know how these bytes are aligned
 		 * inside the "Datum".  We assume instead that any given datatype is
 		 * consistent about how it fills extraneous bits in the Datum.

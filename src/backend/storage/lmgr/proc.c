@@ -199,7 +199,7 @@ InitProcGlobal(void)
 	procs = (PGPROC *) ShmemAlloc(TotalProcs * sizeof(PGPROC));
 	MemSet(procs, 0, TotalProcs * sizeof(PGPROC));
 	ProcGlobal->allProcs = procs;
-	/* XXX allProcCount isn't really all of them; it excludes prepared xacts */
+	/* XXX allProcCount isn't really all of them; it excludes prepared xacts  id:517 gh:518*/
 	ProcGlobal->allProcCount = MaxBackends + NUM_AUXILIARY_PROCS;
 
 	/*
@@ -1185,7 +1185,7 @@ ProcSleep(LOCALLOCK *locallock, LockMethod lockMethodTable)
 	/*
 	 * Release the lock table's partition lock.
 	 *
-	 * NOTE: this may also cause us to exit critical-section state, possibly
+	 * NOTE: this may also cause us to exit critical-section state, possibly id:456 gh:457
 	 * allowing a cancel/die interrupt to be accepted. This is OK because we
 	 * have recorded the fact that we are waiting for a lock, and so
 	 * LockErrorCleanup will clean up if cancel/die happens.
@@ -1723,7 +1723,7 @@ CheckDeadLock(void)
 		 * We're done here.  Transaction abort caused by the error that
 		 * ProcSleep will raise will cause any other locks we hold to be
 		 * released, thus allowing other processes to wake up; we don't need
-		 * to do that here.  NOTE: an exception is that releasing locks we
+		 * to do that here.  NOTE: an exception is that releasing locks we id:436 gh:437
 		 * hold doesn't consider the possibility of waiters that were blocked
 		 * behind us on the lock we just failed to get, and might now be
 		 * wakable because we're not in front of them anymore.  However,

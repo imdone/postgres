@@ -546,7 +546,7 @@ GenerationRealloc(MemoryContext context, void *pointer, Size size)
 	 * carves the chunks to be as small as possible, so most repalloc() calls
 	 * will end up in the palloc/memcpy/pfree branch.
 	 *
-	 * XXX Perhaps we should annotate this condition with unlikely()?
+	 * XXX Perhaps we should annotate this condition with unlikely()? id:649 gh:650
 	 */
 	if (oldsize >= size)
 	{
@@ -719,7 +719,7 @@ GenerationStats(MemoryContext context, int level, bool print,
  * GenerationCheck
  *		Walk through chunks and check consistency of memory.
  *
- * NOTE: report errors as WARNING, *not* ERROR or FATAL.  Otherwise you'll
+ * NOTE: report errors as WARNING, *not* ERROR or FATAL.  Otherwise you'll id:584 gh:585
  * find yourself in an infinite loop when trouble occurs, because this
  * routine will be entered again when elog cleanup tries to release memory!
  */

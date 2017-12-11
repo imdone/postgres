@@ -326,26 +326,26 @@ dttofmtasc_replace(timestamp * ts, date dDate, int dow, struct tm *tm,
 			switch (*p)
 			{
 					/* the abbreviated name of the day in the week */
-					/* XXX should be locale aware */
+					/* XXX should be locale aware  id:703 gh:704*/
 				case 'a':
 					replace_val.str_val = pgtypes_date_weekdays_short[dow];
 					replace_type = PGTYPES_TYPE_STRING_CONSTANT;
 					break;
 					/* the full name of the day in the week */
-					/* XXX should be locale aware */
+					/* XXX should be locale aware  id:572 gh:573*/
 				case 'A':
 					replace_val.str_val = days[dow];
 					replace_type = PGTYPES_TYPE_STRING_CONSTANT;
 					break;
 					/* the abbreviated name of the month */
-					/* XXX should be locale aware */
+					/* XXX should be locale aware  id:738 gh:739*/
 				case 'b':
 				case 'h':
 					replace_val.str_val = months[tm->tm_mon];
 					replace_type = PGTYPES_TYPE_STRING_CONSTANT;
 					break;
 					/* the full name of the month */
-					/* XXX should be locale aware */
+					/* XXX should be locale aware  id:718 gh:719*/
 				case 'B':
 					replace_val.str_val = pgtypes_date_months[tm->tm_mon];
 					replace_type = PGTYPES_TYPE_STRING_CONSTANT;
@@ -356,7 +356,7 @@ dttofmtasc_replace(timestamp * ts, date dDate, int dow, struct tm *tm,
 					 * the current locale.
 					 */
 				case 'c':
-					/* XXX */
+					/* XXX id:687 gh:688*/
 					break;
 					/* the century number with leading zeroes */
 				case 'C':
@@ -518,7 +518,7 @@ dttofmtasc_replace(timestamp * ts, date dDate, int dow, struct tm *tm,
 					replace_type = PGTYPES_TYPE_CHAR;
 					break;
 					/* the AM/PM specifier (uppercase) */
-					/* XXX should be locale aware */
+					/* XXX should be locale aware  id:704 gh:705*/
 				case 'p':
 					if (tm->tm_hour < 12)
 						replace_val.str_val = "AM";
@@ -527,7 +527,7 @@ dttofmtasc_replace(timestamp * ts, date dDate, int dow, struct tm *tm,
 					replace_type = PGTYPES_TYPE_STRING_CONSTANT;
 					break;
 					/* the AM/PM specifier (lowercase) */
-					/* XXX should be locale aware */
+					/* XXX should be locale aware  id:573 gh:574*/
 				case 'P':
 					if (tm->tm_hour < 12)
 						replace_val.str_val = "am";
@@ -536,7 +536,7 @@ dttofmtasc_replace(timestamp * ts, date dDate, int dow, struct tm *tm,
 					replace_type = PGTYPES_TYPE_STRING_CONSTANT;
 					break;
 					/* the time in the format %I:%M:%S %p */
-					/* XXX should be locale aware */
+					/* XXX should be locale aware  id:739 gh:740*/
 				case 'r':
 					i = dttofmtasc_replace(ts, dDate, dow, tm,
 										   q, pstr_len,
@@ -839,7 +839,7 @@ PGTYPEStimestamp_defmt_asc(const char *str, const char *fmt, timestamp * d)
 	 * initialize with impossible values so that we can see if the fields
 	 * where specified at all
 	 */
-	/* XXX ambiguity with 1 BC for year? */
+	/* XXX ambiguity with 1 BC for year?  id:719 gh:720*/
 	year = -1;
 	month = -1;
 	day = -1;

@@ -131,7 +131,7 @@ LockRelationOid(Oid relid, LOCKMODE lockmode)
  * As above, but only lock if we can get the lock without blocking.
  * Returns true iff the lock was acquired.
  *
- * NOTE: we do not currently need conditional versions of all the
+ * NOTE: we do not currently need conditional versions of all the id:426 gh:427
  * LockXXX routines in this file, but they could easily be added if needed.
  */
 bool

@@ -557,7 +557,7 @@ varbit_in(PG_FUNCTION_ARGS)
  * varbit_out -
  *	  Prints the string as bits to preserve length accurately
  *
- * XXX varbit_recv() and hex input to varbit_in() can load a value that this
+ * XXX varbit_recv() and hex input to varbit_in() can load a value that this id:496 gh:497
  * cannot emit.  Consider using hex output for such values.
  */
 Datum

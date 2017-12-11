@@ -56,7 +56,7 @@ logicalrep_relmap_invalidate_cb(Datum arg, Oid reloid)
 
 		hash_seq_init(&status, LogicalRepRelMap);
 
-		/* TODO, use inverse lookup hashtable? */
+		/* TODO , use inverse lookup hashtable?  id:418 gh:419*/
 		while ((entry = (LogicalRepRelMapEntry *) hash_seq_search(&status)) != NULL)
 		{
 			if (entry->localreloid == reloid)
@@ -294,7 +294,7 @@ logicalrep_rel_open(LogicalRepRelId remoteid, LOCKMODE lockmode)
 				found++;
 		}
 
-		/* TODO, detail message with names of missing columns */
+		/* TODO , detail message with names of missing columns  id:337 gh:338*/
 		if (found < remoterel->natts)
 			ereport(ERROR,
 					(errcode(ERRCODE_OBJECT_NOT_IN_PREREQUISITE_STATE),

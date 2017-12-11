@@ -610,7 +610,7 @@ make_subplan(PlannerInfo *root, Query *orig_subquery,
 			plan = create_plan(subroot, best_path);
 
 			/* Now we can check if it'll fit in work_mem */
-			/* XXX can we check this at the Path stage? */
+			/* XXX can we check this at the Path stage?  id:319 gh:313*/
 			if (subplan_is_hashable(plan))
 			{
 				SubPlan    *hashplan;
@@ -1120,7 +1120,7 @@ hash_ok_operator(OpExpr *expr)
 	if (opid == ARRAY_EQ_OP)
 	{
 		/* array_eq is strict, but must check input type to ensure hashable */
-		/* XXX record_eq will need same treatment when it becomes hashable */
+		/* XXX record_eq will need same treatment when it becomes hashable  id:256 gh:257*/
 		Node	   *leftarg = linitial(expr->args);
 
 		return op_hashjoinable(opid, exprType(leftarg));

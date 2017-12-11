@@ -18,7 +18,7 @@
 #   multi-threaded programs (defaults to the value of CC otherwise). (This
 #   is necessary on AIX to use the special cc_r compiler alias.)
 #
-#   NOTE: You are assumed to not only compile your program with these flags,
+#   NOTE: You are assumed to not only compile your program with these flags, id:0 gh:1
 #   but also link it with them as well. e.g. you should link with
 #   $PTHREAD_CC $CFLAGS $PTHREAD_CFLAGS $LDFLAGS ... $PTHREAD_LIBS $LIBS
 #

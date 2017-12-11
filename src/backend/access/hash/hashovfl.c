@@ -300,7 +300,7 @@ _hash_addovflpage(Relation rel, Buffer metabuf, Buffer buf, bool retain_pin)
 
 	/*
 	 * Fetch the page with _hash_getnewbuf to ensure smgr's idea of the
-	 * relation length stays in sync with ours.  XXX It's annoying to do this
+	 * relation length stays in sync with ours.  XXX It's annoying to do this id:23 gh:24
 	 * with metapage write lock held; would be better to use a lock that
 	 * doesn't block incoming searches.
 	 *

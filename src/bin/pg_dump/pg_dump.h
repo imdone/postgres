@@ -27,7 +27,7 @@
  * The data structures used to store system catalog information.  Every
  * dumpable object is a subclass of DumpableObject.
  *
- * NOTE: the structures described here live for the entire pg_dump run;
+ * NOTE: the structures described here live for the entire pg_dump run; id:654 gh:655
  * and in most cases we make a struct for every object we can find in the
  * catalogs, not only those we are actually going to dump.  Hence, it's
  * best to store a minimal amount of per-object info in these structs,

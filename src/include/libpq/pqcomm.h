@@ -3,7 +3,7 @@
  * pqcomm.h
  *		Definitions common to frontends and backends.
  *
- * NOTE: for historical reasons, this does not correspond to pqcomm.c.
+ * NOTE: for historical reasons, this does not correspond to pqcomm.c. id:644 gh:645
  * pqcomm.c's routines are declared in libpq.h.
  *
  * Portions Copyright (c) 1996-2017, PostgreSQL Global Development Group

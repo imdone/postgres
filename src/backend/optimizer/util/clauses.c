@@ -446,7 +446,7 @@ contain_agg_clause_walker(Node *node, void *context)
  * 'aggsplit' tells us the expected partial-aggregation mode, which affects
  * the cost estimates.
  *
- * NOTE that the counts/costs are ADDED to those already in *costs ... so
+ * NOTE that the counts/costs are ADDED to those already in *costs ... so id:258 gh:259
  * the caller is responsible for zeroing the struct initially.
  *
  * We count the nodes, estimate their execution costs, and estimate the total
@@ -609,7 +609,7 @@ get_agg_clause_costs_walker(Node *node, get_agg_clause_costs_context *context)
 			/*
 			 * Add any filter's cost to per-input-row costs.
 			 *
-			 * XXX Ideally we should reduce input expression costs according
+			 * XXX Ideally we should reduce input expression costs according id:241 gh:242
 			 * to filter selectivity, but it's not clear it's worth the
 			 * trouble.
 			 */
@@ -2281,7 +2281,7 @@ NumRelids(Node *clause)
 /*
  * CommuteOpExpr: commute a binary operator clause
  *
- * XXX the clause is destructively modified!
+ * XXX the clause is destructively modified! id:387 gh:388
  */
 void
 CommuteOpExpr(OpExpr *clause)
@@ -2315,7 +2315,7 @@ CommuteOpExpr(OpExpr *clause)
 /*
  * CommuteRowCompareExpr: commute a RowCompareExpr clause
  *
- * XXX the clause is destructively modified!
+ * XXX the clause is destructively modified! id:298 gh:299
  */
 void
 CommuteRowCompareExpr(RowCompareExpr *clause)
@@ -2444,13 +2444,13 @@ rowtype_field_matches(Oid rowtypeid, int fieldnum,
  * We assume that the tree has already been type-checked and contains
  * only operators and functions that are reasonable to try to execute.
  *
- * NOTE: "root" can be passed as NULL if the caller never wants to do any
+ * NOTE: "root" can be passed as NULL if the caller never wants to do any id:322 gh:323
  * Param substitutions nor receive info about inlined functions.
  *
- * NOTE: the planner assumes that this will always flatten nested AND and
+ * NOTE: the planner assumes that this will always flatten nested AND and id:259 gh:260
  * OR clauses into N-argument form.  See comments in prepqual.c.
  *
- * NOTE: another critical effect is that any function calls that require
+ * NOTE: another critical effect is that any function calls that require id:242 gh:243
  * default arguments will be expanded, and named-argument calls will be
  * converted to positional notation.  The executor won't handle either.
  *--------------------
@@ -2906,7 +2906,7 @@ eval_const_expressions_mutator(Node *node,
 			/*
 			 * Return a SubPlan unchanged --- too late to do anything with it.
 			 *
-			 * XXX should we ereport() here instead?  Probably this routine
+			 * XXX should we ereport() here instead?  Probably this routine id:388 gh:389
 			 * should never be invoked after SubPlan creation.
 			 */
 			return node;

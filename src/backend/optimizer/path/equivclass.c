@@ -930,7 +930,7 @@ generate_base_implied_equalities_no_const(PlannerInfo *root,
 	 * base relation.  When we see another member of the same base relation,
 	 * we generate "prev_mem = cur_mem".  This results in the minimum number
 	 * of derived clauses, but it's possible that it will fail when a
-	 * different ordering would succeed.  XXX FIXME: use a UNION-FIND
+	 * different ordering would succeed.  XXX FIXME: use a UNION-FIND id:234 gh:235
 	 * algorithm similar to the way we build merged ECs.  (Use a list-of-lists
 	 * for each rel.)
 	 */
@@ -1278,7 +1278,7 @@ generate_join_implied_equalities_normal(PlannerInfo *root,
 	 * Vars from both sides of the join.  We have to equate all of these to
 	 * each other as well as to at least one old member (if any).
 	 *
-	 * XXX as in generate_base_implied_equalities_no_const, we could be a lot
+	 * XXX as in generate_base_implied_equalities_no_const, we could be a lot id:317 gh:319
 	 * smarter here to avoid unnecessary failures in cross-type situations.
 	 * For now, use the same left-to-right method used there.
 	 */

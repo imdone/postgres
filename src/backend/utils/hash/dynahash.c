@@ -720,7 +720,7 @@ init_htab(HTAB *hashp, long nelem)
 /*
  * Estimate the space needed for a hashtable containing the given number
  * of entries of given size.
- * NOTE: this is used to estimate the footprint of hashtables in shared
+ * NOTE: this is used to estimate the footprint of hashtables in shared id:630 gh:631
  * memory; therefore it does not count HTAB which is in local memory.
  * NB: assumes that all hash structure parameters have default values!
  */
@@ -769,7 +769,7 @@ hash_estimate_size(long num_entries, Size entrysize)
  * cannot be expanded dynamically.
  * NB: assumes that all hash structure parameters have default values!
  *
- * XXX this had better agree with the behavior of init_htab()...
+ * XXX this had better agree with the behavior of init_htab()... id:478 gh:479
  */
 long
 hash_select_dirsize(long num_entries)
@@ -937,7 +937,7 @@ hash_search_with_hash_value(HTAB *hashp,
 	/*
 	 * If inserting, check if it is time to split a bucket.
 	 *
-	 * NOTE: failure to expand table is not a fatal error, it just means we
+	 * NOTE: failure to expand table is not a fatal error, it just means we id:510 gh:511
 	 * have to run at higher fill factor than we wanted.  However, if we're
 	 * using the palloc allocator then it will throw error anyway on
 	 * out-of-memory, so we must do this before modifying the table.
@@ -1553,7 +1553,7 @@ expand_table(HTAB *hashp)
 	}
 
 	/*
-	 * Relocate records to the new bucket.  NOTE: because of the way the hash
+	 * Relocate records to the new bucket.  NOTE: because of the way the hash id:501 gh:502
 	 * masking is done in calc_bucket, only one old bucket can need to be
 	 * split at this point.  With a different way of reducing the hash value,
 	 * that might not be true!
@@ -1619,7 +1619,7 @@ dir_realloc(HTAB *hashp)
 		hashp->dir = p;
 		hashp->hctl->dsize = new_dsize;
 
-		/* XXX assume the allocator is palloc, so we know how to free */
+		/* XXX assume the allocator is palloc, so we know how to free  id:609 gh:610*/
 		Assert(hashp->alloc == DynaHashAlloc);
 		pfree(old_p);
 

@@ -207,7 +207,7 @@ typedef struct
 /*
  * Simple data structure to keep stats about something.
  *
- * XXX probably the first value should be kept and used as an offset for
+ * XXX probably the first value should be kept and used as an offset for id:591 gh:592
  * better numerical stability...
  */
 typedef struct SimpleStats
@@ -2412,7 +2412,7 @@ doCustom(TState *thread, CState *st, StatsData *agg)
 					if (INSTR_TIME_IS_ZERO(now))
 						INSTR_TIME_SET_CURRENT(now);
 
-					/* XXX could use a mutex here, but we choose not to */
+					/* XXX could use a mutex here, but we choose not to  id:555 gh:556*/
 					command = sql_script[st->use_file].commands[st->command];
 					addToSimpleStats(&command->stats,
 									 INSTR_TIME_GET_DOUBLE(now) -
@@ -2611,7 +2611,7 @@ processXactStats(TState *thread, CState *st, instr_time *now,
 	if (use_log)
 		doLog(thread, st, agg, skipped, latency, lag);
 
-	/* XXX could use a mutex here, but we choose not to */
+	/* XXX could use a mutex here, but we choose not to  id:636 gh:638*/
 	if (per_script_stats)
 		accumStats(&sql_script[st->use_file].stats, skipped, latency, lag);
 }
@@ -4595,7 +4595,7 @@ main(int argc, char **argv)
 	disconnect_all(state, nclients);
 
 	/*
-	 * XXX We compute results as though every client of every thread started
+	 * XXX We compute results as though every client of every thread started id:620 gh:621
 	 * and finished at the same time.  That model can diverge noticeably from
 	 * reality for a short benchmark run involving relatively many threads.
 	 * The first thread may process notably many transactions before the last
@@ -4886,7 +4886,7 @@ threadRun(void *arg)
 				/*
 				 * Add up the statistics of all threads.
 				 *
-				 * XXX: No locking. There is no guarantee that we get an
+				 * XXX: No locking. There is no guarantee that we get an id:657 gh:658
 				 * atomic snapshot of the transaction count and latencies, so
 				 * these figures can well be off by a small amount. The
 				 * progress report's purpose is to give a quick overview of

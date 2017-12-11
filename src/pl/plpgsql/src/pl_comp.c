@@ -507,7 +507,7 @@ do_compile(FunctionCallInfo fcinfo,
 						rettypeid = INT4RANGEOID;
 					else		/* ANYELEMENT or ANYNONARRAY */
 						rettypeid = INT4OID;
-					/* XXX what could we use for ANYENUM? */
+					/* XXX what could we use for ANYENUM?  id:709 gh:710*/
 				}
 				else
 				{
@@ -1654,7 +1654,7 @@ plpgsql_parse_wordtype(char *ident)
 			case PLPGSQL_NSTYPE_VAR:
 				return ((PLpgSQL_var *) (plpgsql_Datums[nse->itemno]))->datatype;
 
-				/* XXX perhaps allow REC/ROW here? */
+				/* XXX perhaps allow REC/ROW here?  id:578 gh:579*/
 
 			default:
 				return NULL;
@@ -2275,7 +2275,7 @@ plpgsql_parse_err_condition(char *condname)
 	PLpgSQL_condition *prev;
 
 	/*
-	 * XXX Eventually we will want to look for user-defined exception names
+	 * XXX Eventually we will want to look for user-defined exception names id:744 gh:746
 	 * here.
 	 */
 
@@ -2535,7 +2535,7 @@ plpgsql_resolve_polymorphic_argtypes(int numargs,
 			{
 				case ANYELEMENTOID:
 				case ANYNONARRAYOID:
-				case ANYENUMOID:	/* XXX dubious */
+				case ANYENUMOID:	/* XXX dubious  id:724 gh:725*/
 					argtypes[i] = INT4OID;
 					break;
 				case ANYARRAYOID:

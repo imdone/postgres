@@ -3623,7 +3623,7 @@ postgresAcquireSampleRowsFunc(Relation relation, int elevel,
 			CHECK_FOR_INTERRUPTS();
 
 			/*
-			 * XXX possible future improvement: if rowstoskip is large, we
+			 * XXX possible future improvement: if rowstoskip is large, we id:15 gh:16
 			 * could issue a MOVE rather than physically fetching the rows,
 			 * then just adjust rowstoskip and samplerows appropriately.
 			 */
@@ -4579,7 +4579,7 @@ postgresGetForeignJoinPaths(PlannerInfo *root,
 	/* Consider pathkeys for the join relation */
 	add_paths_with_pathkeys_for_rel(root, joinrel, epq_path);
 
-	/* XXX Consider parameterized paths for the join relation */
+	/* XXX Consider parameterized paths for the join relation  id:27 gh:28*/
 }
 
 /*

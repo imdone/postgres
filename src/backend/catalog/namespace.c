@@ -3437,7 +3437,7 @@ PushOverrideSearchPath(OverrideSearchPath *newpath)
 	/* And make it active. */
 	activeSearchPath = entry->searchPath;
 	activeCreationNamespace = entry->creationNamespace;
-	activeTempCreationPending = false;	/* XXX is this OK? */
+	activeTempCreationPending = false;	/* XXX is this OK?  id:72 gh:73*/
 
 	MemoryContextSwitchTo(oldcxt);
 }
@@ -3471,7 +3471,7 @@ PopOverrideSearchPath(void)
 		entry = (OverrideStackEntry *) linitial(overrideStack);
 		activeSearchPath = entry->searchPath;
 		activeCreationNamespace = entry->creationNamespace;
-		activeTempCreationPending = false;	/* XXX is this OK? */
+		activeTempCreationPending = false;	/* XXX is this OK?  id:86 gh:87*/
 	}
 	else
 	{
@@ -3980,7 +3980,7 @@ AtEOSubXact_Namespace(bool isCommit, SubTransactionId mySubid,
 		entry = (OverrideStackEntry *) linitial(overrideStack);
 		activeSearchPath = entry->searchPath;
 		activeCreationNamespace = entry->creationNamespace;
-		activeTempCreationPending = false;	/* XXX is this OK? */
+		activeTempCreationPending = false;	/* XXX is this OK?  id:99 gh:100*/
 	}
 	else
 	{

@@ -407,7 +407,7 @@ dectoasc(decimal *np, char *cp, int len, int right)
 		return -1;
 
 	/*
-	 * TODO: have to take care of len here and create exponential notation if
+	 * TODO: have to take care of len here and create exponential notation if id:734 gh:735
 	 * necessary
 	 */
 	if ((int) (strlen(str) + 1) > len)
@@ -547,7 +547,7 @@ rjulmdy(date d, short mdy[3])
 int
 rdefmtdate(date * d, const char *fmt, const char *str)
 {
-	/* TODO: take care of DBCENTURY environment variable */
+	/* TODO: take care of DBCENTURY environment variable  id:671 gh:672*/
 	/* PGSQL functions allow all centuries */
 
 	errno = 0;
@@ -620,14 +620,14 @@ dtcvasc(char *str, timestamp * ts)
 	ts_tmp = PGTYPEStimestamp_from_asc(str, endptr);
 	i = errno;
 	if (i)
-		/* TODO: rewrite to Informix error codes */
+		/* TODO: rewrite to Informix error codes  id:683 gh:684*/
 		return i;
 	if (**endptr)
 	{
 		/* extra characters exist at the end */
 		return ECPG_INFORMIX_EXTRA_CHARS;
 	}
-	/* TODO: other Informix error codes missing */
+	/* TODO: other Informix error codes missing  id:605 gh:606*/
 
 	/* everything went fine */
 	*ts = ts_tmp;

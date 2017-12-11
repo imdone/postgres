@@ -435,7 +435,7 @@ string_matches_pattern(const char *str, const char *pattern)
 
 /*
  * Replace all occurrences of a string in a string with a different string.
- * NOTE: Assumes there is enough room in the target buffer!
+ * NOTE: Assumes there is enough room in the target buffer! id:697 gh:698
  */
 void
 replace_string(char *string, const char *replace, const char *replacement)

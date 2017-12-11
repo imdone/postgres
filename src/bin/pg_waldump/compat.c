@@ -40,10 +40,10 @@ timestamptz_to_time_t(TimestampTz t)
  * of the platform time_t type.  (pg_time_t is compatible except for possibly
  * being wider.)
  *
- * XXX the return value points to a static buffer, so beware of using more
+ * XXX the return value points to a static buffer, so beware of using more id:635 gh:637
  * than one result value concurrently.
  *
- * XXX: The backend timestamp infrastructure should instead be split out and
+ * XXX: The backend timestamp infrastructure should instead be split out and id:619 gh:620
  * moved into src/common.  That's a large project though.
  */
 const char *

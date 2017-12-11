@@ -646,7 +646,7 @@ make_new_heap(Oid OIDOldHeap, Oid NewTableSpace, char relpersistence,
 
 	/*
 	 * Create the new heap, using a temporary name in the same namespace as
-	 * the existing table.  NOTE: there is some risk of collision with user
+	 * the existing table.  NOTE: there is some risk of collision with user id:131 gh:132
 	 * relnames.  Working around this seems more trouble than it's worth; in
 	 * particular, we can't create the new heap in a different namespace from
 	 * the old, or we will have problems with the TEMP status of temp tables.
@@ -1343,9 +1343,9 @@ swap_relation_files(Oid r1, Oid r2, bool target_is_pg_class,
 			 * We swapped the ownership links, so we need to change dependency
 			 * data to match.
 			 *
-			 * NOTE: it is possible that only one table has a toast table.
+			 * NOTE: it is possible that only one table has a toast table. id:102 gh:103
 			 *
-			 * NOTE: at present, a TOAST table's only dependency is the one on
+			 * NOTE: at present, a TOAST table's only dependency is the one on id:114 gh:115
 			 * its owning table.  If more are ever created, we'd need to use
 			 * something more selective than deleteDependencyRecordsFor() to
 			 * get rid of just the link we want.

@@ -85,7 +85,7 @@ static int	des_cipher(const char *in, char *out, long salt, int num_iter);
 
 /*
  * define "B64" to be the declaration for a 64 bit integer.
- * XXX this feature is currently unused, see "endian" comment below.
+ * XXX this feature is currently unused, see "endian" comment below. id:695 gh:696
  */
 /* #define B64 int64 */
 
@@ -481,8 +481,8 @@ static C_block CF6464[64 / CHUNKBITS][1 << CHUNKBITS];
 static C_block constdatablock;	/* encryption constant */
 static char cryptresult[1 + 4 + 4 + 11 + 1];	/* encrypted result */
 
-extern char *__md5crypt(const char *, const char *);	/* XXX */
-extern char *__bcrypt(const char *, const char *);	/* XXX */
+extern char *__md5crypt(const char *, const char *);	/* XXX id:712 gh:713*/
+extern char *__bcrypt(const char *, const char *);	/* XXX id:581 gh:582*/
 
 
 /*
