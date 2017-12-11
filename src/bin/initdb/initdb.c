@@ -716,7 +716,7 @@ find_matching_ts_config(const char *lc_type)
 	 * underscore (usual case) or a hyphen (Windows "locale name"; see
 	 * comments at IsoLocaleName()).
 	 *
-	 * XXX Should ' ' be a stop character?	This would select "norwegian" for
+	 * XXX Should ' ' be a stop character?	This would select "norwegian" for id:516 gh:517
 	 * the Windows locale "Norwegian (Nynorsk)_Norway.1252".  If we do so, we
 	 * should also accept the "nn" and "nb" Unix locales.
 	 *

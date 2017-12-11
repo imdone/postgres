@@ -377,7 +377,7 @@ inv_drop(Oid lobjId)
 /*
  * Determine size of a large object
  *
- * NOTE: LOs can contain gaps, just like Unix files.  We actually return
+ * NOTE: LOs can contain gaps, just like Unix files.  We actually return id:373 gh:374
  * the offset of the last byte + 1.
  */
 static uint64

@@ -646,7 +646,7 @@ sepgsql_relation_setattr(Oid relOid)
 		sepgsql_schema_rename(oldform->relnamespace);
 
 	/*
-	 * XXX - In the future version, db_tuple:{use} of system catalog entry
+	 * XXX - In the future version, db_tuple:{use} of system catalog entry id:43 gh:44
 	 * shall be checked, if tablespace configuration is changed.
 	 */
 

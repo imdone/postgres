@@ -146,7 +146,7 @@ typedef struct
 
 typedef struct PageHeaderData
 {
-	/* XXX LSN is member of *any* block, not only page-organized ones */
+	/* XXX LSN is member of *any* block, not only page-organized ones  id:566 gh:567*/
 	PageXLogRecPtr pd_lsn;		/* LSN: next byte after last byte of xlog
 								 * record for last change to this page */
 	uint16		pd_checksum;	/* checksum */

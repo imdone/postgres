@@ -623,7 +623,7 @@ AlterTSDictionary(AlterTSDictionaryStmt *stmt)
 	ObjectAddressSet(address, TSDictionaryRelationId, dictId);
 
 	/*
-	 * NOTE: because we only support altering the options, not the template,
+	 * NOTE: because we only support altering the options, not the template, id:177 gh:178
 	 * there is no need to update dependencies.  This might have to change if
 	 * the options ever reference inside-the-database objects.
 	 */
@@ -1251,7 +1251,7 @@ getTokenTypes(Oid prsId, List *tokennames)
 		j = 0;
 		while (list && list[j].lexid)
 		{
-			/* XXX should we use pg_strcasecmp here? */
+			/* XXX should we use pg_strcasecmp here?  id:161 gh:162*/
 			if (strcmp(strVal(val), list[j].alias) == 0)
 			{
 				res[i] = list[j].lexid;

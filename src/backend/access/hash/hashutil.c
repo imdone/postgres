@@ -84,7 +84,7 @@ _hash_datum2hashkey(Relation rel, Datum key)
 	FmgrInfo   *procinfo;
 	Oid			collation;
 
-	/* XXX assumes index has only one attribute */
+	/* XXX assumes index has only one attribute  id:50 gh:51*/
 	procinfo = index_getprocinfo(rel, 1, HASHSTANDARD_PROC);
 	collation = rel->rd_indcollation[0];
 
@@ -104,7 +104,7 @@ _hash_datum2hashkey_type(Relation rel, Datum key, Oid keytype)
 	RegProcedure hash_proc;
 	Oid			collation;
 
-	/* XXX assumes index has only one attribute */
+	/* XXX assumes index has only one attribute  id:60 gh:61*/
 	hash_proc = get_opfamily_proc(rel->rd_opfamily[0],
 								  keytype,
 								  keytype,

@@ -903,7 +903,7 @@ AddNewRelationTuple(Relation pg_class_desc,
 		 * transactions could reuse values from their local cache, so we are
 		 * careful to consider all currently running multis.
 		 *
-		 * XXX this could be refined further, but is it worth the hassle?
+		 * XXX this could be refined further, but is it worth the hassle? id:124 gh:125
 		 */
 		new_rel_reltup->relminmxid = GetOldestMultiXactId();
 	}
@@ -1258,7 +1258,7 @@ heap_create_with_catalog(const char *relname,
 	/*
 	 * now create an entry in pg_class for the relation.
 	 *
-	 * NOTE: we could get a unique-index failure here, in case someone else is
+	 * NOTE: we could get a unique-index failure here, in case someone else is id:70 gh:71
 	 * creating the same relation name in parallel but hadn't committed yet
 	 * when we checked for a duplicate name above.
 	 */
@@ -2019,7 +2019,7 @@ StoreAttrDefault(Relation rel, AttrNumber attnum,
 	/*
 	 * Post creation hook for attribute defaults.
 	 *
-	 * XXX. ALTER TABLE ALTER COLUMN SET/DROP DEFAULT is implemented with a
+	 * XXX . ALTER TABLE ALTER COLUMN SET/DROP DEFAULT is implemented with a id:84 gh:85
 	 * couple of deletion/creation of the attribute's default entry, so the
 	 * callee should check existence of an older version of this entry if it
 	 * needs to distinguish.
@@ -2460,7 +2460,7 @@ AddRelationNewConstraints(Relation rel,
  * Returns true if merged (constraint is a duplicate), or false if it's
  * got a so-far-unique name, or throws error if conflict.
  *
- * XXX See MergeConstraintsIntoExisting too if you change this code.
+ * XXX See MergeConstraintsIntoExisting too if you change this code. id:97 gh:98
  */
 static bool
 MergeWithExistingConstraint(Relation rel, const char *ccname, Node *expr,

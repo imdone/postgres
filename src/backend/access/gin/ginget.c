@@ -854,7 +854,7 @@ entryGetItem(GinState *ginstate, GinScanEntry entry,
 
 			entry->curItem = entry->list[entry->offset++];
 		} while (ginCompareItemPointers(&entry->curItem, &advancePast) <= 0);
-		/* XXX: shouldn't we apply the fuzzy search limit here? */
+		/* XXX: shouldn't we apply the fuzzy search limit here?  id:47 gh:48*/
 	}
 	else
 	{

@@ -842,7 +842,7 @@ HeapTupleSatisfiesDirty(HeapTuple htup, Snapshot snapshot,
 			}
 
 			snapshot->xmin = HeapTupleHeaderGetRawXmin(tuple);
-			/* XXX shouldn't we fall through to look at xmax? */
+			/* XXX shouldn't we fall through to look at xmax?  id:586 gh:587*/
 			return true;		/* in insertion by other */
 		}
 		else if (TransactionIdDidCommit(HeapTupleHeaderGetRawXmin(tuple)))

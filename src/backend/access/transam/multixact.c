@@ -722,7 +722,7 @@ ReadNextMultiXactId(void)
 {
 	MultiXactId mxid;
 
-	/* XXX we could presumably do this without a lock. */
+	/* XXX we could presumably do this without a lock.  id:65 gh:66*/
 	LWLockAcquire(MultiXactGenLock, LW_SHARED);
 	mxid = MultiXactState->nextMXact;
 	LWLockRelease(MultiXactGenLock);
@@ -805,7 +805,7 @@ MultiXactIdCreateFromMembers(int nmembers, MultiXactMember *members)
 	xlrec.nmembers = nmembers;
 
 	/*
-	 * XXX Note: there's a lot of padding space in MultiXactMember.  We could
+	 * XXX Note: there's a lot of padding space in MultiXactMember.  We could id:79 gh:80
 	 * find a more compact representation of this Xlog record -- perhaps all
 	 * the status flags in one XLogRecData, then all the xids in another one?
 	 * Not clear that it's worth the trouble though.
@@ -2220,7 +2220,7 @@ SetMultiXactIdLimit(MultiXactId oldest_datminmxid, Oid oldest_datoid,
 	 *
 	 * Note: This differs from the magic number used in
 	 * SetTransactionIdLimit() since vacuum itself will never generate new
-	 * multis.  XXX actually it does, if it needs to freeze old multis.
+	 * multis.  XXX actually it does, if it needs to freeze old multis. id:91 gh:92
 	 */
 	multiStopLimit = multiWrapLimit - 100;
 	if (multiStopLimit < FirstMultiXactId)
@@ -3133,7 +3133,7 @@ MultiXactMemberPagePrecedes(int page1, int page2)
 /*
  * Decide which of two MultiXactIds is earlier.
  *
- * XXX do we need to do something special for InvalidMultiXactId?
+ * XXX do we need to do something special for InvalidMultiXactId? id:93 gh:94
  * (Doesn't look like it.)
  */
 bool
@@ -3147,7 +3147,7 @@ MultiXactIdPrecedes(MultiXactId multi1, MultiXactId multi2)
 /*
  * MultiXactIdPrecedesOrEquals -- is multi1 logically <= multi2?
  *
- * XXX do we need to do something special for InvalidMultiXactId?
+ * XXX do we need to do something special for InvalidMultiXactId? id:120 gh:121
  * (Doesn't look like it.)
  */
 bool

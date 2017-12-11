@@ -78,7 +78,7 @@ typedef FormData_pg_depend *Form_pg_depend;
  * pg_depend has no preloaded contents; system-defined dependencies are
  * loaded into it during a late stage of the initdb process.
  *
- * NOTE: we do not represent all possible dependency pairs in pg_depend;
+ * NOTE: we do not represent all possible dependency pairs in pg_depend; id:641 gh:642
  * for example, there's not much value in creating an explicit dependency
  * from an attribute to its relation.  Usually we make a dependency for
  * cases where the relationship is conditional rather than essential

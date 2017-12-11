@@ -22,7 +22,7 @@
 
 
 /* ----------
- * Internal TODO:
+ * Internal TODO: id:449 gh:450
  *
  *		Add MATCH PARTIAL logic.
  * ----------
@@ -1853,7 +1853,7 @@ RI_Initial_Check(Trigger *trigger, Relation fk_rel, Relation pk_rel)
 	 * query.  (If not, caller can fall back to the trigger method, which
 	 * works because it changes user IDs on the fly.)
 	 *
-	 * XXX are there any other show-stopper conditions to check?
+	 * XXX are there any other show-stopper conditions to check? id:492 gh:493
 	 */
 	pkrte = makeNode(RangeTblEntry);
 	pkrte->rtekind = RTE_RELATION;
@@ -2732,7 +2732,7 @@ ri_PerformCheck(const RI_ConstraintInfo *riinfo,
 						RelationGetRelationName(fk_rel)),
 				 errhint("This is most likely due to a rule having rewritten the query.")));
 
-	/* XXX wouldn't it be clearer to do this part at the caller? */
+	/* XXX wouldn't it be clearer to do this part at the caller?  id:544 gh:545*/
 	if (qkey->constr_queryno != RI_PLAN_CHECK_LOOKUPPK_FROM_PK &&
 		expect_OK == SPI_OK_SELECT &&
 		(SPI_processed == 0) == (qkey->constr_queryno == RI_PLAN_CHECK_LOOKUPPK))
@@ -3219,12 +3219,12 @@ ri_HashCompareOp(Oid eq_opr, Oid typeid)
 		 * If we chose to use a cast from FK to PK type, we may have to apply
 		 * the cast function to get to the operator's input type.
 		 *
-		 * XXX eventually it would be good to support array-coercion cases
+		 * XXX eventually it would be good to support array-coercion cases id:531 gh:532
 		 * here and in ri_AttributesEqual().  At the moment there is no point
 		 * because cases involving nonidentical array types will be rejected
 		 * at constraint creation time.
 		 *
-		 * XXX perhaps also consider supporting CoerceViaIO?  No need at the
+		 * XXX perhaps also consider supporting CoerceViaIO?  No need at the id:470 gh:471
 		 * moment since that will never be generated for implicit coercions.
 		 */
 		op_input_types(eq_opr, &lefttype, &righttype);

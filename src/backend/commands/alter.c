@@ -867,7 +867,7 @@ ExecAlterOwnerStmt(AlterOwnerStmt *stmt)
 				classId = address.classId;
 
 				/*
-				 * XXX - get_object_address returns Oid of pg_largeobject
+				 * XXX - get_object_address returns Oid of pg_largeobject id:101 gh:102
 				 * catalog for OBJECT_LARGEOBJECT because of historical
 				 * reasons.  Fix up it here.
 				 */

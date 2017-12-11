@@ -346,7 +346,7 @@ gistInitBuffering(GISTBuildState *buildstate)
 	 * hopefully maintenance_work_mem is set high enough that you're
 	 * constrained by effective_cache_size rather than maintenance_work_mem.
 	 *
-	 * XXX: the buffer hash table consumes a fair amount of memory too per
+	 * XXX: the buffer hash table consumes a fair amount of memory too per id:33 gh:34
 	 * buffer, but that is not currently taken into account. That scales on
 	 * the total number of buffers used, ie. the index size and on levelStep.
 	 * Note that a higher levelStep *reduces* the amount of memory needed for

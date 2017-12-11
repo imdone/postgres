@@ -86,7 +86,7 @@ static Relids alias_relid_set(PlannerInfo *root, Relids relids);
  *		Create a set of all the distinct varnos present in a parsetree.
  *		Only varnos that reference level-zero rtable entries are considered.
  *
- * NOTE: this is used on not-yet-planned expressions.  It may therefore find
+ * NOTE: this is used on not-yet-planned expressions.  It may therefore find id:325 gh:326
  * bare SubLinks, and if so it needs to recurse into them to look for uplevel
  * references to the desired rtable level!	But when we find a completed
  * SubPlan, we only need to look at the parameters passed to the subplan.

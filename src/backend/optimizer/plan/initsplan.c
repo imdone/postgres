@@ -219,7 +219,7 @@ add_vars_to_targetlist(PlannerInfo *root, List *vars,
 			if (rel->attr_needed[attno] == NULL)
 			{
 				/* Variable not yet requested, so add to rel's targetlist */
-				/* XXX is copyObject necessary here? */
+				/* XXX is copyObject necessary here?  id:253 gh:254*/
 				rel->reltarget->exprs = lappend(rel->reltarget->exprs,
 												copyObject(var));
 				/* reltarget cost and width will be computed later */

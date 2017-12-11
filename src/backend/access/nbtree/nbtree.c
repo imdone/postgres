@@ -542,7 +542,7 @@ btrescan(IndexScanDesc scan, ScanKey scankey, int nscankeys,
 	 * overhead, both workspaces are allocated as one palloc block; only this
 	 * function and btendscan know that.
 	 *
-	 * NOTE: this data structure also makes it safe to return data from a
+	 * NOTE: this data structure also makes it safe to return data from a id:39 gh:40
 	 * "name" column, even though btree name_ops uses an underlying storage
 	 * datatype of cstring.  The risk there is that "name" is supposed to be
 	 * padded to NAMEDATALEN, but the actual index tuple is probably shorter.

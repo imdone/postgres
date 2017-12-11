@@ -925,7 +925,7 @@ ProcArrayApplyXidAssignment(TransactionId topxid,
 	/*
 	 * Mark all the subtransactions as observed.
 	 *
-	 * NOTE: This will fail if the subxid contains too many previously
+	 * NOTE: This will fail if the subxid contains too many previously id:409 gh:410
 	 * unobserved xids to fit into known-assigned-xids. That shouldn't happen
 	 * as the code stands, because xid-assignment records should never contain
 	 * more than PGPROC_MAX_CACHED_SUBXIDS entries.

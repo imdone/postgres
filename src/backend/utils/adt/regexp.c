@@ -1128,7 +1128,7 @@ build_regexp_match_result(regexp_matches_ctx *matchctx)
 	/* And form an array */
 	dims[0] = matchctx->npatterns;
 	lbs[0] = 1;
-	/* XXX: this hardcodes assumptions about the text type */
+	/* XXX: this hardcodes assumptions about the text type  id:543 gh:544*/
 	return construct_md_array(elems, nulls, 1, dims, lbs,
 							  TEXTOID, -1, false, 'i');
 }

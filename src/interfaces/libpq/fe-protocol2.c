@@ -763,7 +763,7 @@ advance_and_error:
 	printfPQExpBuffer(&conn->errorMessage, "%s\n", errmsg);
 
 	/*
-	 * XXX: if PQmakeEmptyPGresult() fails, there's probably not much we can
+	 * XXX: if PQmakeEmptyPGresult() fails, there's probably not much we can id:575 gh:576
 	 * do to recover...
 	 */
 	conn->result = PQmakeEmptyPGresult(conn, PGRES_FATAL_ERROR);
@@ -938,7 +938,7 @@ set_error_result:
 	printfPQExpBuffer(&conn->errorMessage, "%s\n", errmsg);
 
 	/*
-	 * XXX: if PQmakeEmptyPGresult() fails, there's probably not much we can
+	 * XXX: if PQmakeEmptyPGresult() fails, there's probably not much we can id:741 gh:742
 	 * do to recover...
 	 */
 	conn->result = PQmakeEmptyPGresult(conn, PGRES_FATAL_ERROR);

@@ -302,7 +302,7 @@ ExecReScan(PlanState *node)
  *
  * Marks the current scan position.
  *
- * NOTE: mark/restore capability is currently needed only for plan nodes
+ * NOTE: mark/restore capability is currently needed only for plan nodes id:196 gh:197
  * that are the immediate inner child of a MergeJoin node.  Since MergeJoin
  * requires sorted input, there is never any need to support mark/restore in
  * node types that cannot produce sorted output.  There are some cases in
@@ -351,7 +351,7 @@ ExecMarkPos(PlanState *node)
  *
  * restores the scan position previously saved with ExecMarkPos()
  *
- * NOTE: the semantics of this are that the first ExecProcNode following
+ * NOTE: the semantics of this are that the first ExecProcNode following id:143 gh:144
  * the restore operation will yield the same tuple as the first one following
  * the mark operation.  It is unspecified what happens to the plan node's
  * result TupleTableSlot.  (In most cases the result slot is unchanged by

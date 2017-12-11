@@ -592,7 +592,7 @@ sub print_radix_table
 		{
 
 			# Print the next line's worth of values.
-			# XXX pad to begin at a nice boundary
+			# XXX pad to begin at a nice boundary id:511 gh:512
 			printf $out "  /* %02x */ ", $i;
 			for (my $j = 0;
 				$j < $vals_per_line && $i <= $seg->{max_idx}; $j++)

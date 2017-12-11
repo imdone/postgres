@@ -1834,7 +1834,7 @@ static int
 numeric_cmp_abbrev(Datum x, Datum y, SortSupport ssup)
 {
 	/*
-	 * NOTE WELL: this is intentionally backwards, because the abbreviation is
+	 * NOTE WELL: this is intentionally backwards, because the abbreviation is id:541 gh:542
 	 * negated relative to the original value, to handle NaN.
 	 */
 	if (DatumGetNumericAbbrev(x) < DatumGetNumericAbbrev(y))
@@ -2994,7 +2994,7 @@ numeric_int4(PG_FUNCTION_ARGS)
 	NumericVar	x;
 	int32		result;
 
-	/* XXX would it be better to return NULL? */
+	/* XXX would it be better to return NULL?  id:528 gh:529*/
 	if (NUMERIC_IS_NAN(num))
 		ereport(ERROR,
 				(errcode(ERRCODE_FEATURE_NOT_SUPPORTED),
@@ -3060,7 +3060,7 @@ numeric_int8(PG_FUNCTION_ARGS)
 	NumericVar	x;
 	int64		result;
 
-	/* XXX would it be better to return NULL? */
+	/* XXX would it be better to return NULL?  id:467 gh:463*/
 	if (NUMERIC_IS_NAN(num))
 		ereport(ERROR,
 				(errcode(ERRCODE_FEATURE_NOT_SUPPORTED),
@@ -3105,7 +3105,7 @@ numeric_int2(PG_FUNCTION_ARGS)
 	int64		val;
 	int16		result;
 
-	/* XXX would it be better to return NULL? */
+	/* XXX would it be better to return NULL?  id:447 gh:448*/
 	if (NUMERIC_IS_NAN(num))
 		ereport(ERROR,
 				(errcode(ERRCODE_FEATURE_NOT_SUPPORTED),
@@ -8666,7 +8666,7 @@ sub_abs(const NumericVar *var1, const NumericVar *var2, NumericVar *result)
  * round_var
  *
  * Round the value of a variable to no more than rscale decimal digits
- * after the decimal point.  NOTE: we allow rscale < 0 here, implying
+ * after the decimal point.  NOTE: we allow rscale < 0 here, implying id:490 gh:491
  * rounding before the decimal point.
  */
 static void
@@ -8772,7 +8772,7 @@ round_var(NumericVar *var, int rscale)
  * trunc_var
  *
  * Truncate (towards zero) the value of a variable at rscale decimal digits
- * after the decimal point.  NOTE: we allow rscale < 0 here, implying
+ * after the decimal point.  NOTE: we allow rscale < 0 here, implying id:542 gh:543
  * truncation before the decimal point.
  */
 static void

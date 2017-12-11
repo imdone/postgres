@@ -109,7 +109,7 @@
  */
 #define REALTYPE_PRECISION 17
 
-/* XXX these should appear in other modules' header files */
+/* XXX these should appear in other modules' header files  id:648 gh:649*/
 extern bool Log_disconnections;
 extern int	CommitDelay;
 extern int	CommitSiblings;
@@ -200,7 +200,7 @@ static ConfigVariable *ProcessConfigFileInternal(GucContext context,
 /*
  * Options for enum values defined in this module.
  *
- * NOTE! Option values may not contain double quotes!
+ * NOTE ! Option values may not contain double quotes! id:583 gh:584
  */
 
 static const struct config_enum_entry bytea_output_options[] = {
@@ -2382,7 +2382,7 @@ static struct config_int ConfigureNamesInt[] =
 			NULL
 		},
 		&max_replication_slots,
-		10, 0, MAX_BACKENDS /* XXX? */ ,
+		10, 0, MAX_BACKENDS /* XXX ?  id:513 gh:514*/ ,
 		NULL, NULL, NULL
 	},
 
@@ -8300,7 +8300,7 @@ GetConfigOptionByNum(int varnum, const char **values, bool *noshow)
 				/* enumvals */
 
 				/*
-				 * NOTE! enumvals with double quotes in them are not
+				 * NOTE ! enumvals with double quotes in them are not id:504 gh:505
 				 * supported!
 				 */
 				values[11] = config_enum_get_options((struct config_enum *) conf,

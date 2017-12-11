@@ -63,7 +63,7 @@ foreach my $i (@$all)
 	my $ucs  = $i->{ucs};
 
 # BIG5.TXT maps several BIG5 characters to U+FFFD. The UTF-8 to BIG5 mapping can
-# contain only one of them. XXX: Doesn't really make sense to include any of them,
+# contain only one of them. XXX: Doesn't really make sense to include any of them, id:479 gh:480
 # but for historical reasons, we map the first one of them.
 	if ($i->{ucs} == 0xFFFD && $i->{code} != 0xA15A)
 	{

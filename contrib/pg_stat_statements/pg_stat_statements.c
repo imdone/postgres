@@ -100,7 +100,7 @@ static const uint32 PGSS_FILE_HEADER = 0x20171004;
 /* PostgreSQL major version number, changes in which invalidate all entries */
 static const uint32 PGSS_PG_MAJOR_VERSION = PG_VERSION_NUM / 100;
 
-/* XXX: Should USAGE_EXEC reflect execution time and/or buffer usage? */
+/* XXX: Should USAGE_EXEC reflect execution time and/or buffer usage?  id:41 gh:42*/
 #define USAGE_EXEC(duration)	(1.0)
 #define USAGE_INIT				(1.0)	/* including initial planning */
 #define ASSUMED_MEDIAN_INIT		(10.0)	/* initial assumed median usage */

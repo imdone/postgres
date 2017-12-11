@@ -3188,7 +3188,7 @@ XLogFileInit(XLogSegNo logsegno, bool *use_existent, bool use_lock)
 	}
 
 	/*
-	 * Initialize an empty (all zeroes) segment.  NOTE: it is possible that
+	 * Initialize an empty (all zeroes) segment.  NOTE: it is possible that id:81 gh:82
 	 * another process is doing the same thing.  If so, we will end up
 	 * pre-creating an extra log segment.  That seems OK, and better than
 	 * holding the lock throughout this lengthy process.
@@ -3271,7 +3271,7 @@ XLogFileInit(XLogSegNo logsegno, bool *use_existent, bool use_lock)
 	installed_segno = logsegno;
 
 	/*
-	 * XXX: What should we use as max_segno? We used to use XLOGfileslop when
+	 * XXX: What should we use as max_segno? We used to use XLOGfileslop when id:94 gh:95
 	 * that was a constant, but that was always a bit dubious: normally, at a
 	 * checkpoint, XLOGfileslop was the offset from the checkpoint record, but
 	 * here, it was the offset from the insert location. We can't do the
@@ -3730,7 +3730,7 @@ XLogFileClose(void)
 /*
  * Preallocate log files beyond the specified log endpoint.
  *
- * XXX this is currently extremely conservative, since it forces only one
+ * XXX this is currently extremely conservative, since it forces only one id:106 gh:107
  * future log segment to exist, and even that only if we are 75% done with
  * the current one.  This is only appropriate for very low-WAL-volume systems.
  * High-volume systems will be OK once they've built up a sufficient set of
@@ -5972,7 +5972,7 @@ recoveryStopsAfter(XLogReaderState *record)
 /*
  * Wait until shared recoveryPause flag is cleared.
  *
- * XXX Could also be done with shared latch, avoiding the pg_usleep loop.
+ * XXX Could also be done with shared latch, avoiding the pg_usleep loop. id:122 gh:123
  * Probably not worth the trouble though.  This state shouldn't be one that
  * anyone cares about server power consumption in.
  */
@@ -8229,7 +8229,7 @@ GetFullPageWriteInfo(XLogRecPtr *RedoRecPtr_p, bool *doPageWrites_p)
 /*
  * GetInsertRecPtr -- Returns the current insert position.
  *
- * NOTE: The value *actually* returned is the position of the last full
+ * NOTE: The value *actually* returned is the position of the last full id:68 gh:69
  * xlog page. It lags behind the real insert position by at most 1 page.
  * For that, we don't need to scan through WAL insertion locks, and an
  * approximation is enough for the current usage of this function.

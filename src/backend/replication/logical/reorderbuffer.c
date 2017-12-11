@@ -810,7 +810,7 @@ ReorderBufferIterTXNInit(ReorderBuffer *rb, ReorderBufferTXN *txn)
 	}
 
 	/*
-	 * TODO: Consider adding fastpath for the rather common nr_txns=1 case, no
+	 * TODO: Consider adding fastpath for the rather common nr_txns=1 case, no id:343 gh:344
 	 * need to allocate/build a heap then.
 	 */
 
@@ -1591,7 +1591,7 @@ ReorderBufferCommit(ReorderBuffer *rb, TransactionId xid,
 	}
 	PG_CATCH();
 	{
-		/* TODO: Encapsulate cleanup from the PG_TRY and PG_CATCH blocks */
+		/* TODO: Encapsulate cleanup from the PG_TRY and PG_CATCH blocks  id:366 gh:367*/
 		if (iterstate)
 			ReorderBufferIterTXNFinish(rb, iterstate);
 
@@ -1952,7 +1952,7 @@ ReorderBufferXidHasBaseSnapshot(ReorderBuffer *rb, TransactionId xid)
 		return false;
 
 	/*
-	 * TODO: It would be a nice improvement if we would check the toplevel
+	 * TODO: It would be a nice improvement if we would check the toplevel id:403 gh:402
 	 * transaction in subtransactions, but we'd need to keep track of a bit
 	 * more state.
 	 */
@@ -1991,7 +1991,7 @@ static void
 ReorderBufferCheckSerializeTXN(ReorderBuffer *rb, ReorderBufferTXN *txn)
 {
 	/*
-	 * TODO: improve accounting so we cheaply can take subtransactions into
+	 * TODO: improve accounting so we cheaply can take subtransactions into id:419 gh:420
 	 * account here.
 	 */
 	if (txn->nentries_mem >= max_changes_in_memory)

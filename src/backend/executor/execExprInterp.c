@@ -399,7 +399,7 @@ ExecInterpExpr(ExprState *state, ExprContext *econtext, bool *isnull)
 
 		EEO_CASE(EEOP_INNER_FETCHSOME)
 		{
-			/* XXX: worthwhile to check tts_nvalid inline first? */
+			/* XXX: worthwhile to check tts_nvalid inline first?  id:181 gh:182*/
 			slot_getsomeattrs(innerslot, op->d.fetch.last_var);
 
 			EEO_NEXT();
@@ -1826,7 +1826,7 @@ ExecJustApplyFuncToCase(ExprState *state, ExprContext *econtext, bool *isnull)
 	Datum		d;
 
 	/*
-	 * XXX with some redesign of the CaseTestExpr mechanism, maybe we could
+	 * XXX with some redesign of the CaseTestExpr mechanism, maybe we could id:165 gh:166
 	 * get rid of this data shuffling?
 	 */
 	*op->resvalue = *op->d.casetest.value;
@@ -3466,7 +3466,7 @@ ExecEvalWholeRowVar(ExprState *state, ExprEvalStep *op, ExprContext *econtext)
 	/*
 	 * If first time through, obtain tuple descriptor and check compatibility.
 	 *
-	 * XXX: It'd be great if this could be moved to the expression
+	 * XXX: It'd be great if this could be moved to the expression id:213 gh:215
 	 * initialization phase, but due to using slots that's currently not
 	 * feasible.
 	 */

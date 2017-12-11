@@ -42,7 +42,7 @@ typedef struct
 	int			lastFreeBuffer; /* Tail of list of unused buffers */
 
 	/*
-	 * NOTE: lastFreeBuffer is undefined when firstFreeBuffer is -1 (that is,
+	 * NOTE: lastFreeBuffer is undefined when firstFreeBuffer is -1 (that is, id:429 gh:430
 	 * when the list is empty)
 	 */
 

@@ -286,7 +286,7 @@ checkViewTupleDesc(TupleDesc newdesc, TupleDesc olddesc)
 		Form_pg_attribute newattr = TupleDescAttr(newdesc, i);
 		Form_pg_attribute oldattr = TupleDescAttr(olddesc, i);
 
-		/* XXX msg not right, but we don't support DROP COL on view anyway */
+		/* XXX msg not right, but we don't support DROP COL on view anyway  id:180 gh:181*/
 		if (newattr->attisdropped != oldattr->attisdropped)
 			ereport(ERROR,
 					(errcode(ERRCODE_INVALID_TABLE_DEFINITION),
@@ -298,7 +298,7 @@ checkViewTupleDesc(TupleDesc newdesc, TupleDesc olddesc)
 					 errmsg("cannot change name of view column \"%s\" to \"%s\"",
 							NameStr(oldattr->attname),
 							NameStr(newattr->attname))));
-		/* XXX would it be safe to allow atttypmod to change?  Not sure */
+		/* XXX would it be safe to allow atttypmod to change?  Not sure  id:164 gh:165*/
 		if (newattr->atttypid != oldattr->atttypid ||
 			newattr->atttypmod != oldattr->atttypmod)
 			ereport(ERROR,
@@ -559,7 +559,7 @@ DefineView(ViewStmt *stmt, const char *queryString,
 	/*
 	 * Create the view relation
 	 *
-	 * NOTE: if it already exists and replace is false, the xact will be
+	 * NOTE: if it already exists and replace is false, the xact will be id:212 gh:214
 	 * aborted.
 	 */
 	address = DefineVirtualRelation(view, viewParse->targetList,

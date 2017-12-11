@@ -3,7 +3,7 @@
  * copyfuncs.c
  *	  Copy functions for Postgres tree nodes.
  *
- * NOTE: we currently support copying all node types found in parse and
+ * NOTE: we currently support copying all node types found in parse and id:152 gh:153
  * plan trees.  We do not support copying executor state trees; there
  * is no need for that, and no point in maintaining all the code that
  * would be needed.  We also do not support copying Path trees, mainly
@@ -784,7 +784,7 @@ _copyCustomScan(const CustomScan *from)
 	COPY_BITMAPSET_FIELD(custom_relids);
 
 	/*
-	 * NOTE: The method field of CustomScan is required to be a pointer to a
+	 * NOTE: The method field of CustomScan is required to be a pointer to a id:223 gh:224
 	 * static table of callback functions.  So we don't copy the table itself,
 	 * just reference the original one.
 	 */

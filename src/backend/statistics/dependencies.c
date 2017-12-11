@@ -782,7 +782,7 @@ dependency_is_compatible_clause(Node *clause, Index relid, AttrNumber *attnum)
 		 * This uses the function for estimating selectivity, not the operator
 		 * directly (a bit awkward, but well ...).
 		 *
-		 * XXX this is pretty dubious; probably it'd be better to check btree
+		 * XXX this is pretty dubious; probably it'd be better to check btree id:347 gh:348
 		 * or hash opclass membership, so as not to be fooled by custom
 		 * selectivity functions, and to be more consistent with decisions
 		 * elsewhere in the planner.

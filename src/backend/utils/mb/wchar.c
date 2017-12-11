@@ -1723,7 +1723,7 @@ pg_eucjp_increment(unsigned char *charptr, int length)
 /*
  *-------------------------------------------------------------------
  * encoding info table
- * XXX must be sorted by the same order as enum pg_enc (in mb/pg_wchar.h)
+ * XXX must be sorted by the same order as enum pg_enc (in mb/pg_wchar.h) id:611 gh:612
  *-------------------------------------------------------------------
  */
 const pg_wchar_tbl pg_wchar_table[] = {

@@ -1563,7 +1563,7 @@ RecordTransactionAbort(bool isSubXact)
 	nrels = smgrGetPendingDeletes(false, &rels);
 	nchildren = xactGetCommittedChildren(&children);
 
-	/* XXX do we really need a critical section here? */
+	/* XXX do we really need a critical section here?  id:121 gh:122*/
 	START_CRIT_SECTION();
 
 	/* Write the ABORT record */
@@ -4703,7 +4703,7 @@ AbortSubTransaction(void)
 	 * Releasing LW locks is critical since we might try to grab them again
 	 * while cleaning up!
 	 *
-	 * FIXME This may be incorrect --- Are there some locks we should keep?
+	 * FIXME This may be incorrect --- Are there some locks we should keep? id:67 gh:68
 	 * Buffer locks, for example?  I don't think so but I'm not sure.
 	 */
 	LWLockReleaseAll();

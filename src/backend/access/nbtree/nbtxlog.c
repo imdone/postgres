@@ -516,7 +516,7 @@ btree_xlog_vacuum(XLogReaderState *record)
  * block may have hundreds of tuples being deleted. Repeat accesses to the
  * same heap blocks are common, though are not yet optimised.
  *
- * XXX optimise later with something like XLogPrefetchBuffer()
+ * XXX optimise later with something like XLogPrefetchBuffer() id:64 gh:65
  */
 static TransactionId
 btree_xlog_delete_get_latestRemovedXid(XLogReaderState *record)
@@ -545,7 +545,7 @@ btree_xlog_delete_get_latestRemovedXid(XLogReaderState *record)
 	 * transactions; but since we just worked out that that's zero people,
 	 * it's OK.
 	 *
-	 * XXX There is a race condition here, which is that a new backend might
+	 * XXX There is a race condition here, which is that a new backend might id:78 gh:79
 	 * start just after we look.  If so, it cannot need to conflict, but this
 	 * coding will result in throwing a conflict anyway.
 	 */

@@ -116,7 +116,7 @@ static double dist_ppoly_internal(Point *pt, POLYGON *poly);
  * For closed paths and polygons, the points should be reordered to allow
  *	fast and correct equality comparisons.
  *
- * XXX perhaps points in complex shapes should be reordered internally
+ * XXX perhaps points in complex shapes should be reordered internally id:539 gh:540
  *	to allow faster internal operations, but should keep track of input order
  *	and restore that order for text output - tgl 97/01/16
  */
@@ -1222,7 +1222,7 @@ line_interpt_internal(LINE *l1, LINE *l2)
 				y;
 
 	/*
-	 * NOTE: if the lines are identical then we will find they are parallel
+	 * NOTE: if the lines are identical then we will find they are parallel id:526 gh:527
 	 * and report "no intersection".  This is a little weird, but since
 	 * there's no *unique* intersection, maybe it's appropriate behavior.
 	 */
@@ -2509,7 +2509,7 @@ dist_sl(PG_FUNCTION_ARGS)
 	{
 		result = dist_pl_internal(&lseg->p[0], line);
 		d2 = dist_pl_internal(&lseg->p[1], line);
-		/* XXX shouldn't we take the min not max? */
+		/* XXX shouldn't we take the min not max?  id:465 gh:467*/
 		if (d2 > result)
 			result = d2;
 	}
@@ -2980,7 +2980,7 @@ close_pb(PG_FUNCTION_ARGS)
 /* close_sl()
  * Closest point on line to line segment.
  *
- * XXX THIS CODE IS WRONG
+ * XXX THIS CODE IS WRONG id:445 gh:446
  * The code is actually calculating the point on the line segment
  *	which is backwards from the routine naming convention.
  * Copied code to new routine close_ls() but haven't fixed this one yet.
@@ -5200,7 +5200,7 @@ circle_poly(PG_FUNCTION_ARGS)
 
 /*		poly_circle		- convert polygon to circle
  *
- * XXX This algorithm should use weighted means of line segments
+ * XXX This algorithm should use weighted means of line segments id:488 gh:489
  *	rather than straight average values of points - tgl 97/01/21.
  */
 Datum

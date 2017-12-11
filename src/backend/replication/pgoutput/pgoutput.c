@@ -223,7 +223,7 @@ pgoutput_begin_txn(LogicalDecodingContext *ctx, ReorderBufferTXN *txn)
 		OutputPluginPrepareWrite(ctx, true);
 
 		/*----------
-		 * XXX: which behaviour do we want here?
+		 * XXX: which behaviour do we want here? id:345 gh:346
 		 *
 		 * Alternatives:
 		 *	- don't send origin message if origin name not found

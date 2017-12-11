@@ -3,7 +3,7 @@
  * gramparse.h
  *		Shared definitions for the "raw" parser (flex and bison phases only)
  *
- * NOTE: this file is only meant to be included in the core parsing files,
+ * NOTE: this file is only meant to be included in the core parsing files, id:667 gh:668
  * ie, parser.c, gram.y, scan.l, and src/common/keywords.c.
  * Definitions that are needed outside the core parser should be in parser.h.
  *

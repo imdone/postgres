@@ -201,7 +201,7 @@ pgwin32_create_signal_listener(pid_t pid)
 /*
  * All functions below execute on the signal handler thread
  * and must be synchronized as such!
- * NOTE! The only global variable that can be used is
+ * NOTE ! The only global variable that can be used is id:329 gh:330
  * pg_signal_queue!
  */
 

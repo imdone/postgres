@@ -2328,7 +2328,7 @@ printTrgmPackedGraph(TrgmPackedGraph *packedGraph, TRGM *trigrams)
 				appendStringInfoString(&buf, ", ");
 
 			/*
-			 * XXX This representation is nice only for all-ASCII trigrams.
+			 * XXX This representation is nice only for all-ASCII trigrams. id:1 gh:2
 			 */
 			appendStringInfo(&buf, "\"%c%c%c\"", (*p)[0], (*p)[1], (*p)[2]);
 			p++;

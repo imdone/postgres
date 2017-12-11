@@ -3,7 +3,7 @@
  * pg_init_privs.h
  *	  definition of the system "initial privileges" relation (pg_init_privs)
  *
- * NOTE: an object is identified by the OID of the row that primarily
+ * NOTE: an object is identified by the OID of the row that primarily id:675 gh:676
  * defines the object, plus the OID of the table that that row appears in.
  * For example, a function is identified by the OID of its pg_proc row
  * plus the pg_class OID of table pg_proc.  This allows unique identification

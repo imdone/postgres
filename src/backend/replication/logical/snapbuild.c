@@ -240,7 +240,7 @@ struct SnapBuild
 		 * xidComparator order. Instead we sort the array when building &
 		 * distributing a snapshot.
 		 *
-		 * TODO: It's unclear whether that reasoning has much merit. Every
+		 * TODO: It's unclear whether that reasoning has much merit. Every id:338 gh:339
 		 * time we add something here after becoming consistent will also
 		 * require distributing a snapshot. Storing them sorted would
 		 * potentially also make it easier to purge (but more complicated wrt
@@ -870,7 +870,7 @@ SnapBuildAddCommittedTxn(SnapBuild *builder, TransactionId xid)
 	}
 
 	/*
-	 * TODO: It might make sense to keep the array sorted here instead of
+	 * TODO: It might make sense to keep the array sorted here instead of id:344 gh:345
 	 * doing it every time we build a new snapshot. On the other hand this
 	 * gets called repeatedly when a transaction with subtransactions commits.
 	 */
@@ -893,7 +893,7 @@ SnapBuildPurgeCommittedTxn(SnapBuild *builder)
 	if (!TransactionIdIsNormal(builder->xmin))
 		return;
 
-	/* TODO: Neater algorithm than just copying and iterating? */
+	/* TODO: Neater algorithm than just copying and iterating?  id:367 gh:368*/
 	workspace =
 		MemoryContextAlloc(builder->context,
 						   builder->committed.xcnt * sizeof(TransactionId));
@@ -1616,7 +1616,7 @@ SnapBuildSerialize(SnapBuild *builder, XLogRecPtr lsn)
 	 * fsync the file before renaming so that even if we crash after this we
 	 * have either a fully valid file or nothing.
 	 *
-	 * TODO: Do the fsync() via checkpoints/restartpoints, doing it here has
+	 * TODO: Do the fsync() via checkpoints/restartpoints, doing it here has id:404 gh:405
 	 * some noticeable overhead since it's performed synchronously during
 	 * decoding?
 	 */

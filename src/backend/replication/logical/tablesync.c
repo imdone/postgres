@@ -169,7 +169,7 @@ wait_for_relation_state_change(Oid relid, char expected_state)
 
 		CHECK_FOR_INTERRUPTS();
 
-		/* XXX use cache invalidation here to improve performance? */
+		/* XXX use cache invalidation here to improve performance?  id:420 gh:421*/
 		PushActiveSnapshot(GetLatestSnapshot());
 		state = GetSubscriptionRelState(MyLogicalRepWorker->subid,
 										relid, &statelsn, true);

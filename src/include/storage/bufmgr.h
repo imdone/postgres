@@ -143,7 +143,7 @@ extern PGDLLIMPORT int32 *LocalRefCount;
  *		The buffer can be a raw disk block and need not contain a valid
  *		(formatted) disk page.
  */
-/* XXX should dig out of buffer descriptor */
+/* XXX should dig out of buffer descriptor  id:602 gh:603*/
 #define BufferGetPageSize(buffer) \
 ( \
 	AssertMacro(BufferIsValid(buffer)), \

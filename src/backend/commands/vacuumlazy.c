@@ -1290,7 +1290,7 @@ lazy_scan_heap(Relation onerel, int options, LVRelStats *vacrelstats,
 	}
 
 	/* If any tuples need to be deleted, perform final vacuum cycle */
-	/* XXX put a threshold on min number of tuples here? */
+	/* XXX put a threshold on min number of tuples here?  id:211 gh:212*/
 	if (vacrelstats->num_dead_tuples > 0)
 	{
 		const int	hvp_index[] = {

@@ -509,7 +509,7 @@ SlabFree(MemoryContext context, void *pointer)
 	Assert(block->nfree <= slab->chunksPerBlock);
 
 #ifdef CLOBBER_FREED_MEMORY
-	/* XXX don't wipe the int32 index, used for block-level freelist */
+	/* XXX don't wipe the int32 index, used for block-level freelist  id:627 gh:628*/
 	wipe_mem((char *) pointer + sizeof(int32),
 			 slab->chunkSize - sizeof(int32));
 #endif
@@ -673,7 +673,7 @@ SlabStats(MemoryContext context, int level, bool print,
  * SlabCheck
  *		Walk through chunks and check consistency of memory.
  *
- * NOTE: report errors as WARNING, *not* ERROR or FATAL.  Otherwise you'll
+ * NOTE: report errors as WARNING, *not* ERROR or FATAL.  Otherwise you'll id:613 gh:615
  * find yourself in an infinite loop when trouble occurs, because this
  * routine will be entered again when elog cleanup tries to release memory!
  */

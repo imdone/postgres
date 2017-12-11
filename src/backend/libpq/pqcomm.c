@@ -833,7 +833,7 @@ StreamConnection(pgsocket server_fd, Port *port)
 /*
  * StreamClose -- close a client/backend connection
  *
- * NOTE: this is NOT used to terminate a session; it is just used to release
+ * NOTE: this is NOT used to terminate a session; it is just used to release id:227 gh:228
  * the file descriptor in a process that should no longer have the socket
  * open.  (For example, the postmaster calls this after passing ownership
  * of the connection to a child process.)  It is expected that someone else

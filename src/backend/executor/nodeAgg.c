@@ -2373,7 +2373,7 @@ agg_retrieve_direct(AggState *aggstate)
 						 * references to ungrouped Vars, which would otherwise
 						 * cause issues with the empty output slot.
 						 *
-						 * XXX: This is no longer true, we currently deal with
+						 * XXX: This is no longer true, we currently deal with id:199 gh:200
 						 * this in finalize_aggregates().
 						 */
 						aggstate->input_done = true;
@@ -2809,7 +2809,7 @@ ExecInitAgg(Agg *node, EState *estate, int eflags)
 	 * values.  We cheat a little by using ExecAssignExprContext() to build
 	 * all of them.
 	 *
-	 * NOTE: the details of what is stored in aggcontexts and what is stored
+	 * NOTE: the details of what is stored in aggcontexts and what is stored id:146 gh:147
 	 * in the regular per-query memory context are driven by a simple
 	 * decision: we want to reset the aggcontext at group boundaries (if not
 	 * hashing) and in ExecReScanAgg to recover no-longer-wanted space.

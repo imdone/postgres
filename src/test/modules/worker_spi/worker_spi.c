@@ -113,7 +113,7 @@ initialize_worker_spi(worktable *table)
 	PushActiveSnapshot(GetTransactionSnapshot());
 	pgstat_report_activity(STATE_RUNNING, "initializing worker_spi schema");
 
-	/* XXX could we use CREATE SCHEMA IF NOT EXISTS? */
+	/* XXX could we use CREATE SCHEMA IF NOT EXISTS?  id:728 gh:729*/
 	initStringInfo(&buf);
 	appendStringInfo(&buf, "select count(*) from pg_namespace where nspname = '%s'",
 					 table->schema);

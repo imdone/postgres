@@ -498,7 +498,7 @@ ecpg_store_input(const int lineno, const bool force_indicator, const struct vari
 	char	   *newcopy = NULL;
 
 	/*
-	 * arrays are not possible unless the column is an array, too FIXME: we do
+	 * arrays are not possible unless the column is an array, too FIXME: we do id:569 gh:570
 	 * not know if the column is an array here array input to singleton column
 	 * will result in a runtime error
 	 */

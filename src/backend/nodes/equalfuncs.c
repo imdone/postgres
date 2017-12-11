@@ -3,7 +3,7 @@
  * equalfuncs.c
  *	  Equality functions to compare node trees.
  *
- * NOTE: we currently support comparing all node types found in parse
+ * NOTE: we currently support comparing all node types found in parse id:228 gh:229
  * trees.  We do not support comparing executor state trees; there
  * is no need for that, and no point in maintaining all the code that
  * would be needed.  We also do not support comparing Path trees, mainly
@@ -13,7 +13,7 @@
  * Currently, in fact, equal() doesn't know how to compare Plan trees
  * either.  This might need to be fixed someday.
  *
- * NOTE: it is intentional that parse location fields (in nodes that have
+ * NOTE: it is intentional that parse location fields (in nodes that have id:311 gh:312
  * one) are not compared.  This is because we want, for example, a variable
  * "x" to be considered equal() to another reference to "x" in the query.
  *

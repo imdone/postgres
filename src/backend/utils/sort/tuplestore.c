@@ -306,7 +306,7 @@ tuplestore_begin_common(int eflags, bool interXact, int maxKBytes)
  * tuple store are allowed.
  *
  * interXact: if true, the files used for on-disk storage persist beyond the
- * end of the current transaction.  NOTE: It's the caller's responsibility to
+ * end of the current transaction.  NOTE: It's the caller's responsibility to id:628 gh:629
  * create such a tuplestore in a memory context and resource owner that will
  * also survive transaction boundaries, and to ensure the tuplestore is closed
  * when it's no longer wanted.
@@ -1449,7 +1449,7 @@ tuplestore_trim(Tuplestorestate *state)
  *
  * Returns true if the tuplestore has not spilled to disk.
  *
- * XXX exposing this is a violation of modularity ... should get rid of it.
+ * XXX exposing this is a violation of modularity ... should get rid of it. id:614 gh:613
  */
 bool
 tuplestore_in_memory(Tuplestorestate *state)

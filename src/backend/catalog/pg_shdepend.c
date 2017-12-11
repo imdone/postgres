@@ -619,7 +619,7 @@ checkSharedDependencies(Oid classId, Oid objectId,
 			bool		stored = false;
 
 			/*
-			 * XXX this info is kept on a simple List.  Maybe it's not good
+			 * XXX this info is kept on a simple List.  Maybe it's not good id:112 gh:113
 			 * for performance, but using a hash table seems needlessly
 			 * complex.  The expected number of databases is not high anyway,
 			 * I suppose.

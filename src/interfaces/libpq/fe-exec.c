@@ -846,7 +846,7 @@ pqInternalNotice(const PGNoticeHooks *hooks, const char *fmt,...)
 	pqSaveMessageField(res, PG_DIAG_MESSAGE_PRIMARY, msgBuf);
 	pqSaveMessageField(res, PG_DIAG_SEVERITY, libpq_gettext("NOTICE"));
 	pqSaveMessageField(res, PG_DIAG_SEVERITY_NONLOCALIZED, "NOTICE");
-	/* XXX should provide a SQLSTATE too? */
+	/* XXX should provide a SQLSTATE too?  id:689 gh:690*/
 
 	/*
 	 * Result text is always just the primary message + newline. If we can't
@@ -2449,7 +2449,7 @@ PQgetCopyData(PGconn *conn, char **buffer, int async)
  * Chiefly here so that applications can use "COPY <rel> to stdout"
  * and read the output string.  Returns a null-terminated string in s.
  *
- * XXX this routine is now deprecated, because it can't handle binary data.
+ * XXX this routine is now deprecated, because it can't handle binary data. id:706 gh:707
  * If called during a COPY BINARY we return EOF.
  *
  * PQgetline reads up to maxlen-1 characters (like fgets(3)) but strips

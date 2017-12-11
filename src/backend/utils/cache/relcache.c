@@ -1892,7 +1892,7 @@ LookupOpclassInfo(Oid operatorClassOid,
  * during bootstrap or before RelationCacheInitializePhase3 runs, and none of
  * these properties matter then...)
  *
- * NOTE: we assume we are already switched into CacheMemoryContext.
+ * NOTE: we assume we are already switched into CacheMemoryContext. id:476 gh:477
  */
 static void
 formrdesc(const char *relationName, Oid relationReltype,
@@ -3210,7 +3210,7 @@ RelationBuildLocalRelation(const char *relname,
 	/*
 	 * check for creation of a rel that must be nailed in cache.
 	 *
-	 * XXX this list had better match the relations specially handled in
+	 * XXX this list had better match the relations specially handled in id:508 gh:509
 	 * RelationCacheInitializePhase2/3.
 	 */
 	switch (relid)
@@ -3462,7 +3462,7 @@ RelationSetNewRelfilenode(Relation relation, char persistence,
 	/*
 	 * Create storage for the main fork of the new relfilenode.
 	 *
-	 * NOTE: any conflict in relfilenode value will be caught here, if
+	 * NOTE: any conflict in relfilenode value will be caught here, if id:499 gh:500
 	 * GetNewRelFileNode messes up for any reason.
 	 */
 	newrnode.node = relation->rd_node;
@@ -5370,7 +5370,7 @@ errtableconstraint(Relation rel, const char *conname)
  * criticalSharedRelcachesBuilt to true.
  * If not successful, return false.
  *
- * NOTE: we assume we are already switched into CacheMemoryContext.
+ * NOTE: we assume we are already switched into CacheMemoryContext. id:607 gh:608
  */
 static bool
 load_relcache_init_file(bool shared)

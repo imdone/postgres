@@ -173,7 +173,7 @@ xslt_process(PG_FUNCTION_ARGS)
 
 	pg_xml_done(xmlerrcxt, false);
 
-	/* XXX this is pretty dubious, really ought to throw error instead */
+	/* XXX this is pretty dubious, really ought to throw error instead  id:44 gh:45*/
 	if (resstat < 0)
 		PG_RETURN_NULL();
 

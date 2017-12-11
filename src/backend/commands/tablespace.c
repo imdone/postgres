@@ -433,7 +433,7 @@ DropTableSpace(DropTableSpaceStmt *stmt)
 			ereport(NOTICE,
 					(errmsg("tablespace \"%s\" does not exist, skipping",
 							tablespacename)));
-			/* XXX I assume I need one or both of these next two calls */
+			/* XXX I assume I need one or both of these next two calls  id:208 gh:209*/
 			heap_endscan(scandesc);
 			heap_close(rel, NoLock);
 		}

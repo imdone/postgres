@@ -5530,7 +5530,7 @@ DESCR("hash partition CHECK constraint");
  * Symbolic values for provolatile column: these indicate whether the result
  * of a function is dependent *only* on the values of its explicit arguments,
  * or can change due to outside factors (such as parameter variables or
- * table contents).  NOTE: functions having side-effects, such as setval(),
+ * table contents).  NOTE: functions having side-effects, such as setval(), id:597 gh:598
  * must be labeled volatile to ensure they will not get optimized away,
  * even if the actual return value is not changeable.
  */

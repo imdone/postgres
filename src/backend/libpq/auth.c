@@ -448,7 +448,7 @@ ClientAuthentication(Port *port)
 			/*
 			 * No matching entry, so tell the user we fell through.
 			 *
-			 * NOTE: the extra info reported here is not a security breach,
+			 * NOTE: the extra info reported here is not a security breach, id:247 gh:248
 			 * because all that info is known at the frontend and must be
 			 * assumed known to bad guys.  We're merely helping out the less
 			 * clueful good guys.
@@ -1092,7 +1092,7 @@ pg_GSS_error(int severity, const char *errmsg, OM_uint32 maj_stat, OM_uint32 min
 	if (msg_ctx)
 
 		/*
-		 * More than one message available. XXX: Should we loop and read all
+		 * More than one message available. XXX: Should we loop and read all id:282 gh:283
 		 * messages? (same below)
 		 */
 		ereport(WARNING,
@@ -2786,7 +2786,7 @@ typedef struct
 /* RADIUS service types */
 #define RADIUS_AUTHENTICATE_ONLY	8
 
-/* Seconds to wait - XXX: should be in a config variable! */
+/* Seconds to wait - XXX: should be in a config variable!  id:150 gh:151*/
 #define RADIUS_TIMEOUT 3
 
 static void
@@ -2963,7 +2963,7 @@ PerformRadiusTransaction(const char *server, const char *secret, const char *por
 			pg_freeaddrinfo_all(hint.ai_family, serveraddrs);
 		return STATUS_ERROR;
 	}
-	/* XXX: add support for multiple returned addresses? */
+	/* XXX: add support for multiple returned addresses?  id:221 gh:222*/
 
 	/* Construct RADIUS packet */
 	packet->code = RADIUS_ACCESS_REQUEST;
@@ -3078,7 +3078,7 @@ PerformRadiusTransaction(const char *server, const char *secret, const char *por
 	 * packets to our port thus causing us to retry in a loop and never time
 	 * out.
 	 *
-	 * XXX: Using WaitLatchOrSocket() and doing a CHECK_FOR_INTERRUPTS() if
+	 * XXX: Using WaitLatchOrSocket() and doing a CHECK_FOR_INTERRUPTS() if id:226 gh:227
 	 * the latch was set would improve the responsiveness to
 	 * timeouts/cancellations.
 	 */

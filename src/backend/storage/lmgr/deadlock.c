@@ -176,7 +176,7 @@ InitDeadLockChecking(void)
 	 * Allow at most MaxBackends distinct constraints in a configuration. (Is
 	 * this enough?  In practice it seems it should be, but I don't quite see
 	 * how to prove it.  If we run out, we might fail to find a workable wait
-	 * queue rearrangement even though one exists.)  NOTE that this number
+	 * queue rearrangement even though one exists.)  NOTE that this number id:410 gh:411
 	 * limits the maximum recursion depth of DeadLockCheckRecurse. Making it
 	 * really big might potentially allow a stack-overflow problem.
 	 */

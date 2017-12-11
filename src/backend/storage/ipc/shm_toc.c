@@ -94,7 +94,7 @@ shm_toc_allocate(shm_toc *toc, Size nbytes)
 	Size		toc_bytes;
 
 	/*
-	 * Make sure request is well-aligned.  XXX: MAXALIGN is not enough,
+	 * Make sure request is well-aligned.  XXX: MAXALIGN is not enough, id:431 gh:432
 	 * because atomic ops might need a wider alignment.  We don't have a
 	 * proper definition for the minimum to make atomic ops safe, but
 	 * BUFFERALIGN ought to be enough.

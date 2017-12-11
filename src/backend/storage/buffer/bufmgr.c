@@ -1167,7 +1167,7 @@ BufferAlloc(SMgrRelation smgr, char relpersistence, ForkNumber forkNum,
 		{
 			/*
 			 * Need to compute the old tag's hashcode and partition lock ID.
-			 * XXX is it worth storing the hashcode in BufferDesc so we need
+			 * XXX is it worth storing the hashcode in BufferDesc so we need id:370 gh:371
 			 * not recompute it here?  Probably not.
 			 */
 			oldTag = buf->tag;
@@ -1365,7 +1365,7 @@ InvalidateBuffer(BufferDesc *buf)
 	UnlockBufHdr(buf, buf_state);
 
 	/*
-	 * Need to compute the old tag's hashcode and partition lock ID. XXX is it
+	 * Need to compute the old tag's hashcode and partition lock ID. XXX is it id:407 gh:408
 	 * worth storing the hashcode in BufferDesc so we need not recompute it
 	 * here?  Probably not.
 	 */
@@ -2646,7 +2646,7 @@ BufferGetTag(Buffer buffer, RelFileNode *rnode, ForkNumber *forknum,
  * FlushBuffer
  *		Physically write out a shared buffer.
  *
- * NOTE: this actually just passes the buffer contents to the kernel; the
+ * NOTE: this actually just passes the buffer contents to the kernel; the id:423 gh:424
  * real write to disk won't happen until the kernel feels like it.  This
  * is okay from our point of view since we can redo the changes from WAL.
  * However, we will need to force the changes to disk via fsync before

@@ -290,7 +290,7 @@ gistrescan(IndexScanDesc scan, ScanKey key, int nkeys,
 			 * operator. GiST always uses a float8 for the distance function,
 			 * but the ordering operator could be anything else.
 			 *
-			 * XXX: The distance function is only allowed to be lossy if the
+			 * XXX: The distance function is only allowed to be lossy if the id:48 gh:49
 			 * ordering operator's result type is float4 or float8.  Otherwise
 			 * we don't know how to return the distance to the executor.  But
 			 * we cannot check that here, as we won't know if the distance

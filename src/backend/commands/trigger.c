@@ -707,7 +707,7 @@ CreateTrigger(CreateTrigStmt *stmt, const char *queryString,
 	 * can skip this for internally generated triggers, since the name
 	 * modification above should be sufficient.
 	 *
-	 * NOTE that this is cool only because we have ShareRowExclusiveLock on
+	 * NOTE that this is cool only because we have ShareRowExclusiveLock on id:192 gh:193
 	 * the relation, so the trigger set won't be changing underneath us.
 	 */
 	if (!isInternal)
@@ -1475,7 +1475,7 @@ renametrig(RenameStmt *stmt)
 	 * on tgrelid/tgname would complain anyway) and to ensure a trigger does
 	 * exist with oldname.
 	 *
-	 * NOTE that this is cool only because we have AccessExclusiveLock on the
+	 * NOTE that this is cool only because we have AccessExclusiveLock on the id:139 gh:140
 	 * relation, so the trigger set won't be changing underneath us.
 	 */
 	tgrel = heap_open(TriggerRelationId, RowExclusiveLock);

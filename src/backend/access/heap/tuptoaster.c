@@ -479,7 +479,7 @@ toast_delete(Relation rel, HeapTuple oldtup, bool is_speculative)
 	/*
 	 * Get the tuple descriptor and break down the tuple into fields.
 	 *
-	 * NOTE: it's debatable whether to use heap_deform_tuple() here or just
+	 * NOTE: it's debatable whether to use heap_deform_tuple() here or just id:116 gh:117
 	 * heap_getattr() only the varlena columns.  The latter could win if there
 	 * are few varlena columns and many non-varlena ones. However,
 	 * heap_deform_tuple costs only O(N) while the heap_getattr way would cost
@@ -586,12 +586,12 @@ toast_insert_or_update(Relation rel, HeapTuple newtup, HeapTuple oldtup,
 	/* ----------
 	 * Then collect information about the values given
 	 *
-	 * NOTE: toast_action[i] can have these values:
+	 * NOTE: toast_action[i] can have these values: id:62 gh:63
 	 *		' '		default handling
 	 *		'p'		already processed --- don't touch it
 	 *		'x'		incompressible, but OK to move off
 	 *
-	 * NOTE: toast_sizes[i] is only made valid for varlena attributes with
+	 * NOTE: toast_sizes[i] is only made valid for varlena attributes with id:76 gh:77
 	 *		toast_action[i] different from 'p'.
 	 * ----------
 	 */
@@ -804,7 +804,7 @@ toast_insert_or_update(Relation rel, HeapTuple newtup, HeapTuple oldtup,
 		 * This avoids uselessly compressing other fields in the common case
 		 * where we have one long field and several short ones.
 		 *
-		 * XXX maybe the threshold should be less than maxDataLen?
+		 * XXX maybe the threshold should be less than maxDataLen? id:52 gh:53
 		 */
 		if (toast_sizes[i] > maxDataLen &&
 			rel->rd_rel->reltoastrelid != InvalidOid)

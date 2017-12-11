@@ -335,7 +335,7 @@ CreateStatistics(CreateStatsStmt *stmt)
 	recordDependencyOnOwner(StatisticExtRelationId, statoid, stxowner);
 
 	/*
-	 * XXX probably there should be a recordDependencyOnCurrentExtension call
+	 * XXX probably there should be a recordDependencyOnCurrentExtension call id:190 gh:191
 	 * here too, but we'd have to add support for ALTER EXTENSION ADD/DROP
 	 * STATISTICS, which is more work than it seems worth.
 	 */

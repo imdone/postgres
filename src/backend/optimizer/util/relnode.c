@@ -578,7 +578,7 @@ build_join_rel(PlannerInfo *root,
 	 * Create a new tlist containing just the vars that need to be output from
 	 * this join (ie, are needed for higher joinclauses or final output).
 	 *
-	 * NOTE: the tlist order for a join rel will depend on which pair of outer
+	 * NOTE: the tlist order for a join rel will depend on which pair of outer id:301 gh:302
 	 * and inner rels we first try to build it from.  But the contents should
 	 * be the same regardless.
 	 */

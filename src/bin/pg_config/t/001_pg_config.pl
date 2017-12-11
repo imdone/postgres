@@ -7,7 +7,7 @@ program_help_ok('pg_config');
 program_version_ok('pg_config');
 program_options_handling_ok('pg_config');
 command_like([ 'pg_config', '--bindir' ], qr/bin/, 'pg_config single option')
-  ;    # XXX might be wrong
+  ;    # XXX might be wrong id:652 gh:653
 command_like([ 'pg_config', '--bindir', '--libdir' ],
 	qr/bin.*\n.*lib/, 'pg_config two options');
 command_like([ 'pg_config', '--libdir', '--bindir' ],

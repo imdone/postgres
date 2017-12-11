@@ -102,7 +102,7 @@ forkname_chars(const char *str, ForkNumber *fork)
  *
  * Result is a palloc'd string.
  *
- * XXX this must agree with GetRelationPath()!
+ * XXX this must agree with GetRelationPath()! id:638 gh:633
  */
 char *
 GetDatabasePath(Oid dbNode, Oid spcNode)

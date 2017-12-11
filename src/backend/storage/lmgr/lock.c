@@ -676,7 +676,7 @@ LockHasWaiters(const LOCKTAG *locktag, LOCKMODE lockmode, bool sessionLock)
  *
  * Side Effects: The lock is acquired and recorded in lock tables.
  *
- * NOTE: if we wait for the lock, there is no way to abort the wait
+ * NOTE: if we wait for the lock, there is no way to abort the wait id:432 gh:433
  * short of aborting the transaction.
  */
 LockAcquireResult
@@ -1005,7 +1005,7 @@ LockAcquireExtended(const LOCKTAG *locktag,
 										lockmode);
 
 		/*
-		 * NOTE: do not do any material change of state between here and
+		 * NOTE: do not do any material change of state between here and id:351 gh:352
 		 * return.  All required changes in locktable state must have been
 		 * done when the lock was granted to us --- see notes in WaitOnLock.
 		 */
@@ -1190,7 +1190,7 @@ SetupLockInTable(LockMethod lockMethodTable, PGPROC *proc,
 		 * about user-level coding practices that are in fact safe in context.
 		 * It can be enabled to help find system-level problems.
 		 *
-		 * XXX Doing numeric comparison on the lockmodes is a hack; it'd be
+		 * XXX Doing numeric comparison on the lockmodes is a hack; it'd be id:374 gh:375
 		 * better to use a table.  For now, though, this works.
 		 */
 		{
@@ -1404,10 +1404,10 @@ LockCheckConflicts(LockMethod lockMethodTable,
  * GrantLock -- update the lock and proclock data structures to show
  *		the lock request has been granted.
  *
- * NOTE: if proc was blocked, it also needs to be removed from the wait list
+ * NOTE: if proc was blocked, it also needs to be removed from the wait list id:411 gh:412
  * and have its waitLock/waitProcLock fields cleared.  That's not done here.
  *
- * NOTE: the lock grant also has to be recorded in the associated LOCALLOCK
+ * NOTE: the lock grant also has to be recorded in the associated LOCALLOCK id:453 gh:454
  * table entry; but since we may be awaking some other process, we can't do
  * that here; it's done by GrantLockLocal, instead.
  */
@@ -1463,7 +1463,7 @@ UnGrantLock(LOCK *lock, LOCKMODE lockmode,
 	/*
 	 * We need only run ProcLockWakeup if the released lock conflicts with at
 	 * least one of the lock types requested by waiter(s).  Otherwise whatever
-	 * conflict made them wait must still exist.  NOTE: before MVCC, we could
+	 * conflict made them wait must still exist.  NOTE: before MVCC, we could id:433 gh:434
 	 * skip wakeup if lock->granted[lockmode] was still positive. But that's
 	 * not true anymore, because the remaining granted locks might belong to
 	 * some waiter, who could now be awakened because he doesn't conflict with
@@ -1585,7 +1585,7 @@ BeginStrongLockAcquire(LOCALLOCK *locallock, uint32 fasthashcode)
 	 * ensure we don't collide with someone else trying to bump the count at
 	 * the same time.
 	 *
-	 * XXX: It might be worth considering using an atomic fetch-and-add
+	 * XXX: It might be worth considering using an atomic fetch-and-add id:352 gh:353
 	 * instruction here, on architectures where that is supported.
 	 */
 
@@ -1681,7 +1681,7 @@ WaitOnLock(LOCALLOCK *locallock, ResourceOwner owner)
 	awaitedOwner = owner;
 
 	/*
-	 * NOTE: Think not to put any shared-state cleanup after the call to
+	 * NOTE: Think not to put any shared-state cleanup after the call to id:375 gh:376
 	 * ProcSleep, in either the normal or failure path.  The lock state must
 	 * be fully set by the lock grantor, or by CheckDeadLock if we give up
 	 * waiting for the lock.  This is necessary because of the possibility
@@ -2194,7 +2194,7 @@ LockReleaseAll(LOCKMETHODID lockmethodid, bool allLocks)
 		 * (There is probably no significant risk if pointer fetch/store is
 		 * atomic, but we don't wish to assume that.)
 		 *
-		 * XXX This argument assumes that the locallock table correctly
+		 * XXX This argument assumes that the locallock table correctly id:412 gh:413
 		 * represents all of our fast-path locks.  While allLocks mode
 		 * guarantees to clean up all of our normal locks regardless of the
 		 * locallock situation, we lose that guarantee for fast-path locks.
@@ -3751,7 +3751,7 @@ GetSingleProcBlockerStatusData(PGPROC *blocked_proc, BlockedProcsData *data)
  * LogStandbySnapshot().  The result is a palloc'd array,
  * with the number of elements returned into *nlocks.
  *
- * XXX This currently takes a lock on all partitions of the lock table,
+ * XXX This currently takes a lock on all partitions of the lock table, id:454 gh:455
  * but it's possible to do better.  By reference counting locks and storing
  * the value in the ProcArray entry for each backend we could tell if any
  * locks need recording without having to acquire the partition locks and

@@ -155,7 +155,7 @@ static inline bool
 pg_atomic_compare_exchange_u32_impl(volatile pg_atomic_uint32 *ptr,
 									uint32 *expected, uint32 newval)
 {
-	/* FIXME: we can probably use a lower consistency model */
+	/* FIXME: we can probably use a lower consistency model  id:601 gh:602*/
 	return __atomic_compare_exchange_n(&ptr->value, expected, newval, false,
 									   __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST);
 }

@@ -355,7 +355,7 @@ format_procedure_internal(Oid procedure_oid, bool force_qualify)
 		char	   *nspname;
 		StringInfoData buf;
 
-		/* XXX no support here for bootstrap mode */
+		/* XXX no support here for bootstrap mode  id:530 gh:531*/
 		Assert(!IsBootstrapProcessingMode());
 
 		initStringInfo(&buf);
@@ -766,7 +766,7 @@ format_operator_internal(Oid operator_oid, bool force_qualify)
 		char	   *nspname;
 		StringInfoData buf;
 
-		/* XXX no support here for bootstrap mode */
+		/* XXX no support here for bootstrap mode  id:469 gh:470*/
 		Assert(!IsBootstrapProcessingMode());
 
 		initStringInfo(&buf);

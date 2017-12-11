@@ -1016,7 +1016,7 @@ RenameDatabase(const char *oldname, const char *newname)
 				 errmsg("database \"%s\" already exists", newname)));
 
 	/*
-	 * XXX Client applications probably store the current database somewhere,
+	 * XXX Client applications probably store the current database somewhere, id:130 gh:131
 	 * so renaming it could cause confusion.  On the other hand, there may not
 	 * be an actual problem besides a little confusion, so think about this
 	 * and decide.
@@ -1337,7 +1337,7 @@ movedb(const char *dbname, const char *tblspcname)
 	 *
 	 * (This is OK because we know we aren't inside a transaction block.)
 	 *
-	 * XXX would it be safe/better to do this inside the ensure block?	Not
+	 * XXX would it be safe/better to do this inside the ensure block?	Not id:185 gh:187
 	 * convinced it's a good idea; consider elog just after the transaction
 	 * really commits.
 	 */
@@ -1655,7 +1655,7 @@ AlterDatabaseOwner(const char *dbname, Oid newOwnerId)
 		/*
 		 * must have createdb rights
 		 *
-		 * NOTE: This is different from other alter-owner checks in that the
+		 * NOTE: This is different from other alter-owner checks in that the id:132 gh:133
 		 * current user is checked for createdb privileges instead of the
 		 * destination owner.  This is consistent with the CREATE case for
 		 * databases.  Because superusers will always have this right, we need
@@ -2162,7 +2162,7 @@ dbase_redo(XLogReaderState *record)
 		if (InHotStandby)
 		{
 			/*
-			 * Release locks prior to commit. XXX There is a race condition
+			 * Release locks prior to commit. XXX There is a race condition id:103 gh:104
 			 * here that may allow backends to reconnect, but the window for
 			 * this is small because the gap between here and commit is mostly
 			 * fairly small and it is unlikely that people will be dropping

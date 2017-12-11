@@ -142,7 +142,7 @@ top:
 	 * If we're not allowing duplicates, make sure the key isn't already in
 	 * the index.
 	 *
-	 * NOTE: obviously, _bt_check_unique can only detect keys that are already
+	 * NOTE: obviously, _bt_check_unique can only detect keys that are already id:77 gh:78
 	 * in the index; so it cannot defend against concurrent insertions of the
 	 * same key.  We protect against that by means of holding a write lock on
 	 * the target page.  Any other would-be inserter of the same key must

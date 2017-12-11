@@ -135,7 +135,7 @@ getopt_long(int argc, char *const argv[],
 						optarg = NULL;
 						if (place[namelen] != 0)
 						{
-							/* XXX error? */
+							/* XXX error?  id:727 gh:728*/
 						}
 					}
 

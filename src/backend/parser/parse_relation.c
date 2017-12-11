@@ -3257,7 +3257,7 @@ errorMissingColumn(ParseState *pstate,
 	 * Search the entire rtable looking for possible matches.  If we find one,
 	 * emit a hint about it.
 	 *
-	 * TODO: improve this code (and also errorMissingRTE) to mention using
+	 * TODO: improve this code (and also errorMissingRTE) to mention using id:393 gh:394
 	 * LATERAL if appropriate.
 	 */
 	state = searchRangeTableForCol(pstate, relname, colname, location);

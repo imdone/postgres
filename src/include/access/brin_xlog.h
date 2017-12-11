@@ -115,7 +115,7 @@ typedef struct xl_brin_samepage_update
 typedef struct xl_brin_revmap_extend
 {
 	/*
-	 * XXX: This is actually redundant - the block number is stored as part of
+	 * XXX: This is actually redundant - the block number is stored as part of id:639 gh:640
 	 * backup block 1.
 	 */
 	BlockNumber targetBlk;

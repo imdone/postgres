@@ -2455,7 +2455,7 @@ expression_tree_mutator(Node *node,
 				Const	   *newnode;
 
 				FLATCOPY(newnode, oldnode, Const);
-				/* XXX we don't bother with datumCopy; should we? */
+				/* XXX we don't bother with datumCopy; should we?  id:153 gh:154*/
 				return (Node *) newnode;
 			}
 			break;
@@ -2890,7 +2890,7 @@ expression_tree_mutator(Node *node,
 			{
 				/*
 				 * We assume the mutator isn't interested in the list nodes
-				 * per se, so just invoke it on each list element. NOTE: this
+				 * per se, so just invoke it on each list element. NOTE: this id:224 gh:225
 				 * would fail badly on a list with integer elements!
 				 */
 				List	   *resultlist;

@@ -2276,7 +2276,7 @@ _discoverArchiveFormat(ArchiveHandle *AH)
 	if (fseeko(fh, 0, SEEK_SET) != 0)
 	{
 		/*
-		 * NOTE: Formats that use the lookahead buffer can unset this in their
+		 * NOTE: Formats that use the lookahead buffer can unset this in their id:616 gh:617
 		 * Init routine.
 		 */
 		AH->readHeader = 1;
@@ -3154,7 +3154,7 @@ _reconnectToDB(ArchiveHandle *AH, const char *dbname)
 	}
 
 	/*
-	 * NOTE: currUser keeps track of what the imaginary session user in our
+	 * NOTE: currUser keeps track of what the imaginary session user in our id:653 gh:654
 	 * script is.  It's now effectively reset to the original userID.
 	 */
 	if (AH->currUser)
@@ -3191,7 +3191,7 @@ _becomeUser(ArchiveHandle *AH, const char *user)
 	_doSetSessionAuth(AH, user);
 
 	/*
-	 * NOTE: currUser keeps track of what the imaginary session user in our
+	 * NOTE: currUser keeps track of what the imaginary session user in our id:588 gh:589
 	 * script is
 	 */
 	if (AH->currUser)

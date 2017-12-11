@@ -1074,7 +1074,7 @@ DropRole(DropRoleStmt *stmt)
 		 * Remove role from the pg_auth_members table.  We have to remove all
 		 * tuples that show it as either a role or a member.
 		 *
-		 * XXX what about grantor entries?	Maybe we should do one heap scan.
+		 * XXX what about grantor entries?	Maybe we should do one heap scan. id:141 gh:142
 		 */
 		ScanKeyInit(&scankey,
 					Anum_pg_auth_members_roleid,
@@ -1166,7 +1166,7 @@ RenameRole(const char *oldname, const char *newname)
 				 errmsg("role \"%s\" does not exist", oldname)));
 
 	/*
-	 * XXX Client applications probably store the session user somewhere, so
+	 * XXX Client applications probably store the session user somewhere, so id:179 gh:180
 	 * renaming it could cause confusion.  On the other hand, there may not be
 	 * an actual problem besides a little confusion, so think about this and
 	 * decide.  Same for SET ROLE ... we don't restrict renaming the current

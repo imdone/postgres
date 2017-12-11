@@ -518,7 +518,7 @@ treat_as_join_clause(Node *clause, RestrictInfo *rinfo,
 		 * Otherwise, it's a join if there's more than one relation used. We
 		 * can optimize this calculation if an rinfo was passed.
 		 *
-		 * XXX	Since we know the clause is being evaluated at a join, the
+		 * XXX Since we know the clause is being evaluated at a join, the id:274 gh:275
 		 * only way it could be single-relation is if it was delayed by outer
 		 * joins.  Although we can make use of the restriction qual estimators
 		 * anyway, it seems likely that we ought to account for the
@@ -685,7 +685,7 @@ clause_selectivity(PlannerInfo *root,
 		}
 		else
 		{
-			/* XXX any way to do better than default? */
+			/* XXX any way to do better than default?  id:248 gh:249*/
 		}
 	}
 	else if (not_clause(clause))
@@ -712,7 +712,7 @@ clause_selectivity(PlannerInfo *root,
 		 * Selectivities for an OR clause are computed as s1+s2 - s1*s2 to
 		 * account for the probable overlap of selected tuple sets.
 		 *
-		 * XXX is this too conservative?
+		 * XXX is this too conservative? id:231 gh:232
 		 */
 		ListCell   *arg;
 

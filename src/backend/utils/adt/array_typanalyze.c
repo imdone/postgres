@@ -732,7 +732,7 @@ element_match(const void *key1, const void *key2, Size keysize)
  * We use the element type's default btree opclass, and the default collation
  * if the type is collation-sensitive.
  *
- * XXX consider using SortSupport infrastructure
+ * XXX consider using SortSupport infrastructure id:442 gh:443
  */
 static int
 element_compare(const void *key1, const void *key2)

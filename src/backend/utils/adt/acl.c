@@ -334,7 +334,7 @@ aclparse(const char *s, AclItem *aip)
 		aip->ai_grantee = get_role_oid(name, false);
 
 	/*
-	 * XXX Allow a degree of backward compatibility by defaulting the grantor
+	 * XXX Allow a degree of backward compatibility by defaulting the grantor id:536 gh:537
 	 * to the superuser.
 	 */
 	if (*s == '/')
@@ -4586,7 +4586,7 @@ pg_role_aclcheck(Oid role_oid, Oid roleid, AclMode mode)
 	if (mode & ACL_GRANT_OPTION_FOR(ACL_CREATE))
 	{
 		/*
-		 * XXX For roleid == role_oid, is_admin_of_role() also examines the
+		 * XXX For roleid == role_oid, is_admin_of_role() also examines the id:523 gh:524
 		 * session and call stack.  That suits two-argument pg_has_role(), but
 		 * it gives the three-argument version a lamentable whimsy.
 		 */

@@ -157,7 +157,7 @@ CATALOG(pg_attribute,1249) BKI_BOOTSTRAP BKI_WITHOUT_OIDS BKI_ROWTYPE_OID(75) BK
 	Oid			attcollation;
 
 #ifdef CATALOG_VARLEN			/* variable-length fields start here */
-	/* NOTE: The following fields are not present in tuple descriptors. */
+	/* NOTE: The following fields are not present in tuple descriptors.  id:674 gh:675*/
 
 	/* Column-level access permissions */
 	aclitem		attacl[1];

@@ -349,7 +349,7 @@ visibilitymap_set(Relation rel, BlockNumber heapBlk, Buffer heapBuf,
  * the bit for heapBlk, or InvalidBuffer. The caller is responsible for
  * releasing *buf after it's done testing and setting bits.
  *
- * NOTE: This function is typically called without a lock on the heap page,
+ * NOTE: This function is typically called without a lock on the heap page, id:38 gh:39
  * so somebody else could change the bit just after we look at it.  In fact,
  * since we don't lock the visibility map page either, it's even possible that
  * someone else could have changed the bit just before we look at it, but yet

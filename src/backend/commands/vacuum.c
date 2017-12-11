@@ -1293,7 +1293,7 @@ vac_truncate_clog(TransactionId frozenXID,
 	/*
 	 * Update the wrap limit for GetNewTransactionId and creation of new
 	 * MultiXactIds.  Note: these functions will also signal the postmaster
-	 * for an(other) autovac cycle if needed.   XXX should we avoid possibly
+	 * for an(other) autovac cycle if needed.   XXX should we avoid possibly id:163 gh:164
 	 * signalling twice?
 	 */
 	SetTransactionIdLimit(frozenXID, oldestxid_datoid);

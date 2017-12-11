@@ -119,7 +119,7 @@ ExecInitNamedTuplestoreScan(NamedTuplestoreScan *node, EState *estate, int eflag
 	tuplestore_rescan(scanstate->relation);
 
 	/*
-	 * XXX: Should we add a function to free that read pointer when done?
+	 * XXX: Should we add a function to free that read pointer when done? id:219 gh:220
 	 *
 	 * This was attempted, but it did not improve performance or memory usage
 	 * in any tested cases.

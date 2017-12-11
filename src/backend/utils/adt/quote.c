@@ -36,7 +36,7 @@ quote_ident(PG_FUNCTION_ARGS)
  * quote_literal_internal -
  *	  helper function for quote_literal and quote_literal_cstr
  *
- * NOTE: think not to make this function's behavior change with
+ * NOTE: think not to make this function's behavior change with id:468 gh:469
  * standard_conforming_strings.  We don't know where the result
  * literal will be used, and so we must generate a result that
  * will work with either setting.  Take a look at what dblink

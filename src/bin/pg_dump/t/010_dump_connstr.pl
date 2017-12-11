@@ -89,7 +89,7 @@ $node->run_log([ 'dropdb', "foo\n\rbar" ]);
 # make a table, so the parallel worker has something to dump
 $node->safe_psql($dbname1, 'CREATE TABLE t0()');
 
-# XXX no printed message when this fails, just SIGPIPE termination
+# XXX no printed message when this fails, just SIGPIPE termination id:553 gh:554
 $node->command_ok(
 	[   'pg_dump', '-Fd', '--no-sync', '-j2', '-f', $dirfmt, '-U', $dbname1,
 		$node->connstr($dbname1) ],

@@ -87,7 +87,7 @@ static const char *progname;
 static char *log_file = NULL;
 static char *exec_path = NULL;
 static char *event_source = NULL;
-static char *register_servicename = "PostgreSQL";	/* FIXME: + version ID? */
+static char *register_servicename = "PostgreSQL";	/* FIXME: + version ID?  id:587 gh:588*/
 static char *register_username = NULL;
 static char *register_password = NULL;
 static char *argv0 = NULL;
@@ -1493,7 +1493,7 @@ pgwin32_ServiceHandler(DWORD request)
 			kill(postmasterPID, SIGHUP);
 			return;
 
-			/* FIXME: These could be used to replace other signals etc */
+			/* FIXME: These could be used to replace other signals etc  id:551 gh:552*/
 		case SERVICE_CONTROL_CONTINUE:
 		case SERVICE_CONTROL_INTERROGATE:
 		default:
@@ -1637,7 +1637,7 @@ typedef BOOL (WINAPI * __QueryInformationJobObject) (HANDLE, JOBOBJECTINFOCLASS,
  * On NT4, or any other system not containing the required functions, will
  * launch the process under the current token without doing any modifications.
  *
- * NOTE! Job object will only work when running as a service, because it's
+ * NOTE ! Job object will only work when running as a service, because it's id:632 gh:634
  * automatically destroyed when pg_ctl exits.
  */
 static int

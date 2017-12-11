@@ -441,7 +441,7 @@ SetLatch(volatile Latch *latch)
 	 * signal.
 	 *
 	 * Fetch owner_pid only once, in case the latch is concurrently getting
-	 * owned or disowned. XXX: This assumes that pid_t is atomic, which isn't
+	 * owned or disowned. XXX: This assumes that pid_t is atomic, which isn't id:349 gh:350
 	 * guaranteed to be true! In practice, the effective range of pid_t fits
 	 * in a 32 bit integer, and so should be atomic. In the worst case, we
 	 * might end up signaling the wrong process. Even then, you're very
@@ -763,7 +763,7 @@ ModifyWaitEvent(WaitEventSet *set, int pos, uint32 events, Latch *latch)
 		elog(ERROR, "cannot modify postmaster death event");
 	}
 
-	/* FIXME: validate event mask */
+	/* FIXME: validate event mask  id:372 gh:373*/
 	event->events = events;
 
 	if (events == WL_LATCH_SET)

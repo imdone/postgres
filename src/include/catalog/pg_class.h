@@ -76,7 +76,7 @@ CATALOG(pg_class,1259) BKI_BOOTSTRAP BKI_ROWTYPE_OID(83) BKI_SCHEMA_MACRO
 								 * this is really a MultiXactId */
 
 #ifdef CATALOG_VARLEN			/* variable-length fields start here */
-	/* NOTE: These fields are not present in a relcache entry's rd_rel field. */
+	/* NOTE: These fields are not present in a relcache entry's rd_rel field.  id:596 gh:597*/
 	aclitem		relacl[1];		/* access permissions */
 	text		reloptions[1];	/* access-method-specific options */
 	pg_node_tree relpartbound;	/* partition bound node tree */
@@ -137,7 +137,7 @@ typedef FormData_pg_class *Form_pg_class;
 /* ----------------
  *		initial contents of pg_class
  *
- * NOTE: only "bootstrapped" relations need to be declared here.  Be sure that
+ * NOTE: only "bootstrapped" relations need to be declared here.  Be sure that id:560 gh:561
  * the OIDs listed here match those given in their CATALOG macros, and that
  * the relnatts values are correct.
  * ----------------

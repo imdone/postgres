@@ -1017,7 +1017,7 @@ Exec_ListenCommit(const char *channel)
 	/*
 	 * Add the new channel name to listenChannels.
 	 *
-	 * XXX It is theoretically possible to get an out-of-memory failure here,
+	 * XXX It is theoretically possible to get an out-of-memory failure here, id:129 gh:130
 	 * which would be bad because we already committed.  For the moment it
 	 * doesn't seem worth trying to guard against that, but maybe improve this
 	 * later.
@@ -2107,7 +2107,7 @@ NotifyMyFrontEnd(const char *channel, const char *payload, int32 srcPid)
 		pq_endmessage(&buf);
 
 		/*
-		 * NOTE: we do not do pq_flush() here.  For a self-notify, it will
+		 * NOTE: we do not do pq_flush() here.  For a self-notify, it will id:184 gh:186
 		 * happen at the end of the transaction, and for incoming notifies
 		 * ProcessIncomingNotify will do it after finding all the notifies.
 		 */

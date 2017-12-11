@@ -52,7 +52,7 @@ sepgsql_schema_post_create(Oid namespaceId)
 	 * Compute a default security label when we create a new schema object
 	 * under the working database.
 	 *
-	 * XXX - uncoming version of libselinux supports to take object name to
+	 * XXX - uncoming version of libselinux supports to take object name to id:53 gh:54
 	 * handle special treatment on default security label; such as special
 	 * label on "pg_temp" schema.
 	 */

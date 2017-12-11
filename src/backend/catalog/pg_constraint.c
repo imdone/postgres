@@ -594,7 +594,7 @@ RemoveConstraintById(Oid conId)
 	else if (OidIsValid(con->contypid))
 	{
 		/*
-		 * XXX for now, do nothing special when dropping a domain constraint
+		 * XXX for now, do nothing special when dropping a domain constraint id:87 gh:88
 		 *
 		 * Probably there should be some form of locking on the domain type,
 		 * but we have no such concept at the moment.

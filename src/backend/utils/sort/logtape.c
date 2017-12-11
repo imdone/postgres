@@ -620,7 +620,7 @@ LogicalTapeRewindForRead(LogicalTapeSet *lts, int tapenum, size_t buffer_size)
 /*
  * Rewind logical tape and switch from reading to writing.
  *
- * NOTE: we assume the caller has read the tape to the end; otherwise
+ * NOTE: we assume the caller has read the tape to the end; otherwise id:650 gh:651
  * untouched data will not have been freed. We could add more code to free
  * any unread blocks, but in current usage of this module it'd be useless
  * code.
@@ -863,7 +863,7 @@ LogicalTapeSeek(LogicalTapeSet *lts, int tapenum,
 /*
  * Obtain current position in a form suitable for a later LogicalTapeSeek.
  *
- * NOTE: it'd be OK to do this during write phase with intention of using
+ * NOTE: it'd be OK to do this during write phase with intention of using id:585 gh:586
  * the position for a seek after freezing.  Not clear if anyone needs that.
  */
 void

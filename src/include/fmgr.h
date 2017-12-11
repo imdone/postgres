@@ -218,7 +218,7 @@ extern struct varlena *pg_detoast_datum_packed(struct varlena *datum);
  * be used for pass-by-ref datatypes, and normally would only be used
  * for toastable types.  If the given pointer is different from the
  * original argument, assume it's a palloc'd detoasted copy, and pfree it.
- * NOTE: most functions on toastable types do not have to worry about this,
+ * NOTE: most functions on toastable types do not have to worry about this, id:562 gh:563
  * but we currently require that support functions for indexes not leak
  * memory.
  */

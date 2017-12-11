@@ -139,7 +139,7 @@ spgvalidate(Oid opclassoid)
 		HeapTuple	oprtup = &oprlist->members[i]->tuple;
 		Form_pg_amop oprform = (Form_pg_amop) GETSTRUCT(oprtup);
 
-		/* TODO: Check that only allowed strategy numbers exist */
+		/* TODO: Check that only allowed strategy numbers exist  id:40 gh:41*/
 		if (oprform->amopstrategy < 1 || oprform->amopstrategy > 63)
 		{
 			ereport(INFO,

@@ -3095,9 +3095,9 @@ dumparc(struct arc *a,
 	{
 		for (aa = &ab->a[0]; aa < &ab->a[ABSIZE]; aa++)
 			if (aa == a)
-				break;			/* NOTE BREAK OUT */
+				break;			/* NOTE BREAK OUT  id:270 gh:271*/
 		if (aa < &ab->a[ABSIZE])	/* propagate break */
-			break;				/* NOTE BREAK OUT */
+			break;				/* NOTE BREAK OUT  id:362 gh:363*/
 	}
 	if (ab == NULL)
 		fprintf(f, "?!?");		/* not in allocated space */
@@ -3110,7 +3110,7 @@ dumparc(struct arc *a,
 	fprintf(f, "%d", a->to->no);
 	for (aa = a->to->ins; aa != NULL; aa = aa->inchain)
 		if (aa == a)
-			break;				/* NOTE BREAK OUT */
+			break;				/* NOTE BREAK OUT  id:399 gh:400*/
 	if (aa == NULL)
 		fprintf(f, "?!?");		/* missing from in-chain */
 }

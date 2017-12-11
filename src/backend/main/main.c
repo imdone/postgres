@@ -318,7 +318,7 @@ init_locale(const char *categoryname, int category, const char *locale)
  * Help display should match the options accepted by PostmasterMain()
  * and PostgresMain().
  *
- * XXX On Windows, non-ASCII localizations of these messages only display
+ * XXX On Windows, non-ASCII localizations of these messages only display id:310 gh:311
  * correctly if the console output code page covers the necessary characters.
  * Messages emitted in write_console() do not exhibit this problem.
  */

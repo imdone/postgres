@@ -81,7 +81,7 @@ typedef FormData_pg_shdepend *Form_pg_shdepend;
  * pg_shdepend has no preloaded contents; system-defined dependencies are
  * loaded into it during a late stage of the initdb process.
  *
- * NOTE: we do not represent all possible dependency pairs in pg_shdepend;
+ * NOTE: we do not represent all possible dependency pairs in pg_shdepend; id:561 gh:562
  * for example, there's not much value in creating an explicit dependency
  * from a relation to its database.  Currently, only dependencies on roles
  * are explicitly stored in pg_shdepend.

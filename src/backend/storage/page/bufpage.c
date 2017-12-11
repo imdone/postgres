@@ -855,7 +855,7 @@ PageIndexMultiDelete(Page page, OffsetNumber *itemnos, int nitems)
 	 * order so we don't have to think about adjusting item numbers for
 	 * previous deletions.
 	 *
-	 * TODO: tune the magic number here
+	 * TODO: tune the magic number here id:355 gh:356
 	 */
 	if (nitems <= 2)
 	{

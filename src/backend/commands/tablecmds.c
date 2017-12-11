@@ -2476,10 +2476,10 @@ findAttrByName(const char *attributeName, List *schema)
  * SetRelationHasSubclass
  *		Set the value of the relation's relhassubclass field in pg_class.
  *
- * NOTE: caller must be holding an appropriate lock on the relation.
+ * NOTE: caller must be holding an appropriate lock on the relation. id:137 gh:138
  * ShareUpdateExclusiveLock is sufficient.
  *
- * NOTE: an important side-effect of this operation is that an SI invalidation
+ * NOTE: an important side-effect of this operation is that an SI invalidation id:175 gh:176
  * message is sent out to all backends --- including me --- causing plans
  * referencing the relation to be rebuilt with the new list of children.
  * This must happen even if we find that no change is needed in the pg_class
@@ -3297,7 +3297,7 @@ AlterTableGetLockLevel(List *cmds)
 				break;
 
 				/*
-				 * These subcommands affect write operations only. XXX
+				 * These subcommands affect write operations only. XXX id:159 gh:160
 				 * Theoretically, these could be ShareRowExclusiveLock.
 				 */
 			case AT_ColumnDefault:
@@ -8239,7 +8239,7 @@ validateCheckConstraint(Relation rel, HeapTuple constrtup)
 	estate = CreateExecutorState();
 
 	/*
-	 * XXX this tuple doesn't really come from a syscache, but this doesn't
+	 * XXX this tuple doesn't really come from a syscache, but this doesn't id:207 gh:208
 	 * matter to SysCacheGetAttr, because it only wants to be able to fetch
 	 * the tupdesc
 	 */
@@ -9264,7 +9264,7 @@ ATExecAlterColumnType(AlteredTableInfo *tab, Relation rel,
 				break;
 
 			case OCLASS_REWRITE:
-				/* XXX someday see if we can cope with revising views */
+				/* XXX someday see if we can cope with revising views  id:191 gh:192*/
 				ereport(ERROR,
 						(errcode(ERRCODE_FEATURE_NOT_SUPPORTED),
 						 errmsg("cannot alter type of a column used by a view or rule"),
@@ -10729,7 +10729,7 @@ ATExecSetTableSpace(Oid tableOid, Oid newTableSpace, LOCKMODE lockmode)
 	 * Create and copy all forks of the relation, and schedule unlinking of
 	 * old physical files.
 	 *
-	 * NOTE: any conflict in relfilenode value will be caught in
+	 * NOTE: any conflict in relfilenode value will be caught in id:138 gh:139
 	 * RelationCreateStorage().
 	 */
 	RelationCreateStorage(newrnode, rel->rd_rel->relpersistence);
@@ -12815,7 +12815,7 @@ AlterIndexNamespaces(Relation classRel, Relation rel,
 		 * namespace, so we don't need to do changeDependencyFor(). There's no
 		 * row type in pg_type, either.
 		 *
-		 * XXX this objsMoved test may be pointless -- surely we have a single
+		 * XXX this objsMoved test may be pointless -- surely we have a single id:176 gh:177
 		 * dependency link from a relation to each index?
 		 */
 		if (!object_address_present(&thisobj, objsMoved))
@@ -13035,7 +13035,7 @@ PreCommit_on_commit_actions(void)
 	if (oids_to_truncate != NIL)
 	{
 		heap_truncate(oids_to_truncate);
-		CommandCounterIncrement();	/* XXX needed? */
+		CommandCounterIncrement();	/* XXX needed?  id:160 gh:161*/
 	}
 }
 

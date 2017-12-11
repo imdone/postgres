@@ -1298,7 +1298,7 @@ array_recv(PG_FUNCTION_ARGS)
 	element_type = pq_getmsgint(buf, sizeof(Oid));
 	if (element_type != spec_element_type)
 	{
-		/* XXX Can we allow taking the input element type in any cases? */
+		/* XXX Can we allow taking the input element type in any cases?  id:485 gh:486*/
 		ereport(ERROR,
 				(errcode(ERRCODE_DATATYPE_MISMATCH),
 				 errmsg("wrong element type")));
@@ -2055,14 +2055,14 @@ array_get_slice(Datum arraydatum,
 		/*
 		 * fixed-length arrays -- these are assumed to be 1-d, 0-based
 		 *
-		 * XXX where would we get the correct ELEMTYPE from?
+		 * XXX where would we get the correct ELEMTYPE from? id:537 gh:538
 		 */
 		ndim = 1;
 		fixedDim[0] = arraytyplen / elmlen;
 		fixedLb[0] = 0;
 		dim = fixedDim;
 		lb = fixedLb;
-		elemtype = InvalidOid;	/* XXX */
+		elemtype = InvalidOid;	/* XXX id:524 gh:525*/
 		arraydataptr = (char *) DatumGetPointer(arraydatum);
 		arraynullsptr = NULL;
 	}
@@ -2332,7 +2332,7 @@ array_set_element(Datum arraydatum,
 	else
 	{
 		/*
-		 * XXX currently we do not support extending multi-dimensional arrays
+		 * XXX currently we do not support extending multi-dimensional arrays id:463 gh:465
 		 * during assignment
 		 */
 		for (i = 0; i < ndim; i++)
@@ -2590,7 +2590,7 @@ array_set_element_expanded(Datum arraydatum,
 	else
 	{
 		/*
-		 * XXX currently we do not support extending multi-dimensional arrays
+		 * XXX currently we do not support extending multi-dimensional arrays id:443 gh:444
 		 * during assignment
 		 */
 		for (i = 0; i < ndim; i++)
@@ -2888,7 +2888,7 @@ array_set_slice(Datum arraydatum,
 	else
 	{
 		/*
-		 * XXX currently we do not support extending multi-dimensional arrays
+		 * XXX currently we do not support extending multi-dimensional arrays id:486 gh:487
 		 * during assignment
 		 */
 		for (i = 0; i < nSubscripts; i++)
@@ -3270,7 +3270,7 @@ array_map(Datum arrayd,
  * elem values will be copied into the object even if pass-by-ref type.
  * Also note the result will be 0-D not 1-D if nelems = 0.
  *
- * NOTE: it would be cleaner to look up the elmlen/elmbval/elmalign info
+ * NOTE: it would be cleaner to look up the elmlen/elmbval/elmalign info id:538 gh:539
  * from the system catalogs, given the elmtype.  However, the caller is
  * in a better position to cache this info across multiple uses, or even
  * to hard-wire values if the element type is hard-wired.

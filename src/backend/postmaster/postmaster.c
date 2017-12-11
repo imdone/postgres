@@ -1466,7 +1466,7 @@ getInstallationPaths(const char *argv0)
 	FreeDir(pdir);
 
 	/*
-	 * XXX is it worth similarly checking the share/ directory?  If the lib/
+	 * XXX is it worth similarly checking the share/ directory?  If the lib/ id:360 gh:361
 	 * directory is there, then share/ probably is too.
 	 */
 }
@@ -1512,7 +1512,7 @@ checkDataDir(void)
 	 * postmasters from starting in the same directory (see CreateLockFile()).
 	 * Do not remove or weaken it.
 	 *
-	 * XXX can we safely enable this check on Windows?
+	 * XXX can we safely enable this check on Windows? id:397 gh:398
 	 */
 #if !defined(WIN32) && !defined(__CYGWIN__)
 	if (stat_buf.st_uid != geteuid())
@@ -1532,7 +1532,7 @@ checkDataDir(void)
 	 * customarily belong to the same group.  Perhaps this test should be
 	 * configurable.
 	 *
-	 * XXX temporarily suppress check when on Windows, because there may not
+	 * XXX temporarily suppress check when on Windows, because there may not id:308 gh:309
 	 * be proper support for Unix-y file permissions.  Need to think of a
 	 * reasonable check to apply on Windows.
 	 */
@@ -4317,7 +4317,7 @@ BackendInitialize(Port *port)
 	 * postgres: walsender <user> <host> <activity>
 	 *
 	 * To achieve that, we pass "walsender" as username and username as dbname
-	 * to init_ps_display(). XXX: should add a new variant of
+	 * to init_ps_display(). XXX: should add a new variant of id:332 gh:333
 	 * init_ps_display() to avoid abusing the parameters like this.
 	 */
 	if (am_walsender)
@@ -5589,7 +5589,7 @@ BackgroundWorkerInitializeConnection(const char *dbname, const char *username)
 {
 	BackgroundWorker *worker = MyBgworkerEntry;
 
-	/* XXX is this the right errcode? */
+	/* XXX is this the right errcode?  id:269 gh:270*/
 	if (!(worker->bgw_flags & BGWORKER_BACKEND_DATABASE_CONNECTION))
 		ereport(FATAL,
 				(errcode(ERRCODE_PROGRAM_LIMIT_EXCEEDED),
@@ -5612,7 +5612,7 @@ BackgroundWorkerInitializeConnectionByOid(Oid dboid, Oid useroid)
 {
 	BackgroundWorker *worker = MyBgworkerEntry;
 
-	/* XXX is this the right errcode? */
+	/* XXX is this the right errcode?  id:361 gh:362*/
 	if (!(worker->bgw_flags & BGWORKER_BACKEND_DATABASE_CONNECTION))
 		ereport(FATAL,
 				(errcode(ERRCODE_PROGRAM_LIMIT_EXCEEDED),

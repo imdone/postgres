@@ -1357,7 +1357,7 @@ tbm_lossify(TIDBitmap *tbm)
 	PagetableEntry *page;
 
 	/*
-	 * XXX Really stupid implementation: this just lossifies pages in
+	 * XXX Really stupid implementation: this just lossifies pages in id:286 gh:287
 	 * essentially random order.  We should be paying some attention to the
 	 * number of bits set in each page, instead.
 	 *

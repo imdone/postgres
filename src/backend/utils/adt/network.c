@@ -482,7 +482,7 @@ hashinet(PG_FUNCTION_ARGS)
 	inet	   *addr = PG_GETARG_INET_PP(0);
 	int			addrsize = ip_addrsize(addr);
 
-	/* XXX this assumes there are no pad bytes in the data structure */
+	/* XXX this assumes there are no pad bytes in the data structure  id:466 gh:468*/
 	return hash_any((unsigned char *) VARDATA_ANY(addr), addrsize + 2);
 }
 
@@ -1499,7 +1499,7 @@ inetmi(PG_FUNCTION_ARGS)
 /*
  * clean_ipv6_addr --- remove any '%zone' part from an IPv6 address string
  *
- * XXX This should go away someday!
+ * XXX This should go away someday! id:446 gh:447
  *
  * This is a kluge needed because we don't yet support zones in stored inet
  * values.  Since the result of getnameinfo() might include a zone spec,

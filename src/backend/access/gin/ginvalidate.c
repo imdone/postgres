@@ -172,7 +172,7 @@ ginvalidate(Oid opclassoid)
 		HeapTuple	oprtup = &oprlist->members[i]->tuple;
 		Form_pg_amop oprform = (Form_pg_amop) GETSTRUCT(oprtup);
 
-		/* TODO: Check that only allowed strategy numbers exist */
+		/* TODO: Check that only allowed strategy numbers exist  id:21 gh:22*/
 		if (oprform->amopstrategy < 1 || oprform->amopstrategy > 63)
 		{
 			ereport(INFO,

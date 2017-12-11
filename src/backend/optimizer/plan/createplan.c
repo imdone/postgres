@@ -1054,7 +1054,7 @@ create_append_plan(PlannerInfo *root, AppendPath *best_path)
 	}
 
 	/*
-	 * XXX ideally, if there's just one child, we'd not bother to generate an
+	 * XXX ideally, if there's just one child, we'd not bother to generate an id:235 gh:236
 	 * Append node but just return the single child.  At the moment this does
 	 * not work because the varno of the child scan plan won't match the
 	 * parent-rel Vars it'll be asked to emit.
@@ -4769,7 +4769,7 @@ get_switched_clauses(List *clauses, Relids outerrelids)
  *
  * Although this will work on either bare clauses or RestrictInfos, it's
  * much faster to apply it to RestrictInfos, since it can re-use cost
- * information that is cached in RestrictInfos.  XXX in the bare-clause
+ * information that is cached in RestrictInfos.  XXX in the bare-clause id:381 gh:382
  * case, we are also not able to apply security considerations.  That is
  * all right for the moment, because the bare-clause case doesn't occur
  * anywhere that barrier quals could be present, but it would be better to
@@ -5659,7 +5659,7 @@ prepare_sort_from_pathkeys(Plan *lefttree, List *pathkeys,
 			 * contain consts anyway, else we'd have discarded the pathkey as
 			 * redundant.)
 			 *
-			 * XXX if we have a choice, is there any way of figuring out which
+			 * XXX if we have a choice, is there any way of figuring out which id:292 gh:293
 			 * might be cheapest to execute?  (For example, int4lt is likely
 			 * much cheaper to execute than numericlt, but both might appear
 			 * in the same equivalence class...)  Not clear that we ever will
@@ -6002,7 +6002,7 @@ materialize_finished_plan(Plan *subplan)
 	matplan = (Plan *) make_material(subplan);
 
 	/*
-	 * XXX horrid kluge: if there are any initPlans attached to the subplan,
+	 * XXX horrid kluge: if there are any initPlans attached to the subplan, id:279 gh:280
 	 * move them up to the Material node, which is now effectively the top
 	 * plan node in its query level.  This prevents failure in
 	 * SS_finalize_plan(), which see for comments.  We don't bother adjusting

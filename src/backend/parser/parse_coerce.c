@@ -229,13 +229,13 @@ coerce_type(ParseState *pstate, Node *node,
 		 * the target type's typinput function to it to produce a constant of
 		 * the target type.
 		 *
-		 * NOTE: this case cannot be folded together with the other
+		 * NOTE: this case cannot be folded together with the other id:326 gh:327
 		 * constant-input case, since the typinput function does not
 		 * necessarily behave the same as a type conversion function. For
 		 * example, int4's typinput function will reject "1.2", whereas
 		 * float-to-int type conversion will round to integer.
 		 *
-		 * XXX if the typinput function is not immutable, we really ought to
+		 * XXX if the typinput function is not immutable, we really ought to id:263 gh:264
 		 * postpone evaluation of the function call until runtime. But there
 		 * is no way to represent a typinput function call as an expression
 		 * tree, because C-string values are not Datums. (XXX This *is*
@@ -447,7 +447,7 @@ coerce_type(ParseState *pstate, Node *node,
 			if (result == node)
 			{
 				/*
-				 * XXX could we label result with exprTypmod(node) instead of
+				 * XXX could we label result with exprTypmod(node) instead of id:272 gh:273
 				 * default -1 typmod, to save a possible length-coercion
 				 * later? Would work if both types have same interpretation of
 				 * typmod, which is likely but not certain.
@@ -686,7 +686,7 @@ coerce_to_domain(Node *arg, Oid baseTypeId, int32 baseTypeMod, Oid typeId,
 	 * coercion is invoked, so that the semantics of implicit and explicit
 	 * coercion differ.  (Is that really the behavior we want?)
 	 *
-	 * NOTE: because we apply this as part of the fixed expression structure,
+	 * NOTE: because we apply this as part of the fixed expression structure, id:392 gh:393
 	 * ALTER DOMAIN cannot alter the typtypmod.  But it's unclear that that
 	 * would be safe to do anyway, without lots of knowledge about what the
 	 * base type thinks the typmod means.
@@ -1238,7 +1238,7 @@ coerce_to_specific_type(ParseState *pstate, Node *node,
  * but there may be no such location in the case of an implicit coercion.
  * In that case point at the input expression.
  *
- * XXX possibly this is more generally useful than coercion errors;
+ * XXX possibly this is more generally useful than coercion errors; id:303 gh:304
  * if so, should rename and place with parser_errposition.
  */
 int

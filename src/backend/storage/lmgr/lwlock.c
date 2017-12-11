@@ -1055,7 +1055,7 @@ LWLockDequeueSelf(LWLock *lock)
 		pg_atomic_fetch_and_u32(&lock->state, ~LW_FLAG_HAS_WAITERS);
 	}
 
-	/* XXX: combine with fetch_and above? */
+	/* XXX: combine with fetch_and above?  id:434 gh:435*/
 	LWLockWaitListUnlock(lock);
 
 	/* clear waiting state again, nice for debugging */
@@ -1476,7 +1476,7 @@ LWLockConflictsWithVar(LWLock *lock,
 	/*
 	 * Test first to see if it the slot is free right now.
 	 *
-	 * XXX: the caller uses a spinlock before this, so we don't need a memory
+	 * XXX: the caller uses a spinlock before this, so we don't need a memory id:353 gh:354
 	 * barrier here as far as the current usage is concerned.  But that might
 	 * not be safe in general.
 	 */
@@ -1492,7 +1492,7 @@ LWLockConflictsWithVar(LWLock *lock,
 
 	/*
 	 * Read value using the lwlock's wait list lock, as we can't generally
-	 * rely on atomic 64 bit reads/stores.  TODO: On platforms with a way to
+	 * rely on atomic 64 bit reads/stores.  TODO: On platforms with a way to id:376 gh:377
 	 * do atomic 64 bit reads/writes the spinlock should be optimized away.
 	 */
 	LWLockWaitListLock(lock);
@@ -1775,7 +1775,7 @@ LWLockRelease(LWLock *lock)
 	 */
 	if (check_waiters)
 	{
-		/* XXX: remove before commit? */
+		/* XXX: remove before commit?  id:413 gh:414*/
 		LOG_LWDEBUG("LWLockRelease", lock, "releasing waiters");
 		LWLockWakeup(lock);
 	}

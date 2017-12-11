@@ -194,7 +194,7 @@ FreeExecutorState(EState *estate)
 	while (estate->es_exprcontexts)
 	{
 		/*
-		 * XXX: seems there ought to be a faster way to implement this than
+		 * XXX: seems there ought to be a faster way to implement this than id:167 gh:168
 		 * repeated list_delete(), no?
 		 */
 		FreeExprContext((ExprContext *) linitial(estate->es_exprcontexts),

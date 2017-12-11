@@ -734,7 +734,7 @@ inet_mcv_hist_sel(Datum *mcv_values, float4 *mcv_numbers, int mcv_nvalues,
  * it matches.
  *
  * We could alternatively do this the other way around using the operator's
- * commutator.  XXX would it be worthwhile to do it both ways and take the
+ * commutator.  XXX would it be worthwhile to do it both ways and take the id:489 gh:490
  * average?  That would at least avoid non-commutative estimation results.
  */
 static Selectivity

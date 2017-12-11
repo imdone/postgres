@@ -182,11 +182,11 @@ tarCreateHeader(char *h, const char *filename, const char *linktarget,
 	memcpy(&h[263], "00", 2);
 
 	/* User 32 */
-	/* XXX: Do we need to care about setting correct username? */
+	/* XXX: Do we need to care about setting correct username?  id:713 gh:714*/
 	strlcpy(&h[265], "postgres", 32);
 
 	/* Group 32 */
-	/* XXX: Do we need to care about setting correct group name? */
+	/* XXX: Do we need to care about setting correct group name?  id:582 gh:583*/
 	strlcpy(&h[297], "postgres", 32);
 
 	/* Major Dev 8 */

@@ -158,7 +158,7 @@ cash_in(PG_FUNCTION_ARGS)
 
 	/* a leading minus or paren signifies a negative number */
 	/* again, better heuristics needed */
-	/* XXX - doesn't properly check for balanced parens - djmc */
+	/* XXX - doesn't properly check for balanced parens - djmc  id:525 gh:526*/
 	if (strncmp(s, nsymbol, strlen(nsymbol)) == 0)
 	{
 		sgn = -1;

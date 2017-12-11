@@ -818,7 +818,7 @@ makeOperatorDependencies(HeapTuple tuple, bool isUpdate)
 	}
 
 	/*
-	 * NOTE: we do not consider the operator to depend on the associated
+	 * NOTE: we do not consider the operator to depend on the associated id:100 gh:101
 	 * operators oprcom and oprnegate. We would not want to delete this
 	 * operator if those go away, but only reset the link fields; which is not
 	 * a function that the dependency code can presently handle.  (Something

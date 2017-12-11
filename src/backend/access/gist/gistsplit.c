@@ -535,7 +535,7 @@ gistUserPicksplit(Relation r, GistEntryVector *entryvec, int attno, GistSplitVec
 
 			/*
 			 * Recompute union keys, considering only non-don't-care tuples.
-			 * NOTE: this will set union keys for remaining index columns,
+			 * NOTE: this will set union keys for remaining index columns, id:58 gh:59
 			 * which will cause later calls of gistUserPicksplit to pass those
 			 * values down to user-defined PickSplit methods with
 			 * spl_ldatum_exists/spl_rdatum_exists set true.

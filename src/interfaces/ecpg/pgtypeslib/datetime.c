@@ -478,7 +478,7 @@ PGTYPESdate_defmt_asc(date * d, const char *fmt, const char *str)
 		target_pos = 0;
 
 		/*
-		 * XXX: Here we could calculate the positions of the tokens and save
+		 * XXX: Here we could calculate the positions of the tokens and save id:672 gh:673
 		 * the for loop down there where we again check with isdigit() for
 		 * digits.
 		 */

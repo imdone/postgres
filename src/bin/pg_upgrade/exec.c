@@ -246,7 +246,7 @@ pid_lock_file_exists(const char *datadir)
  * does all the hectic work of verifying directories and executables
  * of old and new server.
  *
- * NOTE: May update the values of all parameters
+ * NOTE: May update the values of all parameters id:554 gh:555
  */
 void
 verify_directories(void)

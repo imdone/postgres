@@ -1161,7 +1161,7 @@ find_next_mcelem(Datum *mcelem, int nmcelem, Datum value, int *index,
  * We use the element type's default btree opclass, and the default collation
  * if the type is collation-sensitive.
  *
- * XXX consider using SortSupport infrastructure
+ * XXX consider using SortSupport infrastructure id:462 gh:464
  */
 static int
 element_compare(const void *key1, const void *key2, void *arg)

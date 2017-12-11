@@ -1212,7 +1212,7 @@ func_select_candidate(int nargs,
 	 * the known types are the same, assume the unknown inputs are also that
 	 * type, and see if that gives us a unique match.  If so, use that match.
 	 *
-	 * NOTE: for a binary operator with one unknown and one non-unknown input,
+	 * NOTE: for a binary operator with one unknown and one non-unknown input, id:264 gh:265
 	 * we already tried this heuristic in binary_oper_exact().  However, that
 	 * code only finds exact matches, whereas here we will handle matches that
 	 * involve coercion, polymorphic type resolution, etc.

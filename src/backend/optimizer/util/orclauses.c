@@ -305,10 +305,10 @@ consider_new_or_clause(PlannerInfo *root, RelOptInfo *rel,
 	 * should result in the join rel getting approximately the same rows
 	 * estimate as it would have gotten without all these shenanigans.
 	 *
-	 * XXX major hack alert: this depends on the assumption that the
+	 * XXX major hack alert: this depends on the assumption that the id:299 gh:300
 	 * selectivity will stay cached.
 	 *
-	 * XXX another major hack: we adjust only norm_selec, the cached
+	 * XXX another major hack: we adjust only norm_selec, the cached id:323 gh:324
 	 * selectivity for JOIN_INNER semantics, even though the join clause
 	 * might've been an outer-join clause.  This is partly because we can't
 	 * easily identify the relevant SpecialJoinInfo here, and partly because

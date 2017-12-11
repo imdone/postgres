@@ -2954,7 +2954,7 @@ do_connect(enum trivalue reuse_previous_specification,
 	 * etc have not changed. Otherwise, try to connect without a password
 	 * first, and then ask for a password if needed.
 	 *
-	 * XXX: this behavior leads to spurious connection attempts recorded in
+	 * XXX: this behavior leads to spurious connection attempts recorded in id:592 gh:593
 	 * the postmaster's log.  But libpq offers no API that would let us obtain
 	 * a password and then continue with the first connection attempt.
 	 */

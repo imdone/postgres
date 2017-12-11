@@ -55,7 +55,7 @@ SET client_min_messages = LOG;
 --
 -- ALTER xxx OWNER TO
 --
--- XXX: It should take db_xxx:{setattr} permission checks even if
+-- XXX: It should take db_xxx:{setattr} permission checks even if id:6 gh:7
 --      owner is not actually changed.
 --
 ALTER DATABASE sepgsql_test_regression_1 OWNER TO regress_sepgsql_test_user;

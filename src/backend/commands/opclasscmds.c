@@ -375,7 +375,7 @@ DefineOpClass(CreateOpClassStmt *stmt)
 	maxProcNumber = amroutine->amsupport;
 	amstorage = amroutine->amstorage;
 
-	/* XXX Should we make any privilege check against the AM? */
+	/* XXX Should we make any privilege check against the AM?  id:155 gh:156*/
 
 	/*
 	 * The question of appropriate permissions for CREATE OPERATOR CLASS is
@@ -406,7 +406,7 @@ DefineOpClass(CreateOpClassStmt *stmt)
 	typeoid = typenameTypeId(NULL, stmt->datatype);
 
 #ifdef NOT_USED
-	/* XXX this is unnecessary given the superuser check above */
+	/* XXX this is unnecessary given the superuser check above  id:203 gh:204*/
 	/* Check we have ownership of the datatype */
 	if (!pg_type_ownercheck(typeoid, GetUserId()))
 		aclcheck_error_type(ACLCHECK_NOT_OWNER, typeoid);
@@ -432,7 +432,7 @@ DefineOpClass(CreateOpClassStmt *stmt)
 			opfamilyoid = HeapTupleGetOid(tup);
 
 			/*
-			 * XXX given the superuser check above, there's no need for an
+			 * XXX given the superuser check above, there's no need for an id:187 gh:183
 			 * ownership check here
 			 */
 			ReleaseSysCache(tup);
@@ -494,7 +494,7 @@ DefineOpClass(CreateOpClassStmt *stmt)
 					sortfamilyOid = InvalidOid;
 
 #ifdef NOT_USED
-				/* XXX this is unnecessary given the superuser check above */
+				/* XXX this is unnecessary given the superuser check above  id:134 gh:135*/
 				/* Caller must own operator and its underlying function */
 				if (!pg_oper_ownercheck(operOid, GetUserId()))
 					aclcheck_error(ACLCHECK_NOT_OWNER, ACL_KIND_OPER,
@@ -522,7 +522,7 @@ DefineOpClass(CreateOpClassStmt *stmt)
 									item->number, maxProcNumber)));
 				funcOid = LookupFuncWithArgs(OBJECT_FUNCTION, item->name, false);
 #ifdef NOT_USED
-				/* XXX this is unnecessary given the superuser check above */
+				/* XXX this is unnecessary given the superuser check above  id:172 gh:173*/
 				/* Caller must own function */
 				if (!pg_proc_ownercheck(funcOid, GetUserId()))
 					aclcheck_error(ACLCHECK_NOT_OWNER, ACL_KIND_PROC,
@@ -550,7 +550,7 @@ DefineOpClass(CreateOpClassStmt *stmt)
 				storageoid = typenameTypeId(NULL, item->storedtype);
 
 #ifdef NOT_USED
-				/* XXX this is unnecessary given the superuser check above */
+				/* XXX this is unnecessary given the superuser check above  id:156 gh:157*/
 				/* Check we have ownership of the datatype */
 				if (!pg_type_ownercheck(storageoid, GetUserId()))
 					aclcheck_error_type(ACLCHECK_NOT_OWNER, storageoid);
@@ -736,7 +736,7 @@ DefineOpFamily(CreateOpFamilyStmt *stmt)
 	/* Get access method OID, throwing an error if it doesn't exist. */
 	amoid = get_index_am_oid(stmt->amname, false);
 
-	/* XXX Should we make any privilege check against the AM? */
+	/* XXX Should we make any privilege check against the AM?  id:204 gh:205*/
 
 	/*
 	 * Currently, we require superuser privileges to create an opfamily. See
@@ -788,7 +788,7 @@ AlterOpFamily(AlterOpFamilyStmt *stmt)
 		maxOpNumber = SHRT_MAX;
 	maxProcNumber = amroutine->amsupport;
 
-	/* XXX Should we make any privilege check against the AM? */
+	/* XXX Should we make any privilege check against the AM?  id:188 gh:189*/
 
 	/* Look up the opfamily */
 	opfamilyoid = get_opfamily_oid(amoid, stmt->opfamilyname, false);
@@ -796,7 +796,7 @@ AlterOpFamily(AlterOpFamilyStmt *stmt)
 	/*
 	 * Currently, we require superuser privileges to alter an opfamily.
 	 *
-	 * XXX re-enable NOT_USED code sections below if you remove this test.
+	 * XXX re-enable NOT_USED code sections below if you remove this test. id:135 gh:136
 	 */
 	if (!superuser())
 		ereport(ERROR,
@@ -868,7 +868,7 @@ AlterOpFamilyAdd(AlterOpFamilyStmt *stmt, Oid amoid, Oid opfamilyoid,
 					sortfamilyOid = InvalidOid;
 
 #ifdef NOT_USED
-				/* XXX this is unnecessary given the superuser check above */
+				/* XXX this is unnecessary given the superuser check above  id:173 gh:174*/
 				/* Caller must own operator and its underlying function */
 				if (!pg_oper_ownercheck(operOid, GetUserId()))
 					aclcheck_error(ACLCHECK_NOT_OWNER, ACL_KIND_OPER,
@@ -896,7 +896,7 @@ AlterOpFamilyAdd(AlterOpFamilyStmt *stmt, Oid amoid, Oid opfamilyoid,
 									item->number, maxProcNumber)));
 				funcOid = LookupFuncWithArgs(OBJECT_FUNCTION, item->name, false);
 #ifdef NOT_USED
-				/* XXX this is unnecessary given the superuser check above */
+				/* XXX this is unnecessary given the superuser check above  id:157 gh:158*/
 				/* Caller must own function */
 				if (!pg_proc_ownercheck(funcOid, GetUserId()))
 					aclcheck_error(ACLCHECK_NOT_OWNER, ACL_KIND_PROC,

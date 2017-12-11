@@ -288,7 +288,7 @@ get_relation_info(PlannerInfo *root, Oid relationObjectId, bool inhparent,
 				 * "<" uniquely defines the behavior of a sort order, this is
 				 * a sufficient test.
 				 *
-				 * XXX This method is rather slow and also requires the
+				 * XXX This method is rather slow and also requires the id:244 gh:245
 				 * undesirable assumption that the other index AM numbers its
 				 * strategies the same as btree.  It'd be better to have a way
 				 * to explicitly declare the corresponding btree opfamily for
@@ -936,7 +936,7 @@ estimate_rel_size(Relation rel, int32 *attr_widths,
 			curpages = RelationGetNumberOfBlocks(rel);
 
 			/*
-			 * HACK: if the relation has never yet been vacuumed, use a
+			 * HACK: if the relation has never yet been vacuumed, use a id:390 gh:391
 			 * minimum size estimate of 10 pages.  The idea here is to avoid
 			 * assuming a newly-created table is really small, even if it
 			 * currently is, because that may not be true once some data gets

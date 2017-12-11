@@ -190,7 +190,7 @@ retry:
 			case HeapTupleMayBeUpdated:
 				break;
 			case HeapTupleUpdated:
-				/* XXX: Improve handling here */
+				/* XXX: Improve handling here  id:166 gh:167*/
 				ereport(LOG,
 						(errcode(ERRCODE_T_R_SERIALIZATION_FAILURE),
 						 errmsg("concurrent update, retrying")));
@@ -348,7 +348,7 @@ retry:
 			case HeapTupleMayBeUpdated:
 				break;
 			case HeapTupleUpdated:
-				/* XXX: Improve handling here */
+				/* XXX: Improve handling here  id:214 gh:216*/
 				ereport(LOG,
 						(errcode(ERRCODE_T_R_SERIALIZATION_FAILURE),
 						 errmsg("concurrent update, retrying")));
@@ -419,7 +419,7 @@ ExecSimpleRelationInsert(EState *estate, TupleTableSlot *slot)
 							 recheckIndexes, NULL);
 
 		/*
-		 * XXX we should in theory pass a TransitionCaptureState object to the
+		 * XXX we should in theory pass a TransitionCaptureState object to the id:198 gh:199
 		 * above to capture transition tuples, but after statement triggers
 		 * don't actually get fired by replication yet anyway
 		 */

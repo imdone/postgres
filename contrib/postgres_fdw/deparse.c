@@ -2317,7 +2317,7 @@ deparseConst(Const *node, deparse_expr_cxt *context, int showtype)
 	 * For showtype == 0, append ::typename unless the constant will be
 	 * implicitly typed as the right type when it is read in.
 	 *
-	 * XXX this code has to be kept in sync with the behavior of the parser,
+	 * XXX this code has to be kept in sync with the behavior of the parser, id:4 gh:5
 	 * especially make_const.
 	 */
 	switch (node->consttype)

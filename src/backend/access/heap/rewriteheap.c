@@ -391,7 +391,7 @@ rewrite_heap_tuple(RewriteState state,
 	/*
 	 * Copy the original tuple's visibility information into new_tuple.
 	 *
-	 * XXX we might later need to copy some t_infomask2 bits, too? Right now,
+	 * XXX we might later need to copy some t_infomask2 bits, too? Right now, id:37 gh:38
 	 * we intentionally clear the HOT status bits.
 	 */
 	memcpy(&new_tuple->t_data->t_choice.t_heap,

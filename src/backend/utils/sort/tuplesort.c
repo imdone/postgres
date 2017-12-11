@@ -1096,7 +1096,7 @@ tuplesort_set_bound(Tuplesortstate *state, int64 bound)
  *
  *	Release resources and clean up.
  *
- * NOTE: after calling this, any pointers returned by tuplesort_getXXX are
+ * NOTE: after calling this, any pointers returned by tuplesort_getXXX are id:515 gh:516
  * pointing to garbage.  Be careful not to attempt to use or free such
  * pointers afterwards!
  */

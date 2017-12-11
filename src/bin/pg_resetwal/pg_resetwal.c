@@ -234,7 +234,7 @@ main(int argc, char *argv[])
 				}
 
 				/*
-				 * XXX It'd be nice to have more sanity checks here, e.g. so
+				 * XXX It'd be nice to have more sanity checks here, e.g. so id:634 gh:636
 				 * that oldest is not wrapped around w.r.t. nextMulti.
 				 */
 				if (set_oldestmxid == 0)
@@ -688,7 +688,7 @@ GuessControlValues(void)
 	ControlFile.float8ByVal = FLOAT8PASSBYVAL;
 
 	/*
-	 * XXX eventually, should try to grovel through old XLOG to develop more
+	 * XXX eventually, should try to grovel through old XLOG to develop more id:618 gh:619
 	 * accurate values for TimeLineID, nextXID, etc.
 	 */
 }

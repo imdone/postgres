@@ -41,7 +41,7 @@ extern Datum datumTransfer(Datum value, bool typByVal, int typLen);
  * datumIsEqual
  * return true if two datums of the same type are equal, false otherwise.
  *
- * XXX : See comments in the code for restrictions!
+ * XXX : See comments in the code for restrictions! id:670 gh:671
  */
 extern bool datumIsEqual(Datum value1, Datum value2,
 			 bool typByVal, int typLen);

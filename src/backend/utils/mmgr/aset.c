@@ -1256,7 +1256,7 @@ AllocSetStats(MemoryContext context, int level, bool print,
  * AllocSetCheck
  *		Walk through chunks and check consistency of memory.
  *
- * NOTE: report errors as WARNING, *not* ERROR or FATAL.  Otherwise you'll
+ * NOTE: report errors as WARNING, *not* ERROR or FATAL.  Otherwise you'll id:612 gh:614
  * find yourself in an infinite loop when trouble occurs, because this
  * routine will be entered again when elog cleanup tries to release memory!
  */

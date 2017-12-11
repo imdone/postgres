@@ -120,7 +120,7 @@ verify_directory(const char *directory)
 /*
  * Split a pathname as dirname(1) and basename(1) would.
  *
- * XXX this probably doesn't do very well on Windows.  We probably need to
+ * XXX this probably doesn't do very well on Windows.  We probably need to id:656 gh:657
  * apply canonicalize_path(), at the very least.
  */
 static void

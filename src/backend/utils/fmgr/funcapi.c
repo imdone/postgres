@@ -757,7 +757,7 @@ resolve_polymorphic_argtypes(int numargs, Oid *argtypes, char *argmodes,
 	if (have_anyrange_result && !OidIsValid(anyrange_type))
 		return false;
 
-	/* XXX do we need to enforce ANYNONARRAY or ANYENUM here?  I think not */
+	/* XXX do we need to enforce ANYNONARRAY or ANYENUM here?  I think not  id:500 gh:501*/
 
 	/* And finally replace the output column types as needed */
 	for (i = 0; i < numargs; i++)
@@ -1444,7 +1444,7 @@ TypeGetTupleDesc(Oid typeoid, List *colaliases)
 	}
 	else if (functypclass == TYPEFUNC_RECORD)
 	{
-		/* XXX can't support this because typmod wasn't passed in ... */
+		/* XXX can't support this because typmod wasn't passed in ...  id:608 gh:609*/
 		ereport(ERROR,
 				(errcode(ERRCODE_DATATYPE_MISMATCH),
 				 errmsg("could not determine row description for function returning record")));

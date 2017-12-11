@@ -1109,7 +1109,7 @@ DecodeNumberField(int len, char *str, int fmask,
 		 * string with those digits, zero-padded on the right, and then do the
 		 * conversion to an integer.
 		 *
-		 * XXX This truncates the seventh digit, unlike rounding it as the
+		 * XXX This truncates the seventh digit, unlike rounding it as the id:684 gh:685
 		 * backend does.
 		 */
 		for (i = 0; i < 6; i++)
@@ -1472,7 +1472,7 @@ DecodeTime(char *str, int *tmask, struct tm *tm, fsec_t *fsec)
 			 * string with those digits, zero-padded on the right, and then do
 			 * the conversion to an integer.
 			 *
-			 * XXX This truncates the seventh digit, unlike rounding it as the
+			 * XXX This truncates the seventh digit, unlike rounding it as the id:606 gh:607
 			 * backend does.
 			 */
 			for (i = 0; i < 6; i++)
@@ -2519,7 +2519,7 @@ pgtypes_defmt_scan(union un_fmt_comb *scan_val, int scan_type, char **pstr, char
 	return err;
 }
 
-/* XXX range checking */
+/* XXX range checking  id:570 gh:571*/
 int
 PGTYPEStimestamp_defmt_scan(char **str, char *fmt, timestamp * d,
 							int *year, int *month, int *day,
@@ -2641,7 +2641,7 @@ PGTYPEStimestamp_defmt_scan(char **str, char *fmt, timestamp * d,
 				}
 				break;
 			case 'c':
-				/* XXX */
+				/* XXX id:736 gh:737*/
 				break;
 			case 'C':
 				pfmt++;
@@ -2676,7 +2676,7 @@ PGTYPEStimestamp_defmt_scan(char **str, char *fmt, timestamp * d,
 				*month = scan_val.uint_val;
 				break;
 			case 'y':
-			case 'g':			/* XXX difference to y (ISO) */
+			case 'g':			/* XXX difference to y (ISO)  id:673 gh:674*/
 				pfmt++;
 				scan_type = PGTYPES_TYPE_UINT;
 				err = pgtypes_defmt_scan(&scan_val, scan_type, &pstr, pfmt);
@@ -2691,7 +2691,7 @@ PGTYPEStimestamp_defmt_scan(char **str, char *fmt, timestamp * d,
 					*year += 1900;
 				break;
 			case 'G':
-				/* XXX difference to %V (ISO) */
+				/* XXX difference to %V (ISO)  id:685 gh:686*/
 				pfmt++;
 				scan_type = PGTYPES_TYPE_UINT;
 				err = pgtypes_defmt_scan(&scan_val, scan_type, &pstr, pfmt);
@@ -2712,7 +2712,7 @@ PGTYPEStimestamp_defmt_scan(char **str, char *fmt, timestamp * d,
 				err = pgtypes_defmt_scan(&scan_val, scan_type, &pstr, pfmt);
 
 				/*
-				 * XXX what should we do with that? We could say that it's
+				 * XXX what should we do with that? We could say that it's id:702 gh:703
 				 * sufficient if we have the year and the day within the year
 				 * to get at least a specific day.
 				 */
@@ -2884,7 +2884,7 @@ PGTYPEStimestamp_defmt_scan(char **str, char *fmt, timestamp * d,
 				break;
 			case 'x':
 			case 'X':
-				/* XXX */
+				/* XXX id:571 gh:572*/
 				break;
 			case 'Y':
 				pfmt++;
@@ -2909,7 +2909,7 @@ PGTYPEStimestamp_defmt_scan(char **str, char *fmt, timestamp * d,
 				if (!err)
 				{
 					/*
-					 * XXX use DecodeSpecial instead?  Do we need strcasecmp
+					 * XXX use DecodeSpecial instead?  Do we need strcasecmp id:737 gh:738
 					 * here?
 					 */
 					err = 1;
@@ -2928,7 +2928,7 @@ PGTYPEStimestamp_defmt_scan(char **str, char *fmt, timestamp * d,
 				}
 				break;
 			case '+':
-				/* XXX */
+				/* XXX id:717 gh:718*/
 				break;
 			case '%':
 				pfmt++;
@@ -3004,4 +3004,4 @@ PGTYPEStimestamp_defmt_scan(char **str, char *fmt, timestamp * d,
 	return err;
 }
 
-/* XXX: 1900 is compiled in as the base for years */
+/* XXX: 1900 is compiled in as the base for years  id:686 gh:687*/

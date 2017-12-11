@@ -108,7 +108,7 @@ CteScanNext(CteScanState *node)
 		}
 
 		/*
-		 * Append a copy of the returned tuple to tuplestore.  NOTE: because
+		 * Append a copy of the returned tuple to tuplestore.  NOTE: because id:218 gh:213
 		 * our read pointer is certainly in EOF state, its read position will
 		 * move forward over the added tuple.  This is what we want.  Also,
 		 * any other readers will *not* move past the new tuple, which is what

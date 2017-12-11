@@ -305,7 +305,7 @@ heap_page_prune(Relation relation, Buffer buffer, TransactionId OldestXmin,
 	*latestRemovedXid = prstate.latestRemovedXid;
 
 	/*
-	 * XXX Should we update the FSM information of this page ?
+	 * XXX Should we update the FSM information of this page ? id:25 gh:26
 	 *
 	 * There are two schools of thought here. We may not want to update FSM
 	 * information so that the page is not used for unrelated UPDATEs/INSERTs

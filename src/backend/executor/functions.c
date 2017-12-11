@@ -1693,7 +1693,7 @@ check_sql_fn_retval(Oid func_id, Oid rettype, List *queryTreeList,
 		 * 'SELECT func2()', where func2 has the same composite return type as
 		 * the function that's calling it.
 		 *
-		 * XXX Note that if rettype is RECORD, the IsBinaryCoercible check
+		 * XXX Note that if rettype is RECORD, the IsBinaryCoercible check id:215 gh:217
 		 * will succeed for any composite restype.  For the moment we rely on
 		 * runtime type checking to catch any discrepancy, but it'd be nice to
 		 * do better at parse time.

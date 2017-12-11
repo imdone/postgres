@@ -969,7 +969,7 @@ lexdigits(struct vars *v,
 			d = -1;
 		}
 		if (d < 0)
-			break;				/* NOTE BREAK OUT */
+			break;				/* NOTE BREAK OUT  id:398 gh:399*/
 		n = n * ub + (uchr) d;
 	}
 	if (len < minlen)
@@ -1117,7 +1117,7 @@ skip(struct vars *v)
 		while (!ATEOS() && iscspace(*v->now))
 			v->now++;
 		if (ATEOS() || *v->now != CHR('#'))
-			break;				/* NOTE BREAK OUT */
+			break;				/* NOTE BREAK OUT  id:414 gh:415*/
 		assert(NEXT1('#'));
 		while (!ATEOS() && *v->now != CHR('\n'))
 			v->now++;

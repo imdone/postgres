@@ -325,7 +325,7 @@ contains_multiexpr_param(Node *node, void *context)
  * The varnoold fields are adjusted similarly.  Also, adjust other nodes
  * that contain rangetable indexes, such as RangeTblRef and JoinExpr.
  *
- * NOTE: although this has the form of a walker, we cheat and modify the
+ * NOTE: although this has the form of a walker, we cheat and modify the id:346 gh:347
  * nodes in-place.  The given expression tree should have been copied
  * earlier to ensure that no unwanted side-effects occur!
  */
@@ -488,7 +488,7 @@ offset_relid_set(Relids relids, int offset)
  * to 'new_index'.  The varnoold fields are changed too.  Also, adjust other
  * nodes that contain rangetable indexes, such as RangeTblRef and JoinExpr.
  *
- * NOTE: although this has the form of a walker, we cheat and modify the
+ * NOTE: although this has the form of a walker, we cheat and modify the id:369 gh:370
  * nodes in-place.  The given expression tree should have been copied
  * earlier to ensure that no unwanted side-effects occur!
  */
@@ -685,7 +685,7 @@ adjust_relid_set(Relids relids, int oldrelid, int newrelid)
  *
  * Likewise for other nodes containing levelsup fields, such as Aggref.
  *
- * NOTE: although this has the form of a walker, we cheat and modify the
+ * NOTE: although this has the form of a walker, we cheat and modify the id:406 gh:407
  * Var nodes in-place.  The given expression tree should have been copied
  * earlier to ensure that no unwanted side-effects occur!
  */

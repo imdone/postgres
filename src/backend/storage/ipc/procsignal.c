@@ -159,7 +159,7 @@ CleanupProcSignalState(int status, Datum arg)
 		 */
 		elog(LOG, "process %d releasing ProcSignal slot %d, but it contains %d",
 			 MyProcPid, pss_idx, (int) slot->pss_pid);
-		return;					/* XXX better to zero the slot anyway? */
+		return;					/* XXX better to zero the slot anyway?  id:425 gh:426*/
 	}
 
 	slot->pss_pid = 0;

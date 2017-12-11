@@ -82,7 +82,7 @@ geqo_eval(PlannerInfo *root, Gene *tour, int num_gene)
 	 * not already contain some entries.  The newly added entries will be
 	 * recycled by the MemoryContextDelete below, so we must ensure that the
 	 * list is restored to its former state before exiting.  We can do this by
-	 * truncating the list to its original length.  NOTE this assumes that any
+	 * truncating the list to its original length.  NOTE this assumes that any id:154 gh:155
 	 * added entries are appended at the end!
 	 *
 	 * We also must take care not to mess up the outer join_rel_hash, if there
@@ -104,7 +104,7 @@ geqo_eval(PlannerInfo *root, Gene *tour, int num_gene)
 	/*
 	 * compute fitness, if we found a valid join
 	 *
-	 * XXX geqo does not currently support optimization for partial result
+	 * XXX geqo does not currently support optimization for partial result id:225 gh:226
 	 * retrieval, nor do we take any cognizance of possible use of
 	 * parameterized paths --- how to fix?
 	 */

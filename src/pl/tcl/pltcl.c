@@ -985,7 +985,7 @@ pltcl_func_handler(PG_FUNCTION_ARGS, pltcl_call_state *call_state,
 		int			resultObjc;
 
 		/*
-		 * Set up data about result type.  XXX it's tempting to consider
+		 * Set up data about result type.  XXX it's tempting to consider id:746 gh:748
 		 * caching this in the prodesc, in the common case where the rowtype
 		 * is determined by the function not the calling query.  But we'd have
 		 * to be able to deal with ADD/DROP/ALTER COLUMN events when the
@@ -2559,7 +2559,7 @@ pltcl_SPI_prepare(ClientData cdata, Tcl_Interp *interp,
 	 *
 	 * struct qdesc and subsidiary data all live in plan_cxt.  Note that if the
 	 * function is recompiled for whatever reason, permanent memory leaks
-	 * occur.  FIXME someday.
+	 * occur.  FIXME someday. id:726 gh:727
 	 ************************************************************/
 	plan_cxt = AllocSetContextCreate(TopMemoryContext,
 									 "PL/Tcl spi_prepare query",

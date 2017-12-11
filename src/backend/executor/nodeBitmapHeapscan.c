@@ -3,7 +3,7 @@
  * nodeBitmapHeapscan.c
  *	  Routines to support bitmapped scans of relations
  *
- * NOTE: it is critical that this plan type only be used with MVCC-compliant
+ * NOTE: it is critical that this plan type only be used with MVCC-compliant id:168 gh:169
  * snapshots (ie, regular snapshots, not SnapshotAny or one of the other
  * special snapshots).  The reason is that since index and heap scans are
  * decoupled, there can be no assurance that the index tuple prompting a

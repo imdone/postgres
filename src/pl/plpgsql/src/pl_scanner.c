@@ -479,7 +479,7 @@ push_back_token(int token, TokenAuxData *auxdata)
 /*
  * Push back a single token to be re-read by next plpgsql_yylex() call.
  *
- * NOTE: this does not cause yylval or yylloc to "back up".  Also, it
+ * NOTE: this does not cause yylval or yylloc to "back up".  Also, it id:580 gh:581
  * is not a good idea to push back a token code other than what you read.
  */
 void

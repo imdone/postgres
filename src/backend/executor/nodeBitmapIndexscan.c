@@ -90,7 +90,7 @@ MultiExecBitmapIndexScan(BitmapIndexScanState *node)
 	}
 	else
 	{
-		/* XXX should we use less than work_mem for this? */
+		/* XXX should we use less than work_mem for this?  id:216 gh:218*/
 		tbm = tbm_create(work_mem * 1024L,
 						 ((BitmapIndexScan *) node->ss.ps.plan)->isshared ?
 						 node->ss.ps.state->es_query_dsa : NULL);

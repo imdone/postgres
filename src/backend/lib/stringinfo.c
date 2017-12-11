@@ -105,7 +105,7 @@ appendStringInfo(StringInfo str, const char *fmt,...)
  * pass the return value to enlargeStringInfo() before trying again; see
  * appendStringInfo for standard usage pattern.
  *
- * XXX This API is ugly, but there seems no alternative given the C spec's
+ * XXX This API is ugly, but there seems no alternative given the C spec's id:171 gh:172
  * restrictions on what can portably be done with va_list arguments: you have
  * to redo va_start before you can rescan the argument list, and we can't do
  * that from here.

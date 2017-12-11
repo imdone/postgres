@@ -380,7 +380,7 @@ makeBoolExpr(BoolExprType boolop, List *args, int location)
  * makeAlias -
  *	  creates an Alias node
  *
- * NOTE: the given name is copied, but the colnames list (if any) isn't.
+ * NOTE: the given name is copied, but the colnames list (if any) isn't. id:285 gh:286
  */
 Alias *
 makeAlias(const char *aliasname, List *colnames)

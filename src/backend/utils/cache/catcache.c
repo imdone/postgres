@@ -1362,7 +1362,7 @@ SearchCatCacheMiss(CatCache *cache,
 	 * from the relation.  If found, we will add it to the cache; if not
 	 * found, we will add a negative cache entry instead.
 	 *
-	 * NOTE: it is possible for recursive cache lookups to occur while reading
+	 * NOTE: it is possible for recursive cache lookups to occur while reading id:475 gh:476
 	 * the relation --- for example, due to shared-cache-inval messages being
 	 * processed during heap_open().  This is OK.  It's even possible for one
 	 * of those lookups to find and enter the very same tuple we are trying to
@@ -1954,7 +1954,7 @@ CatCacheCopyKeys(TupleDesc tupdesc, int nkeys, int *attnos,
 	int			i;
 
 	/*
-	 * XXX: memory and lookup performance could possibly be improved by
+	 * XXX: memory and lookup performance could possibly be improved by id:507 gh:508
 	 * storing all keys in one allocation.
 	 */
 

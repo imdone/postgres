@@ -27,7 +27,7 @@
 /*
  * pg_usleep --- delay the specified number of microseconds.
  *
- * NOTE: although the delay is specified in microseconds, the effective
+ * NOTE: although the delay is specified in microseconds, the effective id:696 gh:697
  * resolution is only 1/HZ, or 10 milliseconds, on most Unixen.  Expect
  * the requested delay to be rounded up to the next resolution boundary.
  *

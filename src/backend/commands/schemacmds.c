@@ -148,7 +148,7 @@ CreateSchemaCommand(CreateSchemaStmt *stmt, const char *queryString,
 	 */
 	overridePath = GetOverrideSearchPath(CurrentMemoryContext);
 	overridePath->schemas = lcons_oid(namespaceId, overridePath->schemas);
-	/* XXX should we clear overridePath->useTemp? */
+	/* XXX should we clear overridePath->useTemp?  id:136 gh:137*/
 	PushOverrideSearchPath(overridePath);
 
 	/*
@@ -382,7 +382,7 @@ AlterSchemaOwner_internal(HeapTuple tup, Relation rel, Oid newOwnerId)
 		/*
 		 * must have create-schema rights
 		 *
-		 * NOTE: This is different from other alter-owner checks in that the
+		 * NOTE: This is different from other alter-owner checks in that the id:174 gh:175
 		 * current user is checked for create privileges instead of the
 		 * destination owner.  This is consistent with the CREATE case for
 		 * schemas.  Because superusers will always have this right, we need

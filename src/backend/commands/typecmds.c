@@ -175,7 +175,7 @@ DefineType(ParseState *pstate, List *names, List *parameters)
 	 * former requirement that you own the I/O functions pretty much forced
 	 * superuserness anyway.  We're just making doubly sure here.
 	 *
-	 * XXX re-enable NOT_USED code sections below if you remove this test.
+	 * XXX re-enable NOT_USED code sections below if you remove this test. id:209 gh:210
 	 */
 	if (!superuser())
 		ereport(ERROR,
@@ -186,7 +186,7 @@ DefineType(ParseState *pstate, List *names, List *parameters)
 	typeNamespace = QualifiedNameGetCreationNamespace(names, &typeName);
 
 #ifdef NOT_USED
-	/* XXX this is unnecessary given the superuser check above */
+	/* XXX this is unnecessary given the superuser check above  id:193 gh:194*/
 	/* Check we have creation rights in target namespace */
 	aclresult = pg_namespace_aclcheck(typeNamespace, GetUserId(), ACL_CREATE);
 	if (aclresult != ACLCHECK_OK)
@@ -353,7 +353,7 @@ DefineType(ParseState *pstate, List *names, List *parameters)
 		char	   *p = defGetString(delimiterEl);
 
 		delimiter = p[0];
-		/* XXX shouldn't we restrict the delimiter? */
+		/* XXX shouldn't we restrict the delimiter?  id:140 gh:141*/
 	}
 	if (elemTypeEl)
 	{
@@ -524,7 +524,7 @@ DefineType(ParseState *pstate, List *names, List *parameters)
 	 * revoked, so ownership seems better.
 	 */
 #ifdef NOT_USED
-	/* XXX this is unnecessary given the superuser check above */
+	/* XXX this is unnecessary given the superuser check above  id:178 gh:179*/
 	if (inputOid && !pg_proc_ownercheck(inputOid, GetUserId()))
 		aclcheck_error(ACLCHECK_NOT_OWNER, ACL_KIND_PROC,
 					   NameListToString(inputName));
@@ -2851,7 +2851,7 @@ validateDomainConstraint(Oid domainoid, char *ccbin)
  * domain types.  Current callers do not need to distinguish between attributes
  * that are of exactly the given domain and those that are of derived domains.
  *
- * XXX this is completely broken because there is no way to lock the domain
+ * XXX this is completely broken because there is no way to lock the domain id:162 gh:163
  * to prevent columns from being added or dropped while our command runs.
  * We can partially protect against column drops by locking relations as we
  * come across them, but there is still a race condition (the window between
@@ -2860,7 +2860,7 @@ validateDomainConstraint(Oid domainoid, char *ccbin)
  * trivial risk of deadlock.  We can minimize but not eliminate the deadlock
  * risk by using the weakest suitable lock (ShareLock for most callers).
  *
- * XXX the API for this is not sufficient to support checking domain values
+ * XXX the API for this is not sufficient to support checking domain values id:210 gh:211
  * that are inside container types, such as composite types, arrays, or
  * ranges.  Currently we just error out if a container type containing the
  * target domain is stored anywhere.
@@ -2977,7 +2977,7 @@ get_rels_with_domain(Oid domainOid, LOCKMODE lockmode)
 			 * Otherwise, we can ignore relations except those with both
 			 * storage and user-chosen column types.
 			 *
-			 * XXX If an index-only scan could satisfy "col::some_domain" from
+			 * XXX If an index-only scan could satisfy "col::some_domain" from id:194 gh:195
 			 * a suitable expression index, this should also check expression
 			 * index columns.
 			 */

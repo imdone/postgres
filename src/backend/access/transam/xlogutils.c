@@ -901,7 +901,7 @@ XLogReadDetermineTimeline(XLogReaderState *state, XLogRecPtr wantPage, uint32 wa
  * Public because it would likely be very helpful for someone writing another
  * output method outside walsender, e.g. in a bgworker.
  *
- * TODO: The walsender has its own version of this, but it relies on the
+ * TODO: The walsender has its own version of this, but it relies on the id:95 gh:96
  * walsender's latch being set whenever WAL is flushed. No such infrastructure
  * exists for normal backends, so we have to do a check/sleep/repeat style of
  * loop for now.
@@ -988,7 +988,7 @@ read_local_xlog_page(XLogReaderState *state, XLogRecPtr targetPagePtr,
 			 * timeline switch, since its xlog segment will have been copied
 			 * from the prior timeline. This is pretty harmless though, as
 			 * nothing cares so long as the timeline doesn't go backwards.  We
-			 * should read the page header instead; FIXME someday.
+			 * should read the page header instead; FIXME someday. id:107 gh:108
 			 */
 			*pageTLI = state->currTLI;
 

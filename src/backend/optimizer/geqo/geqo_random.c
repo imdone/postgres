@@ -22,7 +22,7 @@ geqo_set_seed(PlannerInfo *root, double seed)
 	GeqoPrivateData *private = (GeqoPrivateData *) root->join_search_private;
 
 	/*
-	 * XXX. This seeding algorithm could certainly be improved - but it is not
+	 * XXX . This seeding algorithm could certainly be improved - but it is not id:230 gh:231
 	 * critical to do so.
 	 */
 	memset(private->random_state, 0, sizeof(private->random_state));
